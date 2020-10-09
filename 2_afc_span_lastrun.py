@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.3),
-    on October 09, 2020, at 13:51
+    on October 09, 2020, at 14:51
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -36,7 +36,7 @@ os.chdir(_thisDir)
 
 # Store info about the experiment session
 psychopyVersion = '2020.2.3'
-expName = '2_afc_eng'  # from the Builder filename that created this script
+expName = '2_afc_span'  # from the Builder filename that created this script
 expInfo = {'session': '01', 'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sort_keys=False, title=expName)
 if dlg.OK == False:
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data' + os.sep + '%s_%s' % (expInfo['participan
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\gallo\\Desktop\\qp_exp\\2_afc_eng_lastrun.py',
+    originPath='C:\\Users\\gallo\\Desktop\\qp_exp\\2_afc_span_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -104,15 +104,15 @@ sound_1 = sound.Sound('A', secs=-1, stereo=True, hamming=False,
     name='sound_1')
 sound_1.setVolume(1)
 resp = keyboard.Keyboard()
-eefree_p = visual.TextStim(win=win, name='eefree_p',
-    text='eefree',
+ifri_p = visual.TextStim(win=win, name='ifri_p',
+    text='ifri',
     font='Arial',
     pos=[-0.4, -0.2], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-3.0);
-offree_practice = visual.TextStim(win=win, name='offree_practice',
-    text='oofree\n',
+ufri_practice = visual.TextStim(win=win, name='ufri_practice',
+    text='ufri\n',
     font='Arial',
     pos=[0.4, -0.25], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
@@ -143,15 +143,15 @@ sound_2 = sound.Sound('A', secs=-1, stereo=True, hamming=False,
     name='sound_2')
 sound_2.setVolume(1)
 resp_2 = keyboard.Keyboard()
-eefree_p_2 = visual.TextStim(win=win, name='eefree_p_2',
-    text='eefree',
+ifri_p_2 = visual.TextStim(win=win, name='ifri_p_2',
+    text='ifri',
     font='Arial',
     pos=[-0.4, -0.2], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-3.0);
-offree_practice_2 = visual.TextStim(win=win, name='offree_practice_2',
-    text='oofree\n',
+ufri_practice_2 = visual.TextStim(win=win, name='ufri_practice_2',
+    text='ufri\n',
     font='Arial',
     pos=[0.4, -0.25], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
@@ -326,7 +326,7 @@ for thisTrial in trials:
     resp.rt = []
     _resp_allKeys = []
     # keep track of which components have finished
-    practiceComponents = [cross_tr, sound_1, resp, eefree_p, offree_practice]
+    practiceComponents = [cross_tr, sound_1, resp, ifri_p, ufri_practice]
     for thisComponent in practiceComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -395,23 +395,23 @@ for thisTrial in trials:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *eefree_p* updates
-        if eefree_p.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
+        # *ifri_p* updates
+        if ifri_p.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
             # keep track of start time/frame for later
-            eefree_p.frameNStart = frameN  # exact frame index
-            eefree_p.tStart = t  # local t and not account for scr refresh
-            eefree_p.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(eefree_p, 'tStartRefresh')  # time at next scr refresh
-            eefree_p.setAutoDraw(True)
+            ifri_p.frameNStart = frameN  # exact frame index
+            ifri_p.tStart = t  # local t and not account for scr refresh
+            ifri_p.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ifri_p, 'tStartRefresh')  # time at next scr refresh
+            ifri_p.setAutoDraw(True)
         
-        # *offree_practice* updates
-        if offree_practice.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
+        # *ufri_practice* updates
+        if ufri_practice.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
             # keep track of start time/frame for later
-            offree_practice.frameNStart = frameN  # exact frame index
-            offree_practice.tStart = t  # local t and not account for scr refresh
-            offree_practice.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(offree_practice, 'tStartRefresh')  # time at next scr refresh
-            offree_practice.setAutoDraw(True)
+            ufri_practice.frameNStart = frameN  # exact frame index
+            ufri_practice.tStart = t  # local t and not account for scr refresh
+            ufri_practice.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ufri_practice, 'tStartRefresh')  # time at next scr refresh
+            ufri_practice.setAutoDraw(True)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -447,10 +447,10 @@ for thisTrial in trials:
         trials.addData('resp.rt', resp.rt)
     trials.addData('resp.started', resp.tStartRefresh)
     trials.addData('resp.stopped', resp.tStopRefresh)
-    trials.addData('eefree_p.started', eefree_p.tStartRefresh)
-    trials.addData('eefree_p.stopped', eefree_p.tStopRefresh)
-    trials.addData('offree_practice.started', offree_practice.tStartRefresh)
-    trials.addData('offree_practice.stopped', offree_practice.tStopRefresh)
+    trials.addData('ifri_p.started', ifri_p.tStartRefresh)
+    trials.addData('ifri_p.stopped', ifri_p.tStopRefresh)
+    trials.addData('ufri_practice.started', ufri_practice.tStartRefresh)
+    trials.addData('ufri_practice.stopped', ufri_practice.tStopRefresh)
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
@@ -599,7 +599,7 @@ for thisTrial_2 in trials_2:
     resp_2.rt = []
     _resp_2_allKeys = []
     # keep track of which components have finished
-    i_uComponents = [cross_tr_2, sound_2, resp_2, eefree_p_2, offree_practice_2]
+    i_uComponents = [cross_tr_2, sound_2, resp_2, ifri_p_2, ufri_practice_2]
     for thisComponent in i_uComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -668,23 +668,23 @@ for thisTrial_2 in trials_2:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *eefree_p_2* updates
-        if eefree_p_2.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
+        # *ifri_p_2* updates
+        if ifri_p_2.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
             # keep track of start time/frame for later
-            eefree_p_2.frameNStart = frameN  # exact frame index
-            eefree_p_2.tStart = t  # local t and not account for scr refresh
-            eefree_p_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(eefree_p_2, 'tStartRefresh')  # time at next scr refresh
-            eefree_p_2.setAutoDraw(True)
+            ifri_p_2.frameNStart = frameN  # exact frame index
+            ifri_p_2.tStart = t  # local t and not account for scr refresh
+            ifri_p_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ifri_p_2, 'tStartRefresh')  # time at next scr refresh
+            ifri_p_2.setAutoDraw(True)
         
-        # *offree_practice_2* updates
-        if offree_practice_2.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
+        # *ufri_practice_2* updates
+        if ufri_practice_2.status == NOT_STARTED and tThisFlip >= .5-frameTolerance:
             # keep track of start time/frame for later
-            offree_practice_2.frameNStart = frameN  # exact frame index
-            offree_practice_2.tStart = t  # local t and not account for scr refresh
-            offree_practice_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(offree_practice_2, 'tStartRefresh')  # time at next scr refresh
-            offree_practice_2.setAutoDraw(True)
+            ufri_practice_2.frameNStart = frameN  # exact frame index
+            ufri_practice_2.tStart = t  # local t and not account for scr refresh
+            ufri_practice_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(ufri_practice_2, 'tStartRefresh')  # time at next scr refresh
+            ufri_practice_2.setAutoDraw(True)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -720,10 +720,10 @@ for thisTrial_2 in trials_2:
         trials_2.addData('resp_2.rt', resp_2.rt)
     trials_2.addData('resp_2.started', resp_2.tStartRefresh)
     trials_2.addData('resp_2.stopped', resp_2.tStopRefresh)
-    trials_2.addData('eefree_p_2.started', eefree_p_2.tStartRefresh)
-    trials_2.addData('eefree_p_2.stopped', eefree_p_2.tStopRefresh)
-    trials_2.addData('offree_practice_2.started', offree_practice_2.tStartRefresh)
-    trials_2.addData('offree_practice_2.stopped', offree_practice_2.tStopRefresh)
+    trials_2.addData('ifri_p_2.started', ifri_p_2.tStartRefresh)
+    trials_2.addData('ifri_p_2.stopped', ifri_p_2.tStopRefresh)
+    trials_2.addData('ufri_practice_2.started', ufri_practice_2.tStartRefresh)
+    trials_2.addData('ufri_practice_2.stopped', ufri_practice_2.tStopRefresh)
     # the Routine "i_u" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
