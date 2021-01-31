@@ -1,6 +1,144 @@
 ```{r}
 
 
-temp_eng_stop = read.csv("data/eng_1")
+library("tidyverse")
+library("here")
+library(gridExtra)
+
+##English
+
+temp_vowel_df_eng <- read_csv(here("data","29_eng.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum),
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_eng <- read_csv(here("data","34_eng.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+##span 
+temp_vowel_df_span <- read_csv(here("data","34_spa.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_span <- read_csv(here("data","34_spa.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+##French
+temp_vowel_df_fren <- read_csv(here("data","34_hun.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_fren <- read_csv(here("data","34_hun.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+```
+
+
+```{r}
+### all 3 
+
+ggplot(temp_vowel_df_eng,aes (x = step_cont, y = resp_vowel)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + geom_smooth(data = temp_vowel_df_span, method = "glm", method.args = list(family = "binomial"), color = "red") + geom_smooth(data = temp_vowel_df_fren, method = "glm", method.args = list(family = "binomial"), color = "yellow") + ggtitle("vowels") + geom_hline(yintercept = .5)
+stops = ggplot(temp_stops_df_eng,aes (x = step_cont, y = resp_stop)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + geom_smooth(data = temp_stops_df_span, method = "glm", method.args = list(family = "binomial"), color = "red") + geom_smooth(data = temp_stops_df_fren, method = "glm", method.args = list(family = "binomial"), color = "yellow") + ggtitle("stops")
 
 ```
+
+
+
+```{r}
+
+
+
+library("tidyverse")
+library("here")
+library(gridExtra)
+
+##English
+
+temp_vowel_df_eng <- read_csv(here("data","17_eng.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum),
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_eng <- read_csv(here("data","17_eng.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+##span 
+temp_vowel_df_span <- read_csv(here("data","17_spa.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_span <- read_csv(here("data","17_spa.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+##French
+temp_vowel_df_fren <- read_csv(here("data","17_fre.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+temp_stops_df_fren <- read_csv(here("data","17_fre.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+
+
+ggplot(temp_vowel_df_span,aes (x = step_cont, y = resp_vowel)) + geom_smooth(method = "glm", method.args = list(family = "binomial"))
+### all 3 
+
+vowels = ggplot(temp_vowel_df_eng,aes (x = step_cont, y = resp_vowel)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + geom_smooth(data = temp_vowel_df_span, method = "glm", method.args = list(family = "binomial"), color = "red") + geom_smooth(data = temp_vowel_df_fren, method = "glm", method.args = list(family = "binomial"), color = "yellow") + ggtitle("vowels")
+
+stops = ggplot(temp_stops_df_eng,aes (x = step_cont, y = resp_stop)) + geom_smooth(method = "glm", method.args = list(family = "binomial")) + geom_smooth(data = temp_stops_df_span, method = "glm", method.args = list(family = "binomial"), color = "red") + geom_smooth(data = temp_stops_df_fren, method = "glm", method.args = list(family = "binomial"), color = "yellow") + ggtitle("stops")
+
+grid.arrange(vowels, stops, ncol =2, bottom="Eng=blue, Span=red, Hung=yellow")
+
+
+
+
+```
+grid.arrange(vowels, stops, ncol =2, bottom="Eng=blue, Span=red, Hung=yellow")
+
+identify()
