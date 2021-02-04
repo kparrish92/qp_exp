@@ -1,0 +1,77 @@
+
+```{r}
+
+library(ggplot2)
+
+# Generate data
+time <- c(10, 60, 90, 200, 260, 300, 700)
+value <- c(1, 6, 8, 40, 50, 60, 70)
+df <- data.frame(time, value)
+
+# The first value of "value" is the first observation.
+# When the first "value" increased ten times, it is equal to 100
+
+ggplot(data=df, aes(x=time, y=value,)) + 
+     geom_line() +
+     geom_hline(yintercept = 10, colour="red")
+
+v0 = 10
+f2 <- approxfun(df$value, df$time)
+f2(v0)
+
+```
+
+```{r}
+
+library("tidyverse")
+library("here")
+library("pkr")
+
+temp_vowel_df_eng <- read_csv(here("data","2_eng.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+
+temp_stops_df_eng <- read_csv(here("data","2_eng.csv")) %>% 
+  filter(!is.na(resp_3.keys)) %>% 
+  mutate(exp = "stops") %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "/") %>% 
+  separate(step, into = c("trash", "step2"), sep = 2) %>% 
+  separate(step2, into = c("step3", "trash"), sep = 3) %>% 
+  mutate(step_cont = as.numeric(step3), 
+         resp_stop = if_else(resp_3.keys == "left", 1, 0))
+
+temp_vowel_df_eng %>% 
+  filter(exp == "vowels") %>% 
+  ggplot(., aes(x = step_cont, y = resp_vowel)) + 
+    geom_hline(yintercept = 0.5, size = 3.2, color = "white") + 
+    geom_jitter(height = 0.02, alpha = 0.3) + 
+    geom_smooth(method = "lm", method.args = list(family = "binomial"), 
+      formula = 'y ~ x')
+
+temp_stops_df_eng %>% 
+  ggplot(., aes(x = step_cont, y = resp_stop)) + 
+    geom_hline(yintercept = 0.5, size = 3.2, color = "white") + 
+    geom_jitter(height = 0.02, alpha = 0.3) + 
+    geom_smooth(method = "glm", method.args = list(family = "binomial"), 
+      formula = 'y ~ x')
+
+
+v0 = .5
+f2 = approxfun(temp_vowel_df_eng$resp_vowel, temp_vowel_df_eng$step_cont)
+
+crossover = f2(v0)
+
+model = glm(temp_vowel_df_eng$resp_vowel ~ temp_vowel_df_eng$step_cont)
+
+summary(model)
+
+coef(model)
+
+mean()
+
+
+```
