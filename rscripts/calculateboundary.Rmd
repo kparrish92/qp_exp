@@ -1,0 +1,352 @@
+```{r}
+
+library(tidyverse)
+library(here)
+
+cross_over <- function(mod, cont_pred, grouping_var = FALSE, 
+                       int_adj, slope_adj) {
+
+  if (class(mod)[1] == "glm") {
+
+    # Store intercept
+    int <- summary(mod)$coefficients['(Intercept)', 'Estimate']
+
+    # Store continuous x var
+    slope <- summary(mod)$coefficients[cont_pred, 'Estimate']
+
+    # For bivariate models
+    if (grouping_var == FALSE) {
+
+      # Calculate crossover
+      co <- int / slope * -1
+
+    # For models with grouping vars
+    } else {
+
+      # Calculate group level intercept
+      int_derived <- int + summary(mod)$coefficients[int_adj, 'Estimate']
+
+      # Calculate slope adjustment
+      slope_derived <- slope + summary(mod)$coefficients[slope_adj, 'Estimate']
+
+      # Calculate crossover
+      co <- int_derived / slope_derived * -1
+
+    }
+
+    return(co)
+
+  } else {
+
+    stop("Error: this function requires a glm object\n", 
+         "You have provided an object of class: ", class(mod)[1])
+  }
+
+}
+
+
+```
+
+```{r}
+
+
+
+temp_vowel_df_eng <- read_csv(here("data","34_eng.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+
+temp_vowel_df_eng = filter(temp_vowel_df_eng, exp == "vowels")
+
+
+temp_vowel_df_span <- read_csv(here("data","34_spa.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+
+temp_vowel_df_span = filter(temp_vowel_df_span, exp == "vowels")
+
+temp_vowel_df_fren <- read_csv(here("data","34_hun.csv")) %>% 
+  filter(!is.na(resp_2.keys) | !is.na(resp_3.keys)) %>% 
+  mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels")) %>% 
+  separate(stimuli, into = c("trash1", "step"), sep = "_") %>% 
+  separate(step, into = c("continuum", "trash2"), sep = 2) %>% 
+  mutate(step_cont = as.numeric(continuum), 
+         resp_vowel = if_else(resp_2.keys == "left", 0, 1))
+
+temp_vowel_df_fren = filter(temp_vowel_df_fren, exp == "vowels")
+
+
+# Fit model
+glm1 <- glm(resp_vowel ~ step_cont, data = temp_vowel_df_eng, family = "binomial")
+glm2 <- glm(resp_vowel ~ step_cont, data = temp_vowel_df_span, family = "binomial")
+glm3 <- glm(resp_vowel ~ step_cont, data = temp_vowel_df_fren, family = "binomial")
+
+# Get crossover point
+eb = cross_over(mod = glm1, cont_pred = 'step_cont')
+sb = cross_over(mod = glm2, cont_pred = 'step_cont')
+fb = cross_over(mod = glm3, cont_pred = 'step_cont')
+
+EnglishSpans_boundaryeffect = eb - sb
+SFBE =  sb - fb
+EFBE =  eb - fb
+
+#> [1] 17.10169
+# Plot regression with crossover point
+library(ggplot2)
+ggplot(temp_vowel_df_eng, aes(x = step_cont, y = resp_vowel)) + 
+  geom_smooth(method = 'glm', method.args = list(family = 'binomial')) + 
+  geom_vline(xintercept = cross_over(mod = glm1, cont_pred = 'step_cont'))
+
+ggplot(temp_vowel_df_span, aes(x = step_cont, y = resp_vowel)) + 
+  geom_smooth(method = 'glm', method.args = list(family = 'binomial')) + 
+  geom_vline(xintercept = cross_over(mod = glm2, cont_pred = 'step_cont'))
+
+ggplot(temp_vowel_df_fren, aes(x = step_cont, y = resp_vowel)) + 
+  geom_smooth(method = 'glm', method.args = list(family = 'binomial')) + 
+  geom_vline(xintercept = cross_over(mod = glm3, cont_pred = 'step_cont'))
+
+prolific_id = temp_vowel_df_eng$participant[1]
+
+sef_vowels = data.frame(eb,sb,fb,EFBE,EnglishSpans_boundaryeffect,prolific_id)
+
+sef_vowels$participantid = "esh14"
+sef_vowels$group = "ES"
+sef_vowels$L3group = "Hungarian"
+
+write.csv(sef_vowels, "data/esh14.csv")
+
+
+
+```
+
+```{r}
+
+seh2 = read.csv("data/seh2.csv")
+seh3 = read.csv("data/seh3.csv")
+seh4 = read.csv("data/seh4.csv")
+seh5 = read.csv("data/seh5.csv")
+seh6 = read.csv("data/seh6.csv")
+seh7 = read.csv("data/seh7.csv")
+seh8 = read.csv("data/seh8.csv")
+seh9 = read.csv("data/seh9.csv")
+seh10 = read.csv("data/seh10.csv")
+seh15 = read.csv("data/seh15.csv")
+seh16 = read.csv("data/seh16.csv")
+
+
+all_seh = rbind(seh2,seh3, seh4, seh5, seh6, seh7, seh8, seh9, seh10, seh15, seh16)
+
+all_seh$fs_effect = all_seh$sb - all_seh$fb
+all_seh$fs_effect = abs(all_seh$fs_effect)
+  
+
+all_seh$EFBE = abs(all_seh$EFBE)
+all_seh$EnglishSpans_boundaryeffect = abs(all_seh$EnglishSpans_boundaryeffect)
+
+write.csv(all_seh, "data/all_seh.csv")
+
+```
+
+```{r}
+
+sef1 = read.csv("data/sef1.csv")
+sef2 = read.csv("data/sef2.csv")
+sef3 = read.csv("data/sef3.csv")
+sef4 = read.csv("data/sef4.csv")
+sef5 = read.csv("data/sef5.csv")
+sef7 = read.csv("data/sef7.csv")
+sef8 = read.csv("data/sef8.csv")
+sef9 = read.csv("data/sef9.csv")
+sef11 = read.csv("data/sef11.csv")
+sef12 = read.csv("data/sef12.csv")
+sef13 = read.csv("data/sef13.csv")
+sef14 = read.csv("data/sef14.csv")
+sef15 = read.csv("data/sef15.csv")
+sef16 = read.csv("data/sef16.csv")
+sef18 = read.csv("data/sef18.csv")
+sef19 = read.csv("data/sef19.csv")
+sef20 = read.csv("data/sef20.csv")
+
+all_sef = rbind(sef1, sef2, sef3, sef5, sef7, sef8, sef9, sef11, sef13, sef14, sef15, sef16, sef18, sef19, sef20)
+
+all_sef$fs_effect = all_sef$sb - all_sef$fb
+
+all_sef$fs_effect = abs(all_sef$fs_effect)
+all_sef$EFBE = abs(all_sef$EFBE)
+all_sef$EnglishSpans_boundaryeffect = abs(all_sef$EnglishSpans_boundaryeffect)
+
+write.csv(all_sef, "data/all_sef.csv")
+
+
+```
+
+```{r}
+
+esf1 = read.csv("data/esf1.csv")
+esf2 = read.csv("data/esf2.csv")
+esf3 = read.csv("data/esf3.csv")
+esf4 = read.csv("data/esf4.csv")
+esf5 = read.csv("data/esf5.csv")
+esf6 = read.csv("data/esf6.csv")
+esf7 = read.csv("data/esf7.csv")
+esf8 = read.csv("data/esf8.csv")
+esf10 = read.csv("data/esf10.csv")
+esf11 = read.csv("data/esf11.csv")
+esf12 = read.csv("data/esf12.csv")
+esf13 = read.csv("data/esf13.csv")
+esf14 = read.csv("data/esf14.csv")
+esf15 = read.csv("data/esf15.csv")
+esf17 = read.csv("data/esf17.csv")
+
+all_esf = rbind(esf1, esf2, esf3, esf4, esf5, esf6, esf7, esf8, esf10, esf11, esf12, esf12, esf13, esf14, esf15, esf17)
+
+all_esf$fs_effect = all_esf$sb - all_esf$fb
+
+all_esf$fs_effect = abs(all_esf$fs_effect)
+all_esf$EFBE = abs(all_esf$EFBE)
+all_esf$EnglishSpans_boundaryeffect = abs(all_esf$EnglishSpans_boundaryeffect)
+
+write.csv(all_esf, "data/all_esf.csv")
+
+```
+
+```{r}
+
+esh1 = read.csv("data/esh1.csv")
+esh2 = read.csv("data/esh2.csv")
+esh3 = read.csv("data/esh3.csv")
+esh4 = read.csv("data/esh4.csv")
+esh5 = read.csv("data/esh5.csv")
+esh8 = read.csv("data/esh8.csv")
+esh9 = read.csv("data/esh9.csv")
+esh10 = read.csv("data/esh10.csv")
+esh12 = read.csv("data/esh12.csv")
+esh13 = read.csv("data/esh13.csv")
+esh14 = read.csv("data/esh14.csv")
+
+
+all_esh = rbind(esh1, esh2, esh3, esh4, esh5, esh8, esh9, esh10, esh12, esh13, esh14)
+
+all_esh$fs_effect = all_esh$sb - all_esh$fb
+
+all_esh$fs_effect = abs(all_esh$fs_effect)
+all_esh$EFBE = abs(all_esh$EFBE)
+all_esh$EnglishSpans_boundaryeffect = abs(all_esh$EnglishSpans_boundaryeffect)
+
+write.csv(all_esh, "data/all_esh.csv")
+
+
+```
+
+
+
+```{r}
+
+##combine all 
+
+all_seh = read.csv("data/all_seh.csv")
+all_sef = read.csv("data/all_sef.csv")
+all_esf = read.csv("data/all_esf.csv")
+all_esh = read.csv("data/all_esh.csv")
+
+all_se = rbind(all_sef, all_seh, all_esf, all_esh)
+
+
+```
+
+
+
+```{r}
+
+## testing models
+model = glm(all_se$fs_effect ~ all_se$EnglishSpans_boundaryeffect)
+
+model2 = glm(all_se$fs_effect ~ all_se$L3group + all_se$group)
+
+summary(model)
+summary(model2)
+
+mean_se = mean(all_se$EnglishSpans_boundaryeffect)
+sd_se = sd(all_se$EnglishSpans_boundaryeffect)
+
+t.test(all_se$eb, all_se$sb, paired = TRUE,)
+
+hist(all_se$EnglishSpans_boundaryeffect)
+
+eb = mean(all_se$eb)
+sb = mean(all_se$sb)
+
+ggplot(all_se, aes(x = group, y = EnglishSpans_boundaryeffect)) + geom_boxplot()
+
+ggplot(all_se, aes(x = eb)) + geom_boxplot()
+
+
+```
+
+
+```{r}
+
+all_se_tidy = all_se %>% 
+  pivot_longer(c(`eb`, `sb`, `fb`), names_to = "boundary", values_to = "step")
+
+ggplot(all_se_tidy, aes(x = step, y = boundary, color = L3group)) + geom_point()
+
+ggplot(all_se_tidy, aes(x = group, y = EnglishSpans_boundaryeffect)) + geom_boxplot()
+
+ggplot(all_se_tidy, aes(x = L3group, y = EFBE, color = group)) + geom_boxplot() 
+ggplot(all_se_tidy, aes(x = L3group, y = fs_effect, color = group)) + geom_boxplot()
+
+
+
+all_se_tidy2 = all_se %>% 
+  pivot_longer(c(`EFBE`, `fs_effect`, `EnglishSpans_boundaryeffect`), names_to = "effects", values_to = "degree")
+
+
+ggplot(all_se_tidy2, aes(x = effects, y = degree, color = group, fill = L3group)) + geom_boxplot() 
+
+?ggplot
+
+```
+
+```{r}
+
+all_se_tidy3 = unite_(all_se_tidy2, "group", c("L3group","group"))
+
+ggplot(all_se_tidy3, aes(x = effects, y = degree, color = group)) + geom_boxplot() 
+
+
+
+## look at the L3 span boundary effect per group and order
+
+ggplot(all_se, aes(x = L3group, y = fs_effect, color = group)) + geom_boxplot()
+
+ggplot(all_se)
+
+## T test to see if the differences in ES L3 groups are significant
+
+t.test(all_esf$fs_effect, all_esh$fs_effect)
+
+
+ggplot(all_se_tidy, aes(x = boundary, y = step, color = group, fill = L3group)) + geom_boxplot()+ggtitle("Bottom up processing?") 
+
+
+mean(all_esf$fs_effect)
+
+
+```
+
+``` {r}
+
+
+ggplot(all_se_tidy, aes(x = boundary, y = step, color = group)) + geom_boxplot()
+
+t.test(all_sef$eb, all_sef$fb)
+
+```
