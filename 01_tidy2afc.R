@@ -128,12 +128,35 @@ hungarian_stops <- hungarian %>%
 
 # Combine data ----------------------------------------------------------------
 
+# Add missing participant labels
+lhq1 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (1).csv") %>% 
+  janitor::clean_names() %>% 
+  select(l1 = 9, l2 = 15, participant = 1, prolific = 2)
+lhq2 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (2).csv") %>% 
+  janitor::clean_names() %>% 
+  select(l1 = 9, l2 = 15, participant = 1, prolific = 2)
+lhq3 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (3).csv") %>% 
+  janitor::clean_names() %>% 
+  select(l1 = 9, l2 = 15, participant = 1, prolific = 2)
+lhq5 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (5).csv") %>% 
+  janitor::clean_names() %>% 
+  select(l1 = 9, l2 = 15, participant = 1, prolific = 2)
+
+lhq <- bind_rows(lhq1, lhq2, lhq3, lhq5)
+
+
 all_stops  <- bind_rows(
   english_stops, hungarian_stops, spanish_stops, french_stops) %>% 
+  left_join(., lhq, by = "participant") %>% 
+  mutate(group = if_else(l2 == "Spanish", "ES", "SE")) %>% 
+  filter(!is.na(group)) %>% 
   write_csv(here("data", "tidy", "2afc_stops_tidy.csv"))
 
 all_vowels <- bind_rows(
   english_vowels, spanish_vowels, french_vowels, hungarian_vowels) %>% 
+  left_join(., lhq, by = "participant") %>% 
+  mutate(group = if_else(l2 == "Spanish", "ES", "SE")) %>% 
+  filter(!is.na(group)) %>% 
   write_csv(here("data", "tidy", "2afc_vowels_tidy.csv"))
 
 complete_2afc <- bind_rows(all_stops, all_vowels) %>% 
