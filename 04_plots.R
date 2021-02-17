@@ -15,15 +15,19 @@ source(here::here("03_load_data.R"))
 # -----------------------------------------------------------------------------
 
 
-ggplot(data = vowels_2afc, 
-  aes (x = step_cont, y = response, color = group)) + 
-  facet_grid(. ~ language) + 
-  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+p1 <- ggplot(data = vowels_2afc, 
+  aes (x = step_cont, y = response, color = language)) + 
+  facet_grid(. ~ group) + 
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) + 
+  labs(title = "Vowels")
 
-ggplot(data = stops_2afc, 
-  aes (x = step_cont, y = response, color = group)) + 
-  facet_grid(. ~ language) + 
-  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+p2 <- ggplot(data = stops_2afc, 
+  aes (x = step_cont, y = response, color = language)) + 
+  facet_grid(. ~ group) + 
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) + 
+  labs(title = "Stops")
+
+p1 / p2
 
 
 # NOt sure what this is (is se/es supposed to specify the group?)
