@@ -20,6 +20,11 @@ ggplot(data = vowels_2afc,
   facet_grid(. ~ language) + 
   geom_smooth(method = "glm", method.args = list(family = "binomial"))
 
+ggplot(data = stops_2afc, 
+  aes (x = step_cont, y = response, color = group)) + 
+  facet_grid(. ~ language) + 
+  geom_smooth(method = "glm", method.args = list(family = "binomial"))
+
 
 # NOt sure what this is (is se/es supposed to specify the group?)
 ggplot(data = all_vowels_se, 
