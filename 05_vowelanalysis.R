@@ -49,12 +49,8 @@ cross_over <- function(mod, cont_pred, grouping_var = FALSE,
 # I will calculate the boundaries for L1, L2 and L3. 
 # The Model will be glm L3bound ~ order of acquisition, L3 group, eb, sb
 
-#steps 
-# get model to calculate boundaries for each participant, place this in a df and merge
-# it to tidy df 
-
-# run model and see results! 
-
+# divide vowels by language and group - get mean response per group. I could
+# not get the cross_over function to work within the pipe/summarize
 
 ebv = all_vowels %>% 
   filter(., language == "english") %>% 
@@ -115,13 +111,15 @@ se_descreptive = analyze_vowels %>%
 
 seh_descreptive = analyze_vowels %>% 
   filter(group == "SE") %>% 
-  filter(l3group == "h") %>% 
-  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n())
+  filter(l3group == "h") %>%
+  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n()) %>% 
+  mutate(group = "seh")
 
 sef_descreptive = analyze_vowels %>% 
   filter(group == "SE") %>% 
   filter(l3group == "f") %>% 
-  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n())
+  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n()) %>% 
+  mutate(group = "sef")
 
 ### Filter for ES group and exclude participants who chose the same answer 90 percent of the time. 
 
@@ -133,12 +131,22 @@ es_descreptive = analyze_vowels %>%
 esh_descreptive = analyze_vowels %>% 
   filter(group == "ES") %>% 
   filter(l3group == "h") %>% 
-  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n())
+  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n()) %>% 
+  mutate(group = "esh")
 
 esf_descreptive = analyze_vowels %>% 
   filter(group == "ES") %>% 
   filter(l3group == "f") %>% 
-  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n())
+  summarize(mean_ebv = mean(ebv), mean_sbv = mean(sbv), mean_l3bv = mean(l3bv), n = n()) %>% 
+  mutate(group = "esf")
+
+
+
+
+## bind all descriptives together and write to file for markdown to reference
+
+grand_n = rbind(esf_descreptive, esh_descreptive, seh_descreptive, sef_descreptive) %>% 
+  write_csv(here("data", "tidy", "grand_n.csv"))
 
 
 ## paired T-test to see whether English and Spanish boundaries are significantly different. 
@@ -146,8 +154,16 @@ esf_descreptive = analyze_vowels %>%
 ## In the SE group 
 t.test(se_descreptive$ebv, se_descreptive$sbv, paired = TRUE)
 
+t.test(se_descreptive$ebv, se_descreptive$l3bv, paired = TRUE)
+
+t.test(se_descreptive$l3bv, se_descreptive$sbv, paired = TRUE)
+
 ## In the ES group
 t.test(es_descreptive$ebv, es_descreptive$sbv, paired = TRUE)
+
+t.test(es_descreptive$ebv, es_descreptive$l3bv, paired = TRUE)
+
+t.test(es_descreptive$l3bv, es_descreptive$sbv, paired = TRUE)
 
 
 ## Fitting a model for vowel boundaries
