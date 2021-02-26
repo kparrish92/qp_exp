@@ -111,7 +111,6 @@ hungarian <- dir_ls(here("raw_data", "hungarian_2afc"), regexp = "\\.csv$") %>%
   tidy_2afc() %>% 
   mutate(language = "hungarian") 
 
-
 hungarian_vowels <- hungarian %>% 
   filter(!is.na(resp_2.keys)) %>% 
   select(participant, date, expName, resp_2.keys, exp, language, 
@@ -148,7 +147,7 @@ lhq6 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (6).csv") %>%
 
 lhq <- bind_rows(lhq1, lhq2, lhq3, lhq5,lhq6)
 
-missing_ids<- read_csv("./raw_data/lhq/prolifictolhq.csv")
+missing_ids <- read_csv("./raw_data/lhq/prolifictolhq.csv")
 
 lhq_sub = lhq %>% 
   filter(nchar(as.character(participant)) == 5)
@@ -170,7 +169,7 @@ lhq = lhq_main %>%
   select(l1 = 1, l2 = 2, prolific = 3, participant = 4)
   
 
-all_stops  <- bind_rows(
+all_stops <- bind_rows(
   english_stops, hungarian_stops, spanish_stops, french_stops) %>% 
   left_join(., lhq, by = "participant") %>% 
   mutate(group = if_else(l2 == "Spanish", "ES", "SE")) %>% 
@@ -188,7 +187,6 @@ assign_group_vowels = all_vowels %>%
   filter(language == "french" | language == "hungarian") %>%
   mutate(l3group = if_else(language == "french", "f", "h")) %>% 
   select(participant, l3group)
-
 
 assign_group_stops = all_stops %>%
   filter(language == "french" | language == "hungarian") %>%

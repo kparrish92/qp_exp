@@ -9,5 +9,7 @@ library("ggplot2")
 library("purrr")
 library("fs")
 library("patchwork")
+library("lme4")
+library("broom")
 
 # -----------------------------------------------------------------------------
