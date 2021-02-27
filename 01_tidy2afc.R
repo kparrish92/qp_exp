@@ -183,6 +183,10 @@ all_vowels <- bind_rows(
   filter(!is.na(group)) %>% 
   write_csv(here("data", "tidy", "2afc_vowels_tidy.csv"))
 
+#
+# Code from here to 203 creates errors (dataframe with 2million observations)
+#
+
 assign_group_vowels = all_vowels %>%
   filter(language == "french" | language == "hungarian") %>%
   mutate(l3group = if_else(language == "french", "f", "h")) %>% 
@@ -200,8 +204,13 @@ all_vowels = all_vowels %>%
 all_stops = all_stops %>% 
   left_join(., assign_group_stops, by = "participant")
 
+#
+# End of problematic code
+#
 
 complete_2afc <- bind_rows(all_stops, all_vowels) %>% 
+  group_by(exp) %>% 
+  mutate(step_std = (step_cont - mean(step_cont)) / sd(step_cont)) %>% 
   write_csv(here("data", "tidy", "2afc_complete_tidy.csv"))
 
 # -----------------------------------------------------------------------------
