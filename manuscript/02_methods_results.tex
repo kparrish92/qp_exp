@@ -1,0 +1,190 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdflang={en-EN},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{SHORTTITLE}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
+\title{TITLE}
+\author{\phantom{0}}
+\date{}
+
+
+\affiliation{\phantom{0}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study.
+
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
+
+A total of \texttt{XX} participants took part in the study and were recruited on the online platform Prolific. In order to tease apart L2 status effects from CLI brought about by typological similarity across languages, participants were recruited with both orders of acquisition. That is, one group of participants spoke English as a first language and Spanish as a second language (the ES group, n = \texttt{XX}), and another group spoke Spanish as their first language and English as their second (the SE group, n = \texttt{XX}). The participants average age of acquisition was \texttt{XX} for the ES group and \texttt{XX} for the SE group. Then, in order to examine how the same groups of bilinguals categorize different L3s, the SE and ES group were then assigned either Hungarian (in the ES group, n = \texttt{XX} and in the SE group, n = \texttt{XX}) or French (in the ES group, n = \texttt{XX} and in the SE group, n = \texttt{XX}). In order to assess whether participants were eligible to take part in the study, a screening process was carried out in prolific which involved the Language History Questionnaire \texttt{citation}, and a proficiency test in the participant's L2. Speakers who reported knowing a third language or who scored below \texttt{XX} on the Lextale proficiency test \texttt{citation} were deemed ineligible for the study, and were not permitted to continue.
+
+\hypertarget{materials}{%
+\subsection{Materials}\label{materials}}
+
+The experiment was composed of 5 total portions. An itemized version of the Language History Questionnaire \texttt{citation} was given to participants and asked their first language, second language, the age at which they began learning their L2. The measure of L2 proficiency, the LEXTALE \texttt{citation}, was given in Spanish to the ES group and English to the SE group. The LEXTALE is a lexical decision task in the L2 of the participant in which the participants are presented with either a word or a non-word, and they must decide whether the word presented is a real word or a non-word. The LEXTALE is scored for correctness, and a percentage score is produced in the case of the English version, and a score from 0-100 in the Spanish version.\\
+Following these tasks, participants then took a series of three two-alternative forced choice tasks (2afc). The tasks were programmed in psychopy version XX \texttt{citation} and were hosted on Pavlovia.org. The 2afc tested the perception of the same two continua (a /p/-/b/ VOT continuum and a /i/-/u/ F2 continuum) in three different language modes: English, Spanish and the L3 (either Hungarian or French). The sounds in the VOT continuum ranged from a VOT of -50ms to 35 ms and contained \texttt{XX} total steps in 5ms increments. The sounds are an artificial female voice, and were produced in the syllable \emph{paf}-\emph{baf}. During the 2afc task, participants saw both the words \emph{pafri} and \emph{bafri} on the screen (also used in \texttt{citation}), and hear just the first syllable of these words in which the initial consonant was a member of the continuum. Each step of the continuum was played \texttt{X} times total, leading to a total of \texttt{x} trials in the VOT continuum per participant. The F2 continuum followed the same procedure, but contained \texttt{x} steps in an F2 continuum ranging from X to X hertz. Due to language spefific differences in vowel space, the non-words on screen were distinct orthographically in each language, with the exception of French and Spanish. In Spanish and French, the participants saw \emph{ifri} and \emph{ufri} on the screen, in English they say \emph{eefri} and \emph{oofri}, and in Hungarian, they say \emph{ifrelo} and \emph{ufrelo}. All participants heard one member of the same /if/-/uf/ continuum across all trails. The stimuli for the vowel continuum were created in PRAAT \texttt{citation} and were originally produced by a male speaker of American English. The original sounds were re-synthesized to create a continuum using a PRAAT script \texttt{citation}.
+
+\hypertarget{procedure}{%
+\subsection{Procedure}\label{procedure}}
+
+First, the participants completed the Language History Questionnaire \texttt{citation}.
+
+\hypertarget{data-analysis}{%
+\subsection{Data analysis}\label{data-analysis}}
+
+The independent variables were: L3 group (Hungarian or French), Order of acquisition (Spanish/English or English/Spanish), L2 proficiency.
+
+It was expected that there would be a main effect for L3 group and order of acquisition, as well as a three way interaction between L3 group, order of acquisition and degree of separation.
+
+We used R {[}Version 4.0.3; @{]} and the R-packages \emph{\}base} {[}@\}R-base{]}, and \emph{papaja} (Version 0.1.0.9997; {\textbf{???}}) for all our analyses.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+
+\endgroup
+
+
+\end{document}
