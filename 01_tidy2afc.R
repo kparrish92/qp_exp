@@ -111,7 +111,6 @@ hungarian <- dir_ls(here("raw_data", "hungarian_2afc"), regexp = "\\.csv$") %>%
   tidy_2afc() %>% 
   mutate(language = "hungarian") 
 
-
 hungarian_vowels <- hungarian %>% 
   filter(!is.na(resp_2.keys)) %>% 
   select(participant, date, expName, resp_2.keys, exp, language, 
@@ -148,29 +147,33 @@ lhq6 <- read_csv("./raw_data/lhq/LHQ 3.0 raw result (6).csv") %>%
 
 lhq <- bind_rows(lhq1, lhq2, lhq3, lhq5,lhq6)
 
-missing_ids<- read_csv("./raw_data/lhq/prolifictolhq.csv")
+missing_ids <- read_csv("./raw_data/lhq/prolifictolhq.csv")
 
-lhq_sub = lhq %>% 
-  filter(nchar(as.character(participant)) == 5)
+#
+# What do thesee do?
+#
 
-lhq_main = lhq %>% 
-  filter(nchar(as.character(participant)) == 24)
+# lhq_sub = lhq %>% 
+#  filter(nchar(as.character(participant)) == 5)
 
-missing_ids = missing_ids %>% 
-  janitor::clean_names() %>% 
-  select(participant = 2, prolific_id = 1) %>% 
-  left_join(., lhq_sub, by = "participant") %>% 
-  select(l1, l2, participant, prolific_id) %>% 
-  select(l1 = 1, l2 = 2, participant = 3 ,prolific = 4)
+# lhq_main = lhq %>% 
+#  filter(nchar(as.character(participant)) == 24)
+
+# missing_ids = missing_ids %>% 
+#  janitor::clean_names() %>% 
+#  select(participant = 2, prolific_id = 1) %>% 
+#  left_join(., lhq_sub, by = "participant") %>% 
+#  select(l1, l2, participant, prolific_id) %>% 
+#  select(l1 = 1, l2 = 2, participant = 3 ,prolific = 4)
 
 
-lhq = lhq_main %>% 
-  rbind(., missing_ids) %>%
-  filter(nchar(as.character(prolific)) == 24) %>% 
-  select(l1 = 1, l2 = 2, prolific = 3, participant = 4)
+# lhq = lhq_main %>% 
+#   rbind(., missing_ids) %>%
+#   filter(nchar(as.character(prolific)) == 24) %>% 
+#   select(l1 = 1, l2 = 2, prolific = 3, participant = 4)
   
 
-all_stops  <- bind_rows(
+all_stops <- bind_rows(
   english_stops, hungarian_stops, spanish_stops, french_stops) %>% 
   left_join(., lhq, by = "participant") %>% 
   mutate(group = if_else(l2 == "Spanish", "ES", "SE")) %>% 
@@ -184,29 +187,39 @@ all_vowels <- bind_rows(
   filter(!is.na(group)) %>% 
   write_csv(here("data", "tidy", "2afc_vowels_tidy.csv"))
 
-assign_group_vowels = all_vowels %>%
-  filter(language == "french" | language == "hungarian") %>%
-  mutate(l3group = if_else(language == "french", "f", "h")) %>% 
-  select(participant, l3group)
+#
+# Code from here to 203 creates errors (dataframe with 2million observations)
+#
 
+# assign_group_vowels = all_vowels %>%
+#   filter(language == "french" | language == "hungarian") %>%
+#   mutate(l3group = if_else(language == "french", "f", "h")) %>% 
+#   select(participant, l3group)
 
-assign_group_stops = all_stops %>%
-  filter(language == "french" | language == "hungarian") %>%
-  mutate(l3group = if_else(language == "french", "f", "h")) %>% 
-  select(participant, l3group)
+# assign_group_stops = all_stops %>%
+#   filter(language == "french" | language == "hungarian") %>%
+#   mutate(l3group = if_else(language == "french", "f", "h")) %>% 
+#   select(participant, l3group)
 
-all_vowels = all_vowels %>% 
-  
-  left_join(., assign_group_vowels, by = "participant") 
+# all_vowels = all_vowels %>% 
+#  left_join(., assign_group_vowels, by = "participant") 
 
-all_stops = all_stops %>% 
-  left_join(., assign_group_stops, by = "participant")
+#all_stops = all_stops %>% 
+#  left_join(., assign_group_stops, by = "participant")
 
+#
+# End of problematic code
+#
 
 complete_2afc <- bind_rows(all_stops, all_vowels) %>% 
+  group_by(exp) %>% 
+  mutate(step_std = (step_cont - mean(step_cont)) / sd(step_cont)) %>% 
   write_csv(here("data", "tidy", "2afc_complete_tidy.csv"))
 
 # -----------------------------------------------------------------------------
 
-
-
+#
+# Note: it looks like the commented code is trying to apply missing 
+#       participant IDs and then filter, but it goes wrong somewhere
+#       (it results in a dataframe with 2 million observations). 
+#
