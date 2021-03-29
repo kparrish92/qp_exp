@@ -1,0 +1,4 @@
+resp.keys,resp.rt,trials.thisRepN,trials.thisTrialN,trials.thisN,trials.thisIndex,trials.ran,stimuli,participant,date,expName,psychopyVersion,OS,frameRate,gotResponse.keys,gotResponse.rt,trials_2.thisRepN,trials_2.thisTrialN,trials_2.thisN,trials_2.thisIndex,trials_2.ran,trials_2.order
+right,6.532875,0,0,0,1,1,stim/VC_11.wav,test,2020-12-15_21h28.02.624,English_step1,2020.2.3,Linux x86_64,60,,,,,,,,
+left,0.3241,0,1,1,0,1,stim/VC_01.wav,test,2020-12-15_21h28.02.624,English_step1,2020.2.3,Linux x86_64,60,,,,,,,,
+,,,,,,,stim/VC_05.wav,test,2020-12-15_21h28.02.624,English_step1,2020.2.3,Linux x86_64,60,space,0.70375,3,0,33,4,1,32
