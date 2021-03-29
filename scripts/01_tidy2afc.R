@@ -166,6 +166,7 @@ lhq <- bind_rows(lhq_main, missing_ids) %>%
 sum(!(ids_needed$all %in% lhq$participant))
 sum(!(ids_needed$en_sp %in% lhq$participant))
 sum(!(ids_needed$en_sp_hu %in% lhq$participant))
+sum(!(ids_needed$en_sp_fr %in% lhq$participant))
 
 # 3 participants with no language info> 
 # "5f00962ef7b0241ae371d912" 
