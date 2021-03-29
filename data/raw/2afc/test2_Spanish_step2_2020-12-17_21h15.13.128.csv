@@ -1,0 +1,9 @@
+resp.keys,resp.rt,trials.thisRepN,trials.thisTrialN,trials.thisN,trials.thisIndex,trials.ran,stimuli,participant,date,expName,psychopyVersion,OS,frameRate,gotResponse.keys,gotResponse.rt,resp_2.keys,resp_2.rt,trials_2.thisRepN,trials_2.thisTrialN,trials_2.thisN,trials_2.thisIndex,trials_2.ran
+left,0.650535,0,0,0,1,1,stim/VC_11.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,,,,,,,
+right,0.15703,0,1,1,0,1,stim/VC_01.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,,,,,,,
+,,,,,,,stim/VC_11.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,space,0.1513,left,0.251585,0,0,0,10,1
+,,,,,,,stim/VC_09.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,right,0.111225,0,1,1,8,1
+,,,,,,,stim/VC_06.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,left,0.344405,0,2,2,5,1
+,,,,,,,stim/VC_03.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,right,0.13932,0,3,3,2,1
+,,,,,,,stim/VC_07.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,left,0.152015,0,4,4,6,1
+,,,,,,,stim/VC_01.wav,test2,2020-12-17_21h15.13.128,Spanish_step2,2020.2.3,Win32,60,,,right,0.12534,0,5,5,0,1
