@@ -8,6 +8,7 @@
 
 
 
+
 # Source libs -----------------------------------------------------------------
 
 source(here::here("scripts", "00_libs.R"))
@@ -87,7 +88,7 @@ language_ids <- list(
   ) 
 
 # First we get IDs of participants that completed Spanish and English (RQ0)
-en_sp_complete_cases <- english %>% 
+en_sp_complete_cases <- en %>% 
   filter(participant %in% language_ids$sp) %>% 
   pull(participant) %>% unique
 
@@ -143,13 +144,16 @@ lhq_temp <- bind_rows(
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (6).csv")) %>% 
     select(l1 = 9, l2 = 15, participant = 1, prolific = 2)) 
 
+# Filter to get participants with 24 char IDs (not sure why)
+# to isolate prolific ids 
+lhq_main <- lhq_temp %>% 
+  filter(nchar(as.character(participant)) == 24)
+
 # Filter to get participants with 5 char IDs (not sure why)
+# to isolate lhq ids and match to prolific
 lhq_sub <- lhq_temp %>% 
   filter(nchar(as.character(participant)) == 5)
 
-# Filter to get participants with 24 char IDs (not sure why)
-lhq_main <- lhq_temp %>% 
-  filter(nchar(as.character(participant)) == 24)
 
 # Read this csv (not sure why)
 missing_ids <- read_csv(here("data", "raw", "lhq", "prolifictolhq.csv")) %>% 
@@ -162,6 +166,7 @@ lhq <- bind_rows(lhq_main, missing_ids) %>%
    filter(nchar(as.character(prolific)) == 24) %>% 
    select(l1, l2, participant = prolific)
 
+
 # How many of the participants we need are missing from the lhq dataframe?
 sum(!(ids_needed$all %in% lhq$participant))
 sum(!(ids_needed$en_sp %in% lhq$participant))
@@ -169,13 +174,18 @@ sum(!(ids_needed$en_sp_hu %in% lhq$participant))
 sum(!(ids_needed$en_sp_fr %in% lhq$participant))
 
 # 3 participants with no language info> 
-# "5f00962ef7b0241ae371d912" 
-# "5f3050933b5a04118e4a4f73" 
-# "5f6916f985575a0f22ec8f69"
+# "5f00962ef7b0241ae371d912" <- Spanish L1, Hungarian l3 
+# "5f3050933b5a04118e4a4f73" <- Spanish L1, Hungarian l3  
+# "5f6916f985575a0f22ec8f69" <- Spanish L1, Hungarian l3 
 
 # -----------------------------------------------------------------------------
+no_id <- c("5f00962ef7b0241ae371d912","5f3050933b5a04118e4a4f73","5f6916f985575a0f22ec8f69")
 
-
+no_id_df <- bind_rows(en, sp, fr, hu) %>% 
+  select(participant, exp, language, step_cont, response) %>% 
+  filter(!is.na(response), participant %in% ids_needed$all) %>% 
+  filter(participant == "5f00962ef7b0241ae371d912"| participant == "5f3050933b5a04118e4a4f73"| participant == "5f6916f985575a0f22ec8f69") %>% 
+  mutate(l1 = "Spanish", l2 = "English")
 
 
 # Tidy and prep data frames ---------------------------------------------------
@@ -188,6 +198,8 @@ all_data <- bind_rows(en, sp, fr, hu) %>%
   select(participant, exp, language, step_cont, response) %>% 
   filter(!is.na(response), participant %in% ids_needed$all) %>% 
   left_join(., lhq, by = "participant") %>% 
+  filter(!(participant %in% no_id)) %>% 
+  rbind(., no_id_df) %>% 
   write_csv(here("data", "tidy", "all_2afc.csv"))
 
 # -----------------------------------------------------------------------------

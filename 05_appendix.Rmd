@@ -1,0 +1,77 @@
+# Appendix 
+
+```{r}
+apa_table(
+  spanish_english_ttests
+  , caption = "Spanish-English t.tests per group"
+  , escape = TRUE
+)
+
+
+```
+
+
+```{r}
+apa_table(
+  span_ttests_v
+  , caption = "Summary of paired t.tests of Vowel categorizations in the Spanish L1 groups"
+  , escape = TRUE
+)
+
+```
+
+
+```{r}
+
+apa_table(
+  eng_ttests_v
+  , caption = "Summary of paired t.tests of Vowel categorizations in the English L1 groups"
+  , escape = TRUE
+)
+
+```
+
+
+
+```{r}
+
+apa_table(
+  span_ttests_s
+  , caption = "Summary of paired t.tests of Stop categorizations in the Spanish L1 groups"
+  , escape = TRUE
+)
+
+```
+
+
+```{r}
+
+apa_table(
+  eng_ttests_s
+  , caption = "Summary of paired t.tests of Stop categorizations in the English L1 groups"
+  , escape = TRUE
+)
+
+```
+
+```{r}
+
+apa_table(
+  es_pergroup_stops
+  , caption = "Spanish English categorizations of vowels in each groups"
+  , escape = TRUE
+)
+
+```
+
+
+```{r}
+
+apa_table(
+  es_pergroup_vowels
+  , caption = "Spanish English categorizations of vowels in each group"
+  , escape = TRUE
+)
+
+```
+

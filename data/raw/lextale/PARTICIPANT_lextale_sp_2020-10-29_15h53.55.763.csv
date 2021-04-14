@@ -1,0 +1,114 @@
+lextale_instructions_loop.thisRepN,lextale_instructions_loop.thisTrialN,lextale_instructions_loop.thisN,lextale_instructions_loop.thisIndex,lextale_instructions_loop.ran,instructions_text,continue_text,participant,session,date,expName,psychopyVersion,OS,frameRate,key_resp_lextale_practice.keys,key_resp_lextale_practice.corr,key_resp_lextale_practice.rt,lextale_practice_trials.thisRepN,lextale_practice_trials.thisTrialN,lextale_practice_trials.thisN,lextale_practice_trials.thisIndex,lextale_practice_trials.ran,stim,word,correct_response,prac_button_real,prac_button_false,key_resp_lextale_trial.keys,key_resp_lextale_trial.corr,key_resp_lextale_trial.rt,lextail_trials.thisRepN,lextail_trials.thisTrialN,lextail_trials.thisN,lextail_trials.thisIndex,lextail_trials.ran,button_real,button_false
+0,0,0,0,1,"Este es un test de vocabulario en español. 
+  
+  A continuación vas a ver 90 secuencias de letras que parecen 'españolas'.
+  
+  Solo algunas de ellas son palabras de verdad.",(presiona la barra espaciadora para continuar),,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,,,,,,,,,,,
+0,1,1,1,1,"Por favor, señala las palabras que tú conoces (aquellas que estás convencido que son palabras españolas, incluso aunque no seas capaz de dar el significado preciso).",(presiona la barra espaciadora para continuar),,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,,,,,,,,,,,
+0,2,2,2,1,Pero cuidado: los errores se penalizan. Por eso no tiene sentido tratar de incrementar tu puntuación marcando como reales palabras que nunca has visto.,(presiona la barra espaciadora para continuar),,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,,,,,,,,,,,
+0,3,3,3,1,"Presiona la tecla 1 si piensas que es una palabra real y la tecla 
+  0 si piensas que es una palabra falsa. 
+  
+  Vamos a practicar un poco...",(presiona la barra espaciadora para continuar),,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,7.58502,0,0,0,0,1,0,depiste,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,1,5.783235,0,1,1,1,1,0,sí,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,2.68018,0,2,2,2,1,0,coné,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,0,1.869905,0,3,3,3,1,0,calpar,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,2.580305,0,4,4,4,1,0,joten,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,1,2.014785,0,5,5,5,1,0,sacapuntas,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,2.733015,0,6,6,6,1,0,priba,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,5.004485,0,7,7,7,1,0,pelasula,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,1,1.103735,0,8,8,8,1,0,bien,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,1,1.03825,0,9,9,9,1,0,casa,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,1,0,1.332925,0,10,10,10,1,0,lejo,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,0,1,5.13248,0,11,11,11,1,0,pretantas,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,47,cartinar,0,,,1,0,8.770765,0,0,0,46,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,24,látigo,1,,,0,0,3.618965,0,1,1,23,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,43,canela,1,,,0,0,8.25318,0,2,2,42,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,12,asesinato,1,,,1,1,3.365175,0,3,3,11,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,66,hacido,0,,,1,0,2.01502,0,4,4,65,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,61,seda,1,,,1,1,2.18211,0,5,5,60,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,53,vegada,0,,,0,1,2.2056,0,6,6,52,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,74,cintro,0,,,1,0,1.42,0,7,7,73,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,9,hacha,1,,,0,0,1.502875,0,8,8,8,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,51,candado,1,,,0,0,4.83576,0,9,9,50,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,87,grodo,0,,,0,1,3.553385,0,10,10,86,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,18,arsa,0,,,0,1,1.419075,0,11,11,17,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,30,alardio,0,,,0,1,1.38573,0,12,12,29,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,8,cadeña,0,,,0,1,5.320925,0,13,13,7,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,14,yunque,1,,,0,0,3.858625,0,14,14,13,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,28,merodear,1,,,0,0,2.247905,0,15,15,27,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,56,musgo,1,,,0,0,0.875155,0,16,16,55,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,13,helar,1,,,0,0,2.38912,0,17,17,12,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,31,pandilla,1,,,1,1,2.766605,0,18,18,30,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,16,abracer,0,,,1,0,1.919505,0,19,19,15,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,88,acantilado,1,,,1,1,5.53832,0,20,20,87,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,17,floroso,0,,,1,0,2.632405,0,21,21,16,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,46,martillo,1,,,0,0,4.055015,0,22,22,45,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,37,granuja,1,,,0,0,1.888745,0,23,23,36,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,86,barato,1,,,1,1,0.9153,0,24,24,85,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,21,capillo,0,,,1,0,4.358975,0,25,25,20,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,80,hormiga,1,,,0,0,1.977505,0,26,26,79,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,49,ganar,1,,,1,1,1.603855,0,27,27,48,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,20,ávido,1,,,1,1,2.71644,0,28,28,19,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,63,esposante,0,,,0,1,7.28505,0,29,29,62,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,32,fatacidad,0,,,0,1,4.404285,0,30,30,31,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,45,jilguero,1,,,0,0,1.700585,0,31,31,44,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,11,cenefa,1,,,0,0,1.8988,0,32,32,10,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,67,cabello,1,,,1,1,1.17769,0,33,33,66,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,6,tergiversar,1,,,0,0,2.604205,0,34,34,5,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,64,orgulloso,1,,,1,1,1.470415,0,35,35,63,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,2,pellizcar,1,,,0,0,2.169,0,36,36,1,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,1,terzo,0,,,1,0,2.302595,0,37,37,0,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,82,empirador,0,,,1,0,3.087235,0,38,38,81,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,36,loro,1,,,0,0,5.709255,0,39,39,35,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,62,flaco,1,,,1,1,1.80485,0,40,40,61,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,75,yacer,1,,,0,0,1.766825,0,41,41,74,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,58,plaudir,0,,,1,0,2.55283,0,42,42,57,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,90,clavel,1,,,1,1,2.132695,0,43,43,89,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,68,alegre,1,,,1,1,0.970715,0,44,44,67,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,59,besar,1,,,1,1,1.08474,0,45,45,58,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,79,tropaje,0,,,0,1,1.04875,0,46,46,78,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,77,tiburón,1,,,1,1,3.003015,0,47,47,76,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,29,decar,0,,,0,1,2.820375,0,48,48,28,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,34,aviso,1,,,1,1,1.637795,0,49,49,33,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,65,bizcocho,1,,,0,0,1.01555,0,50,50,64,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,76,atar,1,,,0,0,3.934965,0,51,51,75,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,4,batillón,0,,,0,1,5.17326,0,52,52,3,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,85,laúd,1,,,0,0,0.98402,0,53,53,84,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,73,hervidor,1,,,0,0,1.233005,0,54,54,72,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,35,rompido,0,,,1,0,3.734005,0,55,55,34,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,38,estornudar,1,,,0,0,1.50278,0,56,56,37,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,69,engatusar,1,,,0,0,2.237005,0,57,57,68,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,48,ladrón,1,,,1,1,1.24879,0,58,58,47,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,5,zapato,1,,,1,1,0.736645,0,59,59,4,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,19,brecedad,0,,,0,1,1.24977,0,60,60,18,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,52,camisa,1,,,1,1,0.91958,0,61,61,51,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,22,lacayo,1,,,0,0,0.88254,0,62,62,21,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,83,guante,1,,,1,1,1.219105,0,63,63,82,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,39,torpe,1,,,1,1,1.951885,0,64,64,38,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,7,pésimo,1,,,0,0,3.898975,0,65,65,6,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,23,lampera,0,,,1,0,1.30213,0,66,66,22,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,10,antar,0,,,0,1,1.166715,0,67,67,9,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,41,rebuscar,1,,,1,1,2.471155,0,68,68,40,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,25,bisagra,1,,,0,0,1.78699,0,69,69,24,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,50,flamida,0,,,0,1,1.866265,0,70,70,49,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,26,secuestro,1,,,1,1,1.336225,0,71,71,25,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,60,matar,1,,,1,1,1.02301,0,72,72,59,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,15,regar,1,,,0,0,1.648695,0,73,73,14,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,57,tacaño,1,,,0,0,3.03806,0,74,74,56,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,27,acutación,0,,,0,1,1.75424,0,75,75,26,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,71,polvoriento,1,,,0,0,7.749545,0,76,76,70,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,42,cadallo,0,,,0,1,1.515935,0,77,77,41,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,3,pulmones,1,,,1,1,1.28169,0,78,78,2,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,55,nevar,1,,,1,1,1.66593,0,79,79,54,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,81,pozo,1,,,0,0,1.931735,0,80,80,80,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,44,cuchara,1,,,1,1,1.18677,0,81,81,43,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,54,fomentar,1,,,0,0,4.87032,0,82,82,53,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,84,escuto,0,,,0,1,4.61552,0,83,83,83,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,40,alfombra,1,,,1,1,3.28779,0,84,84,39,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,70,temblo,0,,,1,0,2.28268,0,85,85,69,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,78,frondoso,1,,,0,0,0.998495,0,86,86,77,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,72,pemición,0,,,0,1,4.97132,0,87,87,71,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,33,pauca,0,,,0,1,1.402825,0,88,88,32,1,REAL,FALSA
+,,,,,,,,001,2020-10-29_15h53.55.763,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,89,prisa,1,,,1,1,1.370615,0,89,89,88,1,REAL,FALSA

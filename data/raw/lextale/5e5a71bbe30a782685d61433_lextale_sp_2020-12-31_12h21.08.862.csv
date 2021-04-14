@@ -1,0 +1,18 @@
+lextale_instructions_loop.thisRepN,lextale_instructions_loop.thisTrialN,lextale_instructions_loop.thisN,lextale_instructions_loop.thisIndex,lextale_instructions_loop.ran,instructions_text,continue_text,participant,session,date,expName,psychopyVersion,OS,frameRate,key_resp_lextale_practice.keys,key_resp_lextale_practice.corr,key_resp_lextale_practice.rt,lextale_practice_trials.thisRepN,lextale_practice_trials.thisTrialN,lextale_practice_trials.thisN,lextale_practice_trials.thisIndex,lextale_practice_trials.ran,stim,word,correct_response,prac_button_real,prac_button_false
+0,0,0,0,1,"Este es un test de vocabulario en español. 
+  
+  A continuación vas a ver 90 secuencias de letras que parecen 'españolas'.
+  
+  Solo algunas de ellas son palabras de verdad.",(presiona la barra espaciadora para continuar),5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,
+0,1,1,1,1,"Por favor, señala las palabras que tú conoces (aquellas que estás convencido que son palabras españolas, incluso aunque no seas capaz de dar el significado preciso).",(presiona la barra espaciadora para continuar),5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,
+0,2,2,2,1,Pero cuidado: los errores se penalizan. Por eso no tiene sentido tratar de incrementar tu puntuación marcando como reales palabras que nunca has visto.,(presiona la barra espaciadora para continuar),5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,
+0,3,3,3,1,"Presiona la tecla 1 si piensas que es una palabra real y la tecla 
+  0 si piensas que es una palabra falsa. 
+  
+  Vamos a practicar un poco...",(presiona la barra espaciadora para continuar),5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,,,,,,,,,,,,,
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,1,0,15.456225,0,0,0,0,1,0,depiste,0,REAL,FALSA
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,1,1,1.36264,0,1,1,1,1,0,sí,1,REAL,FALSA
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,1,0,2.00335,0,2,2,2,1,0,coné,0,REAL,FALSA
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,1,0,0.510555,0,3,3,3,1,0,calpar,0,REAL,FALSA
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,0,1,0.37214,0,4,4,4,1,0,joten,0,REAL,FALSA
+,,,,,,,5e5a71bbe30a782685d61433,001,2020-12-31_12h21.08.862,lextale_sp,2020.2.3,Linux x86_64,60,0,0,0.36967,0,5,5,5,1,0,sacapuntas,1,REAL,FALSA

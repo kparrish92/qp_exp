@@ -1,0 +1,12 @@
+lextale_instructions_loop.thisRepN,lextale_instructions_loop.thisTrialN,lextale_instructions_loop.thisN,lextale_instructions_loop.thisIndex,lextale_instructions_loop.ran,instructions_text,continue_text,participant,session,date,expName,psychopyVersion,OS,frameRate
+0,0,0,0,1,"Este es un test de vocabulario en español. 
+  
+  A continuación vas a ver 90 secuencias de letras que parecen 'españolas'.
+  
+  Solo algunas de ellas son palabras de verdad.",(presiona la barra espaciadora para continuar), 5f0f7fe1d7ad1c000b42d091,001,2020-10-29_13h58.38.360,lextale_sp,2020.2.3,MacIntel,60
+0,1,1,1,1,"Por favor, señala las palabras que tú conoces (aquellas que estás convencido que son palabras españolas, incluso aunque no seas capaz de dar el significado preciso).",(presiona la barra espaciadora para continuar), 5f0f7fe1d7ad1c000b42d091,001,2020-10-29_13h58.38.360,lextale_sp,2020.2.3,MacIntel,60
+0,2,2,2,1,Pero cuidado: los errores se penalizan. Por eso no tiene sentido tratar de incrementar tu puntuación marcando como reales palabras que nunca has visto.,(presiona la barra espaciadora para continuar), 5f0f7fe1d7ad1c000b42d091,001,2020-10-29_13h58.38.360,lextale_sp,2020.2.3,MacIntel,60
+0,3,3,3,1,"Presiona la tecla 1 si piensas que es una palabra real y la tecla 
+  0 si piensas que es una palabra falsa. 
+  
+  Vamos a practicar un poco...",(presiona la barra espaciadora para continuar), 5f0f7fe1d7ad1c000b42d091,001,2020-10-29_13h58.38.360,lextale_sp,2020.2.3,MacIntel,60
