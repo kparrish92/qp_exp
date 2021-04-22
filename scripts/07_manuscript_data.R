@@ -192,8 +192,8 @@ el1seh = apa_print(t.test(q0_stops_eh$english, q0_stops_eh$l3, paired = TRUE))
 # ------------------------------------------------------------------------------
 sl1vfh = apa_print(t.test(q0_vowels_sh$l3, q0_vowels_sf$l3))
 sl1sfh = apa_print(t.test(q0_stops_sh$l3, q0_stops_sf$l3))
-el1vfh = apa_print(t.test(q0_vowels_sh$l3, q0_vowels_sf$l3))
-el1sfh = apa_print(t.test(q0_stops_sh$l3, q0_stops_sf$l3))
+el1vfh = apa_print(t.test(q0_vowels_eh$l3, q0_vowels_ef$l3))
+el1sfh = apa_print(t.test(q0_stops_eh$l3, q0_stops_ef$l3))
 
 # Post hoc t.tests
 # --------------------------------------
@@ -215,7 +215,6 @@ pooled__vowel_sl1_el3 = apa_print(t.test(spanish_pooled_vowels$english, spanish_
 pooled_stops_el1_se = apa_print(t.test(english_pooled_stops$english, english_pooled_stops$spanish, paired = TRUE))
 pooled_stops_el1_sl3 = apa_print(t.test(english_pooled_stops$l3, english_pooled_stops$spanish, paired = TRUE))
 pooled_stops_el1_el3 = apa_print(t.test(english_pooled_stops$english, english_pooled_stops$l3, paired = TRUE))
-
 
 
 # put results of t.tests in df 

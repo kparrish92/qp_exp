@@ -144,18 +144,17 @@ lhq_temp <- bind_rows(
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (6).csv")) %>% 
     select(l1 = 9, l2 = 15, participant = 1, prolific = 2)) 
 
-# Filter to get participants with 24 char IDs (not sure why)
+
 # to isolate prolific ids 
 lhq_main <- lhq_temp %>% 
   filter(nchar(as.character(participant)) == 24)
 
-# Filter to get participants with 5 char IDs (not sure why)
-# to isolate lhq ids and match to prolific
+# Filter to get participants with 5 char IDs (
 lhq_sub <- lhq_temp %>% 
   filter(nchar(as.character(participant)) == 5)
 
 
-# Read this csv (not sure why)
+# Read csv to match lhq missing ids to their prolific ids 
 missing_ids <- read_csv(here("data", "raw", "lhq", "prolifictolhq.csv")) %>% 
   janitor::clean_names() %>% 
   select(participant = 2, prolific_id = 1) %>% 

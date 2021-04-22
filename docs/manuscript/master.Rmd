@@ -1,0 +1,84 @@
+---
+title             : "The categorization of L3 sounds in Spanish/English bilinguals at the very initial stage of L3 acquisition"
+shorttitle        : "The categorization of L3 sounds in Spanish/English bilinguals"
+
+author: 
+  - name          : "Kyle Parrish"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "15 Seminary Place, New Brunswick, NJ 08904"
+    email         : "kcp74@scarletmail.rutgers.edu"
+
+affiliation:
+  - id            : "1"
+    institution   : "Rutgers University"
+
+
+
+
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : 
+  - "./includes/bib/r-references.bib" 
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_word
+---
+
+
+```{r setup, include = FALSE}
+library("papaja")
+library("knitr")
+
+source(here::here("scripts", "07_manuscript_data.R"))
+
+
+```
+
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+```{r, 'include-results', child='./includes/sections/01_intro_lit_review.Rmd', eval=T}
+```
+
+```{r, 'include-results', child='./includes/sections/02_method.Rmd', eval=T}
+```
+<!-- RESULTS -->
+```{r, 'include-results', child='./includes/sections/03_results.Rmd', eval=T}
+```
+<!-- DISCUSSION -->
+```{r, 'include-discussion', child='./includes/sections/04_discussion_conclusion.Rmd', eval=T}
+```
+
+
+<!-- Pagebreak for refs -->
+```{=openxml}
+<w:p>
+  <w:r>
+    <w:br w:type="page"/>
+  </w:r>
+</w:p>
+```
+
+# References
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup

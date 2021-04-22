@@ -1,0 +1,475 @@
+---
+title: "Final Presentation"
+subtitle: 'DS4Ling Spring 2021'
+author  : "Kyle Parrish"
+date    : "Rutgers University</br>Spring 2021</br>Last update: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: assets
+    css: ["rutgers"]
+    nature:
+      beforeInit: 
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE, fig.height = 6, fig.width = 7)
+```
+
+```{r, echo=FALSE, include=FALSE}
+source(here::here("scripts", "07_manuscript_data.R"))
+
+```
+
+class: title-slide-section-grey, middle
+
+# Overview
+
+---
+
+
+
+# Overview 
+
+- This study examined how Spanish-English bilinguals perceive sounds in a third language when they are first exposed to it. 
+
+- The participants completed a 2-alternative forced choice task of two sound continua, a vowel continuum (from /i/ to /u/) and voicing continuum (from /p/ to /b/)
+
+---
+
+class: title-slide-section-grey, middle
+
+# Background
+
+---
+
+# Background
+
+**L3 models** 
+
+- Central question: When a bilingual learns a third language, which of their 2 languages influences pronunciation of the third language, if just one? 
+
+ - L3 models attempt to predict the answer to this question. 
+
+--
+
+- Some models suggest that **only 1** language influences the L3 in the beginning of learning. 
+
+ - The **L2 Status Factor** (Bardel & Falk, 2007) posits that the L2 influences the L3 by default
+
+ - The **Typological Primacy Model** (TPM; Rothman, 2011) suggests that either the L1 or L2, but not both, influence the L3
+
+--
+
+- In this view, the language that influences the L3 is the one that the individual speaker subconsciously "chooses" on the basis of input.
+
+ - Findings suggest that, in the case that the L3 is a Romance language, bilinguals who speak a combination of a romance and non-romance language (such as Spanish-English bilinguals) will experience influence from their romance language, regardless of whether it's the L1 or L2 (Rothman, 2010, 2011)
+
+---
+
+# Background
+
+**Voice Onset Time**
+
+In order to determine and quantify the perceptual boundaries in each langauge, a Voice Onset Time (VOT) continuum was created. 
+
+--
+
+Voice Onset Time is a measurement in milliseconds of the onset of voicing (vibration of the vocal folds) in relation to the release (Lisker & Abramson, 1964)
+
+--
+
+Importantly, Spanish and English have distinct VOTs that correspond to /p/ and /b/. 
+
+--
+
+Spanish is a **true voicing language** : *p* has a positive VOT and *b* has a negative VOT
+
+--
+
+English has a **long-short lag distinction** : *p* has a positive, longer VOT and is aspirated, whereas *b* is typically also voiceless (positive VOT)
+
+--
+
+As a result, a short, positive VOT could be interpreted as *b* in English, but *p* in Spanish. 
+
+---
+
+# Background
+
+**Categorical perception and language mode** 
+
+- Previous studes (Casillas & Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales & Lotto, 2013) found that Spanish-English bilinguals categorized the same acoustic continuum differently when they believed they were hearing English as opposed to Spanish.  
+
+--
+
+- In these studies, participants completed a 2 alternative forced choice task (2afc) in which they heard a step of a VOT continuum ranging from negative to positive VOT values. 
+
+- Participants saw two pseudowords on a secreen to choose from **pafri** and **bafri**
+
+---
+
+# Background
+
+**Categorical perception and language mode**
+
+- The steps on the continuum were implemented in the beginning of these words, so that the words presented ranged from pafri-bafri.
+
+- When they heard a step of the continuum, they had to choose which of the two words was either said (Casillas & Simonet, 2018; Gonzales & Lotto, 2013), or beginning to be said (Lozano-Argüelles et al., 2020).
+
+--
+
+- Participants completed the experiment twice. The first time, they were told they would be hearing rare words in either Spanish or English, and the second time, they were told they would hear their other langauge. 
+
+- The results revealed evidence of a double phonemic boundary: there were instances in which the same individual categorized the same step on the VOT continuum as *b* in English, but *p* in Spanish in different sessions. 
+
+---
+
+class: title-slide-section-grey, middle
+
+# The Present Study
+
+---
+
+# The Present Study
+
+**Comparisons to previous work**
+
+- The present study replicated the designs of previous work (Casillas & Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales & Lotto, 2013), but added a block to the experiment, and an extra continuum. 
+
+- The added block is a "third-language" block, in which participants were lead to believe the they were hearing either French or Hungarian.
+
+- Just as in previous studies, the VOT continuum is the same in each block of the experiment. 
+
+- Unlike previous studies, a second continuum, an /i/ - /u/ vowel continuum, was added as a second part of the same block. 
+
+
+---
+
+# The Present Study
+
+**Justifications for these additions**
+
+
+- The additions of an additional continuum and the creation of L3 groups were done to test the predictions of the TPM 
+
+- The TPM predicts either L1 or L2 influence of the L3
+
+- Evidence shows the tendency for the romance langauges to influence the L3 when it is also a romance language. 
+- The addition of a French groups was to bias the use of Spanish in both L1 groups, where Hungarian was chosen as an ambiguous L3 in relation to English and Spanish. 
+
+- The TPM predicts that whole language influence occurs, rather than property by property
+
+- The two continua allow for the testing of this prediction.
+
+---
+
+# Research Questions
+
+Based on the finding that Spanish-English bilinguals show evidence of language specific categorizations in a /p/-/b/ continuum, this study:
+
+--
+
+1. Asked which of these boundaries would most closely resemble categorizations of a third language by these bilinguals 
+
+--
+
+2. Whether the language the participants believed the would be hearing affected their categorization
+
+--
+
+3. Attempted to replicate previous work and extend it to a vowel continuum. 
+
+---
+
+# Participants 
+
+A total of `r language_n_man %>% pull(en)` participants took part in at least one experiment.
+
+--
+
+One group of participants spoke English as a first language and Spanish as a second language (**the ES group**, n =  `r per_group %>% pull(English)`
+
+--
+
+Another group spoke Spanish as their first language and English as their second (**the SE group**, n = `r per_group %>% pull(Spanish)`). 
+
+--
+
+The SE and ES group were then assigned either Hungarian (in the ES group, n = `r m_all_3_hu %>% pull(English)` 
+and in the SE group, n =  `r m_all_3_hu %>% pull(Spanish)` 
+
+--
+
+or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE group, n = `r m_all_3_fr %>% pull(Spanish)`). 
+
+---
+
+# Methods 
+
+**Analysis**
+
+- Logistic regression models were fit to individual participants in order to determine a crossover boundary per participant per language in both vowels and stops 
+
+- The crossover is at continuum step at which the probability of picking one of the two choices was 50%
+
+- The steps were converted to z-scores for the purpose of comparability across features
+
+--
+
+- Below is the first six rows of the dataframe created as a result of the logistic regression models.
+
+- The first six rows are shown: the categorization of the vowel continuum in English, Spanish, and the L3. 
+
+- The column `co` stands for crossover 
+
+```{r}
+head(co_df, 6) %>% 
+  knitr::kable()
+
+
+```
+
+---
+
+# Methods 
+
+**Analysis**
+
+- The same dataframe was used in order to carryout a series of t-tests.
+
+- Paired t-tests were done to determine whether languages were categorized differently per group. 
+
+- Between subject t-tests were also carried out in order to determine whether L3 groups categorized the continua differently.
+
+---
+
+class: title-slide-section-grey, middle
+
+# Results
+
+---
+
+# Results
+
+**Spanish-English categorizations**
+
+Spanish and English were categorized differently in 3 out of 4 possible combinations:
+
+The English L1 group showed a double phonemic boundary effect in stops (t(24)=2.24, p=.035*), but not in vowels (t(35)=-0.72, p=.477). 
+
+The Spanish L1 group showed evidence of the double phonemic boundary in both stops (t(51)=3.13, p=.003) and vowels (t(49)=3.77, p<.001)
+
+---
+
+# Results
+
+**Spanish-English categorizations**
+
+Figures 2 and 3 show a graphical representations of the categorizations of vowels (figure 2) and stops (figure 3) in both languages in both L1 groups.
+
+A small effect can be seen in the Spanish L1 group (right graph)
+
+```{r}
+
+all_data %>% 
+  filter(exp == "vowels", !(participant %in% vowels_remove)) %>% 
+  filter(language == "english"| language == "spanish") %>% 
+  ggplot(., aes(x = step_cont, y = response, color = language)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
+  ggtitle("Figure 2: Spanish/English vowel boundaries per L1 group") 
+
+```
+
+---
+
+# Results
+
+**Spanish-English categorizations**
+
+Figure 3 shows the categorizations of stops in both L1 groups. 
+
+Both groups showed evidence of a double phonemic boundary in stops. 
+
+```{r}
+
+all_data %>% 
+  filter(exp == "stops", !(participant %in% stops_remove)) %>% 
+  filter(language == "english"| language == "spanish") %>% 
+  ggplot(., aes(x = step_cont, y = response, color = language)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
+  ggtitle("Figure 3: Spanish/English Stop boundaries per L1 group") 
+
+```
+
+---
+
+# Results
+
+**L3 categorizations**
+
+- T-tests of the crossovers revealed that L3 groups did not categorize the continua differently whether they were assigned to the Hungarian group or the French group, and regardless of their first language. 
+
+--
+
+- English L1: vowels (t(31.25)=0.10, p=.924) or stops (t(37.81)=0.55, p=.585).  
+
+- Spanish L1: vowels (t(29.90)=0.57, p=.573) and stops (t(10.89)=0.28, p=.788).
+
+---
+
+# Results
+
+**L3 categorizations**
+
+Since the L3 groups did not categorize the L3 differently, their results were pooled in order to carry out a post-hoc analysis.
+
+--
+
+The purpose of this analysis was to provide more robust evidence of the categorizations of the continua in both L1 groups. 
+
+--
+
+Additional paired t-tests were done in order to determine whether the crossover boundaries were statistically distinct in the case of the L1, the L2 and the L3 in both L1 groups in both continua. 
+
+---
+
+class: title-slide-section-grey, middle
+
+# Post-hoc analysis
+
+---
+
+# Post-hoc analysis 
+
+**Spanish L1 pooled stops** 
+
+L1 and L3 categorizations were not significantly distinct, suggesting that the this group categorized an L3 similarly to their L1. 
+
+--
+
+L1 - L2 (t(45)=2.62, p=.012*) 
+
+L1 - L3 (t(45)=-0.30, p=.768)
+
+L2 - L3 (t(45)=2.29, p=.027*) 
+
+---
+
+# Post-hoc analysis 
+
+**Spanish L1 pooled vowels**  
+
+The same trend was observed in stops 
+
+--
+
+L1 and L3 categorizations were not significantly distinct
+
+L1 - L2 (t(44)=3.88, p<.001*) 
+
+L1 - L3 (t(44)=0.44, p=.664)
+
+L2 - L3 (t(44)=3.55, p=.001*)
+
+---
+
+# Post-hoc analysis 
+
+**English L1 pooled stops**
+
+L2 and L3 categorizations were not significantly distinct
+
+--
+
+...but neither were the L1 and L2 
+
+L1 - L2 (t(22)=1.87, p=.075) 
+
+L1 - L3 (t(22)=2.83, p=.01*)
+
+L2 - L3 (t(22)=-0.96, p=.349) 
+
+--
+
+This finding suggests that the English L1 group shows L2 status effects and trends oppositely of the Spanish L1 group.
+
+---
+
+# Post-hoc analysis 
+
+**L3 categorizations**
+
+This plot shows the Spanish L1 groups categorization of vowels in the L1, the L2 and the L3. 
+
+```{r}
+
+all_data %>% 
+  filter(exp == "vowels", !(participant %in% vowels_remove)) %>% 
+  filter(l1 == "Spanish") %>% 
+  mutate(language = ifelse(as.character(language) == "french", "l3", as.character(language))) %>% 
+  mutate(language = ifelse(as.character(language) == "hungarian", "l3", as.character(language))) %>% 
+  ggplot(., aes(x = step_cont, y = response, color = language)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
+  ggtitle("Figure 4: Spanish L1 group pooled vowels") 
+
+```
+
+---
+
+# Post-hoc analysis 
+
+**L3 categorizations**
+
+This plot shows the Spanish L1 groups categorization of stops in the L1, the L2 and the L3. 
+
+```{r}
+
+all_data %>% 
+  filter(exp == "stops", !(participant %in% stops_remove)) %>% 
+  filter(l1 == "Spanish") %>% 
+  mutate(language = ifelse(as.character(language) == "french", "l3", as.character(language))) %>% 
+  mutate(language = ifelse(as.character(language) == "hungarian", "l3", as.character(language))) %>% 
+  ggplot(., aes(x = step_cont, y = response, color = language)) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
+  ggtitle("Figure 5: Spanish L1 group pooled stops") 
+
+
+```
+
+---
+
+class: title-slide-section-grey, middle
+
+# Discussion and Conclusion
+
+---
+
+# Discussion and Conclusion
+
+- L3 models did not predict the results found here. 
+
+--
+
+- The groups did not behave consistently.
+
+--
+
+- the Spanish L1 group categorized both L3 continua similarly to their L1.
+
+- the English L1 group categorized the vowel continuum similarly in all three languages, but the stop continuum as similar to their L2.
+
+--
+
+- L3 groups did not categorize continua differently: 
+
+-- 
+
+- When participants had the same L1, no group-level differences were found when groups were told they were hearing Hungarian and French  

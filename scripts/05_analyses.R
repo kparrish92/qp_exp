@@ -383,9 +383,9 @@ t.test(q0_stops_sf$spanish, q0_stops_sf$l3, paired = TRUE)
 t.test(q0_stops_sh$english, q0_stops_sh$l3, paired = TRUE)
 t.test(q0_stops_sh$spanish, q0_stops_sh$l3, paired = TRUE)
 
-
-
 t.test(q0_stops_sf$l3, q0_stops_sh$l3)
+
+
 
 # English L1 group stops t.tests
 
@@ -451,6 +451,7 @@ t.test(q0_vowels_sf$spanish, q0_vowels_sh$spanish) # yes - p = .658
 t.test(q0_vowels_sf$l3, q0_vowels_sh$l3) # yes - p = .77
 
 
+tost(q0_vowels_sf$l3, q0_vowels_sh$l3) # yes - p = .77
 
 # -----------------------------------------------------------------------------
 
@@ -647,3 +648,22 @@ t.test(english_lextale$score, spanish_lextale$lextale_avg)
 
   
   
+
+# 
+
+hung = all_data %>%
+  filter(!(participant %in% vowels_remove)) %>%
+  filter(exp == "vowels") %>% 
+  filter(l1 == "Spanish") %>% 
+  filter((participant %in% all_3_hu |participant %in% all_3_fr)) 
+
+model_hung = glmer(response ~ language + (language | participant), family = binomial(link = "logit"), data = hung)
+
+summary(model_hung)
+  
+fren = all_data %>%
+  filter(!(participant %in% vowels_remove)) %>%
+  filter(exp == "vowels") %>% 
+  filter((participant %in% all_3_fr)) 
+
+model_hung = glmer(response ~ language + (language | participant), family = binomial(link = "logit"), data = fren)

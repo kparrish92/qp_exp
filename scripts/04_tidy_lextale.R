@@ -36,7 +36,7 @@ score_lextale <- function(
 
 
 # Load english lextale data
-english_lextale <- read_csv("data/raw/lextale_english.csv")
+english_lextale <- read_csv(here("data", "raw", "lextale_english.csv"))
 
 
 # Load and tidy spanish lextale data 
@@ -106,9 +106,7 @@ desc_prof_plot = english_lextale %>%
 # join lextale data from both langauges with co_df
 
 co_df_prof = co_df %>% 
-  left_join(all_lextale, by = "participant") 
+  left_join(all_lextale, by = "participant") %>% 
+  write_csv(here("data", "tidy", "co_df_prof.csv"))
+ 
 
-
-     
-  
-    
