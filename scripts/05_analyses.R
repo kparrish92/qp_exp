@@ -383,9 +383,9 @@ t.test(q0_stops_sf$spanish, q0_stops_sf$l3, paired = TRUE)
 t.test(q0_stops_sh$english, q0_stops_sh$l3, paired = TRUE)
 t.test(q0_stops_sh$spanish, q0_stops_sh$l3, paired = TRUE)
 
+
+
 t.test(q0_stops_sf$l3, q0_stops_sh$l3)
-
-
 
 # English L1 group stops t.tests
 
@@ -451,7 +451,6 @@ t.test(q0_vowels_sf$spanish, q0_vowels_sh$spanish) # yes - p = .658
 t.test(q0_vowels_sf$l3, q0_vowels_sh$l3) # yes - p = .77
 
 
-tost(q0_vowels_sf$l3, q0_vowels_sh$l3) # yes - p = .77
 
 # -----------------------------------------------------------------------------
 

@@ -217,6 +217,7 @@ pooled_stops_el1_sl3 = apa_print(t.test(english_pooled_stops$l3, english_pooled_
 pooled_stops_el1_el3 = apa_print(t.test(english_pooled_stops$english, english_pooled_stops$l3, paired = TRUE))
 
 
+
 # put results of t.tests in df 
 
 spanish_english_ttests = 

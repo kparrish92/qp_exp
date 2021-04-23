@@ -1,28 +1,26 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Final Presentation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kyle Parrish" />
+    <link href="assets/remark-css-0.0.1/rutgers.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Final Presentation
+## DS4Ling Spring 2021
+### Kyle Parrish
+### Rutgers University</br>Spring 2021</br>Last update: 2021-04-22
+
 ---
-title: "Final Presentation"
-subtitle: 'DS4Ling Spring 2021'
-author  : "Kyle Parrish"
-date    : "Rutgers University</br>Spring 2021</br>Last update: `r Sys.Date()`"
-output:
-  xaringan::moon_reader:
-    lib_dir: assets
-    css: ["rutgers"]
-    nature:
-      beforeInit: 
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      ratio: "16:9"
----
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE, fig.height = 6, fig.width = 7)
-```
 
-```{r, echo=FALSE, include=FALSE}
-source(here::here("scripts", "07_manuscript_data.R"))
 
-```
+
+
 
 class: title-slide-section-grey, middle
 
@@ -34,11 +32,9 @@ class: title-slide-section-grey, middle
 
 # Overview 
 
-- This study examined how **Spanish-English bilinguals** perceive sounds in a **third language** when they are first exposed to it. 
+- This study examined how Spanish-English bilinguals perceive sounds in a third language when they are first exposed to it. 
 
-- The participants completed a 2-alternative forced choice task in which they **categorized two sound continua**
-  - a **vowel continuum** (from /i/ to /u/) 
-  - a **voicing continuum** (from /p/ to /b/)
+- The participants completed a 2-alternative forced choice task of two sound continua, a vowel continuum (from /i/ to /u/) and voicing continuum (from /p/ to /b/)
 
 ---
 
@@ -60,7 +56,7 @@ class: title-slide-section-grey, middle
 
 - Some models suggest that **only 1** language influences the L3 in the beginning of learning. 
 
- - The **L2 Status Factor** (Bardel & Falk, 2007) posits that the L2 influences the L3 by default
+ - The **L2 Status Factor** (Bardel &amp; Falk, 2007) posits that the L2 influences the L3 by default
 
  - The **Typological Primacy Model** (TPM; Rothman, 2011) suggests that either the L1 or L2, but not both, influence the L3
 
@@ -80,7 +76,7 @@ class: title-slide-section-grey, middle
 
 --
 
-- Voice Onset Time is a measurement in milliseconds of the onset of voicing (vibration of the vocal folds) in relation to the release (Lisker & Abramson, 1964)
+- Voice Onset Time is a measurement in milliseconds of the onset of voicing (vibration of the vocal folds) in relation to the release (Lisker &amp; Abramson, 1964)
 
  - Importantly, Spanish and English have distinct VOTs that correspond to /p/ and /b/. 
 
@@ -102,7 +98,7 @@ class: title-slide-section-grey, middle
 
 **Categorical perception and language mode** 
 
-- Previous studes (Casillas & Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales & Lotto, 2013) found that Spanish-English bilinguals categorized the same acoustic continuum differently when they believed they were hearing English as opposed to Spanish.  
+- Previous studes (Casillas &amp; Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales &amp; Lotto, 2013) found that Spanish-English bilinguals categorized the same acoustic continuum differently when they believed they were hearing English as opposed to Spanish.  
 
 --
 
@@ -118,7 +114,7 @@ class: title-slide-section-grey, middle
 
 - The steps on the continuum were implemented in the beginning of these words, so that the words presented ranged from pafri-bafri.
 
-- When they heard a step of the continuum, they had to choose which of the two words was either said (Casillas & Simonet, 2018; Gonzales & Lotto, 2013), or beginning to be said (Lozano-Argüelles et al., 2020).
+- When they heard a step of the continuum, they had to choose which of the two words was either said (Casillas &amp; Simonet, 2018; Gonzales &amp; Lotto, 2013), or beginning to be said (Lozano-Argüelles et al., 2020).
 
 --
 
@@ -138,7 +134,7 @@ class: title-slide-section-grey, middle
 
 **Comparisons to previous work**
 
-- The present study replicated the designs of previous work (Casillas & Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales & Lotto, 2013), but added a block to the experiment, and an extra continuum. 
+- The present study replicated the designs of previous work (Casillas &amp; Simonet, 2018; Lozano-Argüelles et al., 2020, Gonzales &amp; Lotto, 2013), but added a block to the experiment, and an extra continuum. 
 
 --
 
@@ -191,24 +187,24 @@ Based on the finding that Spanish-English bilinguals show evidence of language s
 
 # Participants 
 
-A total of `r language_n_man %>% pull(en)` participants took part in at least one experiment.
+A total of 100 participants took part in at least one experiment.
 
 --
 
-One group of participants spoke English as a first language and Spanish as a second language (**the ES group**, n =  `r per_group %>% pull(English)`)
+One group of participants spoke English as a first language and Spanish as a second language (**the ES group**, n =  36)
 
 --
 
-Another group spoke Spanish as their first language and English as their second (**the SE group**, n = `r per_group %>% pull(Spanish)`). 
+Another group spoke Spanish as their first language and English as their second (**the SE group**, n = 55). 
 
 --
 
-The SE and ES group were then assigned either Hungarian (in the ES group, n = `r m_all_3_hu %>% pull(English)` 
-and in the SE group, n =  `r m_all_3_hu %>% pull(Spanish)`).
+The SE and ES group were then assigned either Hungarian (in the ES group, n = 17 
+and in the SE group, n =  31).
 
 --
 
-or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE group, n = `r m_all_3_fr %>% pull(Spanish)`). 
+or French (in the ES group, n = 17 and in the SE group, n = 18). 
 
 ---
 
@@ -230,12 +226,15 @@ or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE g
 
 - The column `co` stands for crossover 
 
-```{r}
-head(co_df, 6) %>% 
-  knitr::kable()
 
-
-```
+|participant              |exp    |language  |  intercept|      slope|         co|l1      |
+|:------------------------|:------|:---------|----------:|----------:|----------:|:-------|
+|563bb259be9cac0005aab7ab |stops  |english   |  0.0440108|   1.796035| -0.0245044|Spanish |
+|563bb259be9cac0005aab7ab |stops  |hungarian |  0.4510420|   2.553144| -0.1766614|Spanish |
+|563bb259be9cac0005aab7ab |stops  |spanish   |  0.0472221|   1.609044| -0.0293479|Spanish |
+|563bb259be9cac0005aab7ab |vowels |english   | 28.5009940| 497.946894| -0.0572370|Spanish |
+|563bb259be9cac0005aab7ab |vowels |hungarian |  5.5467414|  50.813882| -0.1091580|Spanish |
+|563bb259be9cac0005aab7ab |vowels |spanish   | 52.1499479| 495.620000| -0.1052216|Spanish |
 
 ---
 
@@ -265,7 +264,7 @@ class: title-slide-section-grey, middle
 
  - The English L1 group showed a double phonemic boundary effect in stops (t(24)=2.24, p=.035*), but not in vowels (t(35)=-0.72, p=.477). 
 
- - The Spanish L1 group showed evidence of the double phonemic boundary in both stops (t(51)=3.13, p=.003) and vowels (t(49)=3.77, p<.001)
+ - The Spanish L1 group showed evidence of the double phonemic boundary in both stops (t(51)=3.13, p=.003) and vowels (t(49)=3.77, p&lt;.001)
 
 ---
 
@@ -277,17 +276,7 @@ class: title-slide-section-grey, middle
 
 - A small effect can be seen in the Spanish L1 group (right graph)
 
-```{r}
-
-all_data %>% 
-  filter(exp == "vowels", !(participant %in% vowels_remove)) %>% 
-  filter(language == "english"| language == "spanish") %>% 
-  ggplot(., aes(x = step_cont, y = response, color = language)) +
-  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
-  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 2: Spanish/English vowel boundaries per L1 group") 
-
-```
+![](index_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -299,17 +288,7 @@ Figure 3 shows the categorizations of stops in both L1 groups.
 
 Both groups showed evidence of a double phonemic boundary in stops. 
 
-```{r}
-
-all_data %>% 
-  filter(exp == "stops", !(participant %in% stops_remove)) %>% 
-  filter(language == "english"| language == "spanish") %>% 
-  ggplot(., aes(x = step_cont, y = response, color = language)) +
-  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
-  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 3: Spanish/English Stop boundaries per L1 group") 
-
-```
+![](index_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -375,7 +354,7 @@ The same trend was observed in stops
 
 L1 and L3 categorizations were **not** significantly distinct
 
-L1 - L2 (t(44)=3.88, p<.001*) 
+L1 - L2 (t(44)=3.88, p&lt;.001*) 
 
 L1 - L3 (t(44)=0.44, p=.664)
 
@@ -411,19 +390,7 @@ This finding suggests that the English L1 group shows L2 status effects and tren
 
 This plot shows the Spanish L1 groups categorization of vowels in the L1, the L2 and the L3. 
 
-```{r}
-
-all_data %>% 
-  filter(exp == "vowels", !(participant %in% vowels_remove)) %>% 
-  filter(l1 == "Spanish") %>% 
-  mutate(language = ifelse(as.character(language) == "french", "l3", as.character(language))) %>% 
-  mutate(language = ifelse(as.character(language) == "hungarian", "l3", as.character(language))) %>% 
-  ggplot(., aes(x = step_cont, y = response, color = language)) +
-  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
-  facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 4: Spanish L1 group pooled vowels") 
-
-```
+![](index_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -433,20 +400,7 @@ all_data %>%
 
 This plot shows the Spanish L1 groups categorization of stops in the L1, the L2 and the L3. 
 
-```{r}
-
-all_data %>% 
-  filter(exp == "stops", !(participant %in% stops_remove)) %>% 
-  filter(l1 == "Spanish") %>% 
-  mutate(language = ifelse(as.character(language) == "french", "l3", as.character(language))) %>% 
-  mutate(language = ifelse(as.character(language) == "hungarian", "l3", as.character(language))) %>% 
-  ggplot(., aes(x = step_cont, y = response, color = language)) +
-  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
-  facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
-  ggtitle("Figure 5: Spanish L1 group pooled stops") 
-
-
-```
+![](index_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -471,4 +425,128 @@ class: title-slide-section-grey, middle
 --
 
 - L3 groups did not categorize continua differently.
- - When participants had the same L1, no group-level differences were found when groups were told they were hearing Hungarian and French  
+ - When participants had the same L1, no group-level differences were found when groups were told they were hearing Hungarian and French
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

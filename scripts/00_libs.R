@@ -12,4 +12,4 @@ library("patchwork")
 library("lme4")
 library("broom")
 library("papaja")
-library("equivalence")
+
