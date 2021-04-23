@@ -85,7 +85,7 @@ language_ids <- list(
   sp = sp$participant %>% unique, 
   hu = hu$participant %>% unique, 
   fr = fr$participant %>% unique
-  ) 
+) 
 
 # First we get IDs of participants that completed Spanish and English (RQ0)
 en_sp_complete_cases <- en %>% 
@@ -162,8 +162,8 @@ missing_ids <- read_csv(here("data", "raw", "lhq", "prolifictolhq.csv")) %>%
   select(l1, l2, participant, prolific = prolific_id) 
 
 lhq <- bind_rows(lhq_main, missing_ids) %>%
-   filter(nchar(as.character(prolific)) == 24) %>% 
-   select(l1, l2, participant = prolific)
+  filter(nchar(as.character(prolific)) == 24) %>% 
+  select(l1, l2, participant = prolific)
 
 
 # How many of the participants we need are missing from the lhq dataframe?
