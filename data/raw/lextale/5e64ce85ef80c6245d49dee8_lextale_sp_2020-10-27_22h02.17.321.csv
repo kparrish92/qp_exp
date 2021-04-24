@@ -1,0 +1,89 @@
+lextale_instructions_loop.thisRepN,lextale_instructions_loop.thisTrialN,lextale_instructions_loop.thisN,lextale_instructions_loop.thisIndex,lextale_instructions_loop.ran,instructions_text,continue_text,participant,session,date,expName,psychopyVersion,OS,frameRate,key_resp_lextale_practice.keys,key_resp_lextale_practice.corr,key_resp_lextale_practice.rt,lextale_practice_trials.thisRepN,lextale_practice_trials.thisTrialN,lextale_practice_trials.thisN,lextale_practice_trials.thisIndex,lextale_practice_trials.ran,stim,word,correct_response,prac_button_real,prac_button_false,key_resp_lextale_trial.keys,key_resp_lextale_trial.corr,key_resp_lextale_trial.rt,lextail_trials.thisRepN,lextail_trials.thisTrialN,lextail_trials.thisN,lextail_trials.thisIndex,lextail_trials.ran,button_real,button_false
+0,0,0,0,1,"Este es un test de vocabulario en español. 
+  
+  A continuación vas a ver 90 secuencias de letras que parecen 'españolas'.
+  
+  Solo algunas de ellas son palabras de verdad.",(presiona la barra espaciadora para continuar),5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,,,,,,,,,,,
+0,1,1,1,1,"Por favor, señala las palabras que tú conoces (aquellas que estás convencido que son palabras españolas, incluso aunque no seas capaz de dar el significado preciso).",(presiona la barra espaciadora para continuar),5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,,,,,,,,,,,
+0,2,2,2,1,Pero cuidado: los errores se penalizan. Por eso no tiene sentido tratar de incrementar tu puntuación marcando como reales palabras que nunca has visto.,(presiona la barra espaciadora para continuar),5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,,,,,,,,,,,
+0,3,3,3,1,"Presiona la tecla 1 si piensas que es una palabra real y la tecla 
+  0 si piensas que es una palabra falsa. 
+  
+  Vamos a practicar un poco...",(presiona la barra espaciadora para continuar),5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,1,0,1.09912,0,0,0,0,1,0,depiste,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,1,1,0.88824,0,1,1,1,1,0,sí,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,0.88282,0,2,2,2,1,0,coné,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,1.075035,0,3,3,3,1,0,calpar,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,0.66707,0,4,4,4,1,0,joten,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,1,1,0.694185,0,5,5,5,1,0,sacapuntas,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,0.816345,0,6,6,6,1,0,priba,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,2.06734,0,7,7,7,1,0,pelasula,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,1,1,0.73313,0,8,8,8,1,0,bien,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,1,1,0.693215,0,9,9,9,1,0,casa,1,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,0.701595,0,10,10,10,1,0,lejo,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,0,1,1.632975,0,11,11,11,1,0,pretantas,0,REAL,FALSA,,,,,,,,,,
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,39,torpe,1,,,1,1,1.04985,0,0,0,38,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,61,seda,1,,,1,1,0.976115,0,1,1,60,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,76,atar,1,,,1,1,0.619495,0,2,2,75,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,40,alfombra,1,,,1,1,0.85308,0,3,3,39,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,52,camisa,1,,,1,1,0.81707,0,4,4,51,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,9,hacha,1,,,1,1,1.20019,0,5,5,8,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,8,cadeña,0,,,0,1,0.83789,0,6,6,7,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,32,fatacidad,0,,,0,1,0.98399,0,7,7,31,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,87,grodo,0,,,0,1,0.821475,0,8,8,86,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,27,acutación,0,,,0,1,1.00519,0,9,9,26,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,81,pozo,1,,,1,1,0.82179,0,10,10,80,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,33,pauca,0,,,0,1,0.851725,0,11,11,32,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,11,cenefa,1,,,1,1,0.758765,0,12,12,10,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,68,alegre,1,,,1,1,0.858735,0,13,13,67,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,50,flamida,0,,,0,1,1.455805,0,14,14,49,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,29,decar,0,,,0,1,0.8015,0,15,15,28,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,56,musgo,1,,,1,1,0.900545,0,16,16,55,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,49,ganar,1,,,1,1,0.78199,0,17,17,48,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,19,brecedad,0,,,0,1,0.6831,0,18,18,18,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,7,pésimo,1,,,1,1,0.787375,0,19,19,6,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,85,laúd,1,,,1,1,1.16905,0,20,20,84,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,28,merodear,1,,,1,1,0.83367,0,21,21,27,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,78,frondoso,1,,,1,1,0.95078,0,22,22,77,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,51,candado,1,,,1,1,1.099505,0,23,23,50,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,5,zapato,1,,,1,1,0.726985,0,24,24,4,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,84,escuto,0,,,0,1,0.937645,0,25,25,83,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,20,ávido,1,,,1,1,1.48256,0,26,26,19,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,14,yunque,1,,,1,1,0.603235,0,27,27,13,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,26,secuestro,1,,,1,1,0.6348,0,28,28,25,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,48,ladrón,1,,,1,1,0.66585,0,29,29,47,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,86,barato,1,,,1,1,0.76511,0,30,30,85,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,74,cintro,0,,,0,1,0.916395,0,31,31,73,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,57,tacaño,1,,,1,1,0.799985,0,32,32,56,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,89,prisa,1,,,1,1,0.951165,0,33,33,88,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,2,pellizcar,1,,,1,1,0.61034,0,34,34,1,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,62,flaco,1,,,1,1,0.53391,0,35,35,61,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,55,nevar,1,,,1,1,0.583865,0,36,36,54,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,10,antar,0,,,0,1,0.767595,0,37,37,9,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,37,granuja,1,,,1,1,1.649325,0,38,38,36,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,43,canela,1,,,1,1,0.999805,0,39,39,42,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,63,esposante,0,,,0,1,0.800355,0,40,40,62,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,3,pulmones,1,,,1,1,0.635235,0,41,41,2,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,83,guante,1,,,1,1,0.616955,0,42,42,82,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,16,abracer,0,,,0,1,1.433165,0,43,43,15,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,73,hervidor,1,,,0,0,0.84255,0,44,44,72,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,22,lacayo,1,,,1,1,0.73296,0,45,45,21,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,79,tropaje,0,,,0,1,0.83322,0,46,46,78,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,67,cabello,1,,,1,1,0.70079,0,47,47,66,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,24,látigo,1,,,1,1,0.599925,0,48,48,23,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,70,temblo,0,,,0,1,0.83438,0,49,49,69,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,53,vegada,0,,,0,1,0.71907,0,50,50,52,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,4,batillón,0,,,0,1,0.849105,0,51,51,3,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,77,tiburón,1,,,1,1,0.684535,0,52,52,76,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,44,cuchara,1,,,1,1,1.433525,0,53,53,43,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,21,capillo,0,,,0,1,0.999095,0,54,54,20,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,42,cadallo,0,,,0,1,0.803975,0,55,55,41,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,15,regar,1,,,1,1,0.86803,0,56,56,14,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,90,clavel,1,,,1,1,0.76647,0,57,57,89,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,58,plaudir,0,,,0,1,0.747285,0,58,58,57,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,54,fomentar,1,,,1,1,0.772725,0,59,59,53,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,34,aviso,1,,,1,1,0.537805,0,60,60,33,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,45,jilguero,1,,,1,1,1.000545,0,61,61,44,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,69,engatusar,1,,,1,1,1.117535,0,62,62,68,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,47,cartinar,0,,,0,1,1.017345,0,63,63,46,1,REAL,FALSA
+,,,,,,,5e64ce85ef80c6245d49dee8,001,2020-10-27_22h02.17.321,lextale_sp,2020.2.3,Win32,60,,,,,,,,,17,floroso,0,,,1,0,0.61742,0,64,64,16,1,REAL,FALSA

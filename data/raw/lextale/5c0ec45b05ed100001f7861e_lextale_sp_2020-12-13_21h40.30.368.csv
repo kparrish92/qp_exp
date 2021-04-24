@@ -1,0 +1,19 @@
+lextale_instructions_loop.thisRepN,lextale_instructions_loop.thisTrialN,lextale_instructions_loop.thisN,lextale_instructions_loop.thisIndex,lextale_instructions_loop.ran,instructions_text,continue_text,participant,session,date,expName,psychopyVersion,OS,frameRate,key_resp_lextale_practice.keys,key_resp_lextale_practice.corr,key_resp_lextale_practice.rt,lextale_practice_trials.thisRepN,lextale_practice_trials.thisTrialN,lextale_practice_trials.thisN,lextale_practice_trials.thisIndex,lextale_practice_trials.ran,stim,word,correct_response,prac_button_real,prac_button_false
+0,0,0,0,1,"Este es un test de vocabulario en español. 
+  
+  A continuación vas a ver 90 secuencias de letras que parecen 'españolas'.
+  
+  Solo algunas de ellas son palabras de verdad.",(presiona la barra espaciadora para continuar),5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,
+0,1,1,1,1,"Por favor, señala las palabras que tú conoces (aquellas que estás convencido que son palabras españolas, incluso aunque no seas capaz de dar el significado preciso).",(presiona la barra espaciadora para continuar),5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,
+0,2,2,2,1,Pero cuidado: los errores se penalizan. Por eso no tiene sentido tratar de incrementar tu puntuación marcando como reales palabras que nunca has visto.,(presiona la barra espaciadora para continuar),5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,
+0,3,3,3,1,"Presiona la tecla 1 si piensas que es una palabra real y la tecla 
+  0 si piensas que es una palabra falsa. 
+  
+  Vamos a practicar un poco...",(presiona la barra espaciadora para continuar),5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,,,,,,,,,,,,,
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,1,0,15.070715,0,0,0,0,1,0,depiste,0,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,0,0,5.324815,0,1,1,1,1,0,sí,1,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,0,1,1.92177,0,2,2,2,1,0,coné,0,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,0,1,0.25613,0,3,3,3,1,0,calpar,0,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,1,0,0.021985,0,4,4,4,1,0,joten,0,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,0,0,0.02153,0,5,5,5,1,0,sacapuntas,1,REAL,FALSA
+,,,,,,,5c0ec45b05ed100001f7861e,001,2020-12-13_21h40.30.368,lextale_sp,2020.2.3,Win32,60,1,0,0.034905,0,6,6,6,1,0,priba,0,REAL,FALSA
