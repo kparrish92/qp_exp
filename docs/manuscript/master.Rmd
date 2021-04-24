@@ -1,6 +1,6 @@
 ---
-title             : "The categorization of L3 sounds in Spanish/English bilinguals at the very initial stage of L3 acquisition"
-shorttitle        : "The categorization of L3 sounds in Spanish/English bilinguals"
+title             : "The categorization of L3 sounds in Spanish/English bilinguals during the initial stage of L3 acquisition"
+shorttitle        : "Categorization of L3 sounds in Spanish/English bilinguals"
 
 author: 
   - name          : "Kyle Parrish"
