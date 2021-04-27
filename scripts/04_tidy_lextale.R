@@ -97,11 +97,19 @@ desc_prof = english_lextale %>%
   group_by(L1) %>% 
   summarise(`Mean LEXtale Score` = mean(score), `SD` = sd(score), n = n())
 
+desc_prof %>% 
+  write.csv(here("data", "tidy", "desc_prof.csv"))
+
 desc_prof_plot = english_lextale %>% 
   mutate(L1 = "Spanish") %>%
   rbind(spanish_bind2) %>% 
   filter((participant %in% all_data$participant)) %>% 
   filter(score > 60)
+
+desc_prof_plot %>% 
+  write.csv(here("data", "tidy", "desc_prof_plot.csv"))
+
+
 
 # join lextale data from both langauges with co_df
 

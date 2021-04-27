@@ -7,6 +7,34 @@
 
 #------------------------------------------------------------------------------
 
+# 
+stops_remove <- c(
+  "5b67bffa9ed653000189ff3c", 
+  "5c8be0dd542fbd0016924f5f", 
+  "5cf83992bab656000198a9c6", 
+  "5dab79a5525a7600139cd31e", 
+  "5ed39d114858d002a0691781", 
+  "5ef34cc943115906d6aa397f", 
+  "5f4056738318181904984b01", 
+  "5f5f5013f947f6000bd8ddcb", 
+  "5fa0bf0afbd42f13cf56e987", 
+  "5f174566f589920a8ba7e2df",
+  "5e9546ebbc08e21354f19f4d",
+  "5d3df88c6a5b1e0001a91d8d",
+  "5f3344917a7a0b159bd0c375",
+  "5fad49057daf5f0162284e86"
+)
+
+#
+
+vowels_remove <- c(
+  "5ec5a561c1172f5f55cfb425", 
+  "5ee579ecd4169f2bee94041e", 
+  "5f3020ed291f7344af6d82e1", 
+  "5f641323fc170219bf367bb9",
+  "5fa379c756d0fe67b022823b"
+)
+
 
 
 
@@ -14,17 +42,13 @@
 # Source libs, helpers, and load data -----------------------------------------
 
 source(here::here("scripts", "00_libs.R"))
-source(here("scripts", "01_tidy2afc.R"))
-source(here("scripts", "02_load_data.R"))
-source(here("scripts", "03_crossover.R"))
-source(here("scripts", "04_tidy_lextale.R"))
-source(here("scripts", "05_analyses.R"))
+
 
 #------------------------------------------------------------------------------
 
 # desc info with co 
 
-desc_vowels = rbind(q0_vowels_ef, q0_vowels_eh, q0_vowels_sh, q0_vowels_sf) %>%
+desc_vowels = read.csv(here("data", "tidy", "desc_vowels.csv")) %>%
   unite("group", l1, l3_group, sep="_") %>% 
   group_by(group) %>% 
   summarise(`Mean English Crossover` = mean(english), 
@@ -34,7 +58,7 @@ desc_vowels = rbind(q0_vowels_ef, q0_vowels_eh, q0_vowels_sh, q0_vowels_sf) %>%
             `Mean L3 Crossover` = mean(l3),
             `SD L3` = sd(l3), n = n())
 
-desc_stops = rbind(q0_stops_ef, q0_stops_eh, q0_stops_sh, q0_stops_sf) %>%
+desc_stops = read.csv(here("data", "tidy", "desc_stops.csv")) %>%
   unite("group", l1, l3_group, sep="_") %>% 
   group_by(group) %>% 
   summarise(`Mean English Crossover` = mean(english), 
@@ -43,19 +67,12 @@ desc_stops = rbind(q0_stops_ef, q0_stops_eh, q0_stops_sh, q0_stops_sf) %>%
             `SD Spanish` = sd(spanish),
             `Mean L3 Crossover` = mean(l3),
             `SD L3` = sd(l3), n = n())
-
-
-
-
-# 
-
-# model_svowels
-
-apa_svowels <- apa_print(model_svowels5)
 
 
 # Get small data --------------------------------------------------------------
 
+
+language_n = read.csv(here("data", "tidy", "language_n.csv"))
 
 n = sum(language_n$n)
 
@@ -63,51 +80,20 @@ language_n_man = language_n %>%
   pivot_wider(values_from = n, names_from = language)
 
 
+all_data = read.csv(here("data", "tidy", "all_2afc.csv"))
+
 per_group = all_data %>% 
   .[!duplicated(all_data$participant), ] %>% 
   group_by(l1) %>%
   summarise(n = n()) %>% 
   pivot_wider(values_from = n, names_from = l1) 
 
-# removed participants for low-effort submission - reformatting for manuscript
+# load data 
+m_english_removed_stops = read.csv(here("data", "tidy", "m_english_removed_stops.csv"))
+m_spanish_removed_stops = read.csv(here("data", "tidy", "m_spanish_removed_stops.csv"))
+m_french_removed_stops = read.csv(here("data", "tidy", "m_french_removed_stops.csv"))
+m_hungarian_removed_stops = read.csv(here("data", "tidy", "m_hungarian_removed_stops.csv"))
 
-# English - 
-en_removed_stops = tibble(en_stops_remove) %>% 
-  mutate(n = 1)
-
-m_english_removed_stops = sum(en_removed_stops$n) %>% 
-  tibble() %>% 
-  rename(., n = .)
-
-# Spanish
-
-sp_removed_stops = tibble(sp_stops_remove) %>% 
-  mutate(n = 1)
-
-m_spanish_removed_stops = sum(sp_removed_stops$n) %>% 
-  tibble() %>% 
-  rename(., n = .)
-
-# french
-
-
-fr_removed_stops = tibble(fr_stops_remove) %>% 
-  mutate(n = 1)
-
-m_french_removed_stops = sum(fr_removed_stops$n) %>% 
-  tibble() %>% 
-  rename(., n = .)
-
-
-# hungarian 
-
-
-hu_removed_stops = tibble(hu_stops_remove) %>% 
-  mutate(n = 1)
-
-m_hungarian_removed_stops = sum(hu_removed_stops$n) %>% 
-  tibble() %>% 
-  rename(., n = .)
 
 # ------------------------------------------------------------------------------
 
@@ -122,8 +108,9 @@ id_list = all_data %>%
 # groups for manuscript 
 
 # French for both Eng and Span L1
-m_all_3_fr = tibble(all_3_fr) %>%
-  rename(., participant = all_3_fr) %>% 
+m_all_3_fr = 
+  read.csv(here("data", "tidy", "all_3_fr.csv")) %>%
+  rename(., participant = .) %>% 
   left_join(id_list, by = "participant") %>% 
   group_by(l1) %>% 
   summarise(n = n()) %>% 
@@ -131,14 +118,30 @@ m_all_3_fr = tibble(all_3_fr) %>%
 
 # Hungarian for both Eng and Span L1 
 
-m_all_3_hu = tibble(all_3_hu) %>%
-  rename(., participant = all_3_hu) %>% 
+m_all_3_hu = 
+  read.csv(here("data", "tidy", "all_3_hu.csv")) %>%
+  rename(., participant = .) %>% 
   left_join(id_list, by = "participant") %>% 
   group_by(l1) %>% 
   summarise(n = n()) %>% 
   pivot_wider(values_from = n, names_from = l1) 
 
 #-------------------------------------------------------------------------------
+
+# Load t-test data 
+
+q0_vowels_s = read.csv(here("data", "tidy", "subsets", "q0_vowels_s.csv"))
+q0_vowels_e = read.csv(here("data", "tidy", "subsets", "q0_vowels_e.csv"))
+q0_stops_s = read.csv(here("data", "tidy", "subsets", "q0_stops_s.csv"))
+q0_stops_e = read.csv(here("data", "tidy", "subsets", "q0_stops_e.csv"))
+q0_vowels_sh = read.csv(here("data", "tidy", "subsets", "q0_vowels_sh.csv"))
+q0_vowels_eh = read.csv(here("data", "tidy", "subsets", "q0_vowels_eh.csv"))
+q0_vowels_ef = read.csv(here("data", "tidy", "subsets", "q0_vowels_ef.csv"))
+q0_vowels_sf = read.csv(here("data", "tidy", "subsets", "q0_vowels_sf.csv"))
+q0_stops_sh = read.csv(here("data", "tidy", "subsets", "q0_stops_sh.csv"))
+q0_stops_eh = read.csv(here("data", "tidy", "subsets", "q0_stops_eh.csv"))
+q0_stops_sf = read.csv(here("data", "tidy", "subsets", "q0_stops_sf.csv"))
+q0_stops_ef = read.csv(here("data", "tidy", "subsets", "q0_stops_ef.csv"))
 
 # T.tests for results section 
 

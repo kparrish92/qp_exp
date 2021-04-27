@@ -5,8 +5,8 @@
 A total of `r language_n_man %>% pull(en)` participants took part in at least one experiment of the study and were recruited on the online platform Prolific. A total of 16 participants did not complete all blocks of the experiment, and their data was removed from the final analysis, resulting in a total of 84 participants who completed all portions of the experiment. 
 In order to tease apart L2 status effects from CLI brought about by typological similarity across languages, participants were recruited with both orders of acquisition. 
 That is, one group of participants spoke English as a first language and Spanish as a second language (the ES group, n =  `r per_group %>% pull(English)`, and another group spoke Spanish as their first language and English as their second (the SE group, n = `r per_group %>% pull(Spanish)`). Participants were screened prior to taking part in the study such that their age of onset was greater than 12 years old. 
-Then, in order to examine how the same groups of bilinguals categorize different L3s, the SE and ES group were then assigned either Hungarian (in the ES group, n = `r m_all_3_hu %>% pull(English)` and in the SE group, n = 
-`r m_all_3_hu %>% pull(Spanish)`) or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE group, n = `r m_all_3_fr %>% pull(Spanish)`). <!-- Throw "randomly" in there somewhere --> 
+Then, in order to examine how the same groups of bilinguals categorize different L3s, the SE and ES group were then randomly assigned either Hungarian (in the ES group, n = `r m_all_3_hu %>% pull(English)` and in the SE group, n = 
+`r m_all_3_hu %>% pull(Spanish)`) or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE group, n = `r m_all_3_fr %>% pull(Spanish)`). 
 In order to assess whether participants were eligible to take part in the study, a screening process was carried out in prolific which involved the Language History Questionnaire [@li_language_2020], and a proficiency test in the participant's L2. 
 Speakers who reported knowing a third language or who scored below 60% on the lexTALE proficiency test were deemed ineligible for the study, and were not permitted to continue. 
 
@@ -18,11 +18,14 @@ The data of `r m_english_removed_stops %>% pull(n)` participants were removed fo
 The experiment was composed of 5 total blocks. 
 An itemized version of the Language History Questionnaire [@li_language_2020] was given to participants and asked their first language, second language, and the age at which they began learning their L2. 
 The measure of L2 proficiency, the lexTALE [@izura_lexical_2016; @lemhofer_lexical_2016], was given in Spanish to the ES group and English to the SE group. 
-The lexTALE is a lexical decision task in which the participants are presented with either a word or a non-word, and they must decide whether the word presented is a real word or a non-word. <!-- I guess there is nothing wrong with this sentence but the repetition is a bit undesirable --> 
+The lexTALE is a lexical decision task in which the participants are presented with either a word or a non-word, and they must decide whether the word presented exists in that language.
 Both the Spanish and English versions are scored in the same manner, and allow for comparability of proficiency across groups. Both versions contain 60 words total, 40 of which are real words and 20 of which are non-words. A formula then calculates a score based on the percentage of real words correct plus the percentage of non-words correct divided by 2. Table 1 is a table of descriptive statistics which shows the mean lexTALE score per L1 group. As the table shows, the Spanish L1 group was more proficient in their L2 on average than the English L1 group. <!-- Give me the numbers in prose too --> 
 Figure 1 shows a graphical relationship of the distribution of proficiency scores per L1 group. <!-- Did you do any test on the scores? You will be asked about this for sure. I ideally you want them to have similar proficiency. You need a test of equivalence (TOST) --> 
 
 ```{r}
+
+desc_prof = read.csv(here("data", "tidy", "desc_prof.csv"))
+
 apa_table(
   desc_prof
   , caption = "Descriptive Statistics of proficiency per L1 group"
@@ -32,6 +35,9 @@ apa_table(
 ```
 
 ```{r}
+
+
+desc_prof_plot = read.csv(here("data", "tidy", "desc_prof_plot.csv"))
 
 desc_prof_plot %>% 
         ggplot(., aes(x = L1, y = score)) + geom_point(alpha = .35, color = "seagreen") + stat_summary(fun.data = mean_sdl, geom = "pointrange", pch = 21, 
@@ -50,16 +56,16 @@ As in previous studies, the instructions contained no instances of the experimen
 The 2afc tested the perception of the same two continua (a /p/-/b/ VOT continuum and a /i/-/u/ F2 continuum) in three different language modes: English, Spanish and the L3 (either Hungarian or French). The VOT continuum has been used in previous studies [@lozano-arguelles_conceptually_2020; @gonzales_how_2019] and were created from a recording by a female Spanish-English bilingual. The original VOT continuum contained the word "pafri" and "bafri". The recording was resynthesized and ranged in VOT from -35ms to 35ms, excluding a 0 VOT step. In the present study, three additional steps were added on the positive end of the scale in order to increase the chances of /p/ responses at the positive extreme of the continuum, such that steps of 40ms, 45ms, and 50ms were included and made a total of 17 total steps. <!-- Explain how you did this --> 
 
 The stimuli come from a female native bilingual (Spanish-English) and have been used in previous studies [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020], range from *paf*-*baf*. <!-- this seems like an incomplete sentence (and you said most of it in the previous paragraph) -->
-Just as in @lozano-arguelles_conceptually_2020, the present study will conceptually cue participants, and will not utilize the language specific rhotics used in the second syllable @gonzales_bafri_2013 and @casillas_perceptual_2018. <!-- past tense --> 
+Just as in @lozano-arguelles_conceptually_2020, the present study conceptually cued participants, and did not utilize the language specific rhotics used in @gonzales_bafri_2013 and @casillas_perceptual_2018. 
 
-The vowel continua were created using productions of the pseudowords "ifri" and "ufri" by a male American English speaker. These natural productions were then resynthesized using a PRAAT script which manipulated the second formant while holding the other steps in the continuum constant. <!-- I think you mean holding the other formants constant --> 
+The vowel continua were created using productions of the pseudowords "ifri" and "ufri" by a male American English speaker. These natural productions were then resynthesized using a PRAAT script which manipulated the second formant while holding the other formants constant. 
 Just as was done with the stop continuum, only the first syllable together with [f] were produced in each stimulus to avoid perceptual cueing. As a result, the stimuli, ranging from "if" to "uf" varied only by the second formant (F2: a correlate for frontedness in the vowel space) in a total of 11 steps. 
 
 During the 2afc task, participants saw both the words *pafri* and *bafri* or language specific versions of *ifri* and *ufri* on the screen and just the first syllable of these words in which the initial consonant was a member of the continuum ("paf" or "baf" for vowels, "if" or "uf" for vowels). 
 Each step of the continuum was played 5 times total, leading to a total of 85 trials in the VOT continuum per participant and 55 total trials in the stop continuum. <!-- vowel continuum --> 
 Each trial was drawn randomly from the continuum in a single block, so no participant heard the same stimulus order. 
 Due to language specific differences in vowel space, the non-words on screen were distinct orthographically in each language, with the exception of French and Spanish. <!-- I think you are referring to language-specific orthographic differences --> 
-In Spanish and French, the participants saw *ifri* and *ufri* on the screen, in English they say *eefri* and *oofri*, and in Hungarian, they say *ifrelo* and *ufrelo*. <!-- You might need to add another sentence here to explain why this was necessary. --> 
+In Spanish and French, the participants saw *ifri* and *ufri* on the screen, in English they saw *eefri* and *oofri*, and in Hungarian, they saw *ifrelo* and *ufrelo*. This spelling difference was necessary because of the orthographic conventions in the realizations of similar sounds between English and Spanish. For example, the Spanish grapheme "u" and the English graphemes "oo" are similar in their acoustic realizations. On the other hand, the choice of spelling in the French and Hungarian stimuli were made to reflect that high degree of lexical overlap between Spanish and French, and to reinforce the ambiguous relationship between Hungraian and English or Spanish.
  
 
 ## Procedure
