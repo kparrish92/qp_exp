@@ -220,93 +220,31 @@ pooled_stops_el1_sl3 = apa_print(t.test(english_pooled_stops$l3, english_pooled_
 pooled_stops_el1_el3 = apa_print(t.test(english_pooled_stops$english, english_pooled_stops$l3, paired = TRUE))
 
 
-
-# put results of t.tests in df 
-
-spanish_english_ttests = 
-  tibble(sl1ves$statistic,el1ves$statistic,sl1ses$statistic,el1ses$statistic) %>% 
-  pivot_longer(c(`sl1ves$statistic`, `el1ves$statistic`, `el1ses$statistic`, `sl1ses$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("Spanish L1", "English L1", "Spanish L1", "English L1")) %>% 
-  mutate(Feature = c("Vowels", "Vowels", "Stops", "Stops")) %>% 
-  mutate(Pairing = c("English-Spanish", "English-Spanish", "English-Spanish", "English-Spanish"))
+# Proficiency TOST 
 
 
+all_lextale_tidy = read.csv(here("data", "tidy", "co_df_prof.csv")) %>% 
+  filter(!(participant %in% vowels_remove)) %>%
+  filter(!(participant %in% stops_remove)) %>%
+  dplyr::select(l1, score, participant)
 
-es_pergroup_vowels = tibble(sl1hes$statistic, sl1fes$statistic, el1fes$statistic, el1hes$statistic) %>%
-  pivot_longer(c(`sl1hes$statistic`, `sl1fes$statistic`, `el1fes$statistic`, `el1hes$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("Spanish L1", "Spanish L1", "English L1", "English L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Spanish", "English-Spanish", "English-Spanish", "English-Spanish"))
+all_lextale_tidy = all_lextale_tidy %>% 
+  .[!duplicated(all_lextale_tidy$participant), ] %>% 
+  pivot_wider(names_from = l1, values_from = score)
 
+eng_lextale = all_lextale_tidy %>% 
+  filter(!is.na(English))
 
-es_pergroup_stops = tibble(sl1hess$statistic,sl1fess$statistic,el1fess$statistic,
-                           el1hess$statistic) %>%
-  pivot_longer(c(`sl1hess$statistic`, `sl1fess$statistic`, `el1fess$statistic`, `el1hess$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("Spanish L1", "Spanish L1", "English L1", "English L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Spanish", "English-Spanish", "English-Spanish", "English-Spanish"))
-
-# -------------------------------------------------------------------------------
-
-span_ttests_v = tibble(sl1veh$statistic,sl1vef$statistic,sl1vsf$statistic,
-                         sl1vsh$statistic) %>%
-  pivot_longer(c(`sl1veh$statistic`, `sl1vef$statistic`, `sl1vsf$statistic`, `sl1vsh$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("Spanish L1", "Spanish L1", "Spanish L1", "Spanish L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Hungarian", "English-French", "Spanish-French", "Spanish-Hungarian"))
+span_lextale = all_lextale_tidy %>% 
+  filter(!is.na(Spanish))
 
 
-
-span_ttests_s = tibble(sl1seh$statistic,sl1sef$statistic,sl1ssf$statistic,
-                       sl1ssh$statistic) %>%
-  pivot_longer(c(`sl1seh$statistic`, `sl1sef$statistic`, `sl1ssf$statistic`, `sl1ssh$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("Spanish L1", "Spanish L1", "Spanish L1", "Spanish L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Hungarian", "English-French", "Spanish-French", "Spanish-Hungarian"))
+englexmean = mean(eng_lextale$English)
+englexsd = sd(eng_lextale$English)
+spanlexmean = mean(span_lextale$Spanish)
+spanlexsd = sd(span_lextale$Spanish)
 
 
-# -------------------------------------------------------------------------------------------
-
-eng_ttests_v = tibble(el1veh$statistic,el1vef$statistic,el1vsf$statistic,
-                       el1vsh$statistic) %>%
-  pivot_longer(c(`el1veh$statistic`, `el1vef$statistic`, `el1vsf$statistic`, `el1vsh$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("English L1", "English L1", "English L1", "English L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Hungarian", "English-French", "Spanish-French", "Spanish-Hungarian"))
-
-
-
-eng_ttests_s = tibble(el1seh$statistic,el1sef$statistic,el1ssf$statistic,
-                      el1ssh$statistic) %>%
-  pivot_longer(c(`el1seh$statistic`, `el1sef$statistic`, `el1ssf$statistic`, `el1ssh$statistic`), 
-               names_to = "test", values_to = "statistic") %>% 
-  separate(statistic, into = c("t", "p-value"), sep = ",") %>% 
-  separate(t , into = c("df", "t"), sep = "=") %>% 
-  mutate(Groups = c("English L1", "English L1", "English L1", "English L1")) %>% 
-  mutate(L3_group = c("Hungarian", "French", "French", "Hungarian")) %>% 
-  mutate(Pairing = c("English-Hungarian", "English-French", "Spanish-French", "Spanish-Hungarian"))
-
-
-
-# --------------------------------------------------------------------------------------------
-
-
-
+tost_prof = TOSTtwo(m1 = spanlexmean, m2 = englexmean, sd1 = spanlexsd, sd2 = englexsd, n1 = 25, n2 = 47, 
+        low_eqbound_d = -0.4929019, high_eqbound_d = 0.4929019, alpha = 0.05, 
+        var.equal = FALSE)

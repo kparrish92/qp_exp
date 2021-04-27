@@ -67,6 +67,7 @@ co_df %>%
 
 
 
+
 co_df %>% 
   filter(
     exp == "vowels", co > -10, 
@@ -147,6 +148,7 @@ stops_remove <- c(
   "5f3344917a7a0b159bd0c375",
   "5fad49057daf5f0162284e86"
 )
+
 
 
 # Code to check individual participant grahps 
@@ -694,7 +696,8 @@ co_df_prof %>%
 
 # was this difference in group means significant? 
 # yep. the spanish speakers difference in proficient scores is not due to variance. 
-t.test(english_lextale$score, spanish_lextale$lextale_avg)
+
+tost(english_lextale$score, spanish_lextale$lextale_avg)
 
 
   
@@ -789,3 +792,12 @@ all_3_fr %>%
 all_3_hu %>% 
   tibble() %>% 
   write.csv(here("data", "tidy", "all_3_hu.csv"))
+
+
+
+m_english_removed_stops = sum(en_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>% 
+  write.csv(here("data", "tidy", "m_english_removed_stops.csv"))
+
+

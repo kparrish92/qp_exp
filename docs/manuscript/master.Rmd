@@ -35,6 +35,7 @@ classoption       : "man"
 output            : papaja::apa6_word
 ---
 
+
 ```{r setup, include = FALSE}
 library("papaja")
 library("knitr")
