@@ -121,9 +121,9 @@ Inspired by the idea that low sample size may be the cause of the lack of equiva
 Firstly, this group showed evidence of the double phonemic boundary effect when they were pooled (`r pooled_stops_sl1_se$statistic`).
 Next, of interest in this group was whether the Spanish L1 group categorized the L3 stop continua using their L1 boundaries. The test of equivalence suggest that this is the case (t(45) = -3.094, p = 0.00169). 
 On the other hand, English and the L3 were not found to be equivalent (t(45) = -1.103, p = 0.138), and nor were Spanish and English (t(45) = -0.770, p = 0.223).
-Figures 4 is a graphical representation of the crossover boundaries of stops in the pooled data of both Spanish L1 groups.
-Figure 5 shows the effect sizes derived from each of the three tests of equivalence. 
-As can be seen in figure 5, the smallest effect size is the difference between the L1 and the L3, which is rather close to zero. 
+Figures 5 is a graphical representation of the crossover boundaries of stops in the pooled data of both Spanish L1 groups.
+Figure 6 shows the effect sizes derived from each of the three tests of equivalence. 
+As can be seen in figure 6, the smallest effect size is the difference between the L1 and the L3, which is rather close to zero. 
 
 ```{r}
 
@@ -138,13 +138,15 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
-  ggtitle("Figure 4: Spanish L1 group pooled stops") 
+  ggtitle("Figure 5: Spanish L1 group pooled stops") 
 
 all_tost_spanl1_stops %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
   geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) +
-  geom_vline(xintercept = 0, linetype = "dashed") + 
-  ggtitle("Figure 5: Spanish L1 stops TOST")
+  geom_vline(xintercept = all_tost_spanl1_stops$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_spanl1_stops$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 6: Spanish L1 stops TOST")
 
 
 ```
@@ -153,9 +155,9 @@ all_tost_spanl1_stops %>%
 
 A similar results was found in the Spanish L1 group in vowels. First, there was evidence of a double phonemic boundary (`r pooled__vowel_sl1_se$statistic`) between English and Spanish. 
 Next, there is evidence that the L1 and the L3 were categorized equivalently (t(45) = -2.949, p = 0.00252), where the L2 and L3 (t(45) = 0.198, p = 0.578) and the L1 and the L2 (t(45) = 0.536, p = 0.703) were not. 
-Just as in stops, Figure 6 is a graphical representation of the crossover boundaries of vowels in the pooled data of both Spanish L1 groups.
-Figure 7 shows the effect sizes derived from each of the three tests of equivalence. 
-Again, similarly to stops, in figure 7, the smallest effect size is the difference between the L1 and the L3, which is rather close to zero. 
+Just as in stops, Figure 7 is a graphical representation of the crossover boundaries of vowels in the pooled data of both Spanish L1 groups.
+Figure 8 shows the effect sizes derived from each of the three tests of equivalence. 
+Again, similarly to stops, in figure 8, the smallest effect size is the difference between the L1 and the L3, which is rather close to zero. 
 
 
 ```{r}
@@ -168,13 +170,15 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 6: Spanish L1 group pooled vowels") 
+  ggtitle("Figure 7: Spanish L1 group pooled vowels") 
 
 all_tost_spanl1_vowels %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
   geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) + 
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  ggtitle("Figure 7: Spanish L1 Vowels TOST")
+  geom_vline(xintercept = all_tost_spanl1_vowels$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_spanl1_vowels$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 8: Spanish L1 Vowels TOST")
 
 ```
 
@@ -185,8 +189,8 @@ In the fist analysis, only the stops showed evidence of a double phonemic bounda
 
 The data also suggested that this group showed evidence of their L2 influencing L3 comprehension, rather than their L1. The equivalence test between L2 and L3 was the closest to equivalent, t(22) = 1.441, p = 0.0818), but did not provide sufficient evidence to classify the data as evidence for an L2 status effect. 
 Importantly, this groups L1 and L3 categorizations were not equivalent (t(22) = 0.427, p = 0.663), and neither were their L1 and L2 categorizations (t(22) = -0.527, p = 0.302)
-Just as in the previously reported tests of equivalence, figures 8 shows the graphical representation of the crossover boundaries of stops in the pooled data of both English L1 groups.
-Figure 9 shows the relative effect sizes of each language combination. 
+Just as in the previously reported tests of equivalence, figures 9 shows the graphical representation of the crossover boundaries of stops in the pooled data of both English L1 groups.
+Figure 10 shows the relative effect sizes of each language combination. 
 Taken together, it is difficult to draw clear conclusions in regard to the English L1 group. 
 
 ```{r}
@@ -199,13 +203,15 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
-  ggtitle("Figure 8: English L1 group pooled stops") 
+  ggtitle("Figure 9: English L1 group pooled stops") 
 
 all_tost_engl1_stops %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
   geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) +
-  geom_vline(xintercept = 0, linetype = "dashed") + 
-  ggtitle("Figure 9: English L1 stops")
+  geom_vline(xintercept = all_tost_engl1_stops$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_engl1_stops$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 10: English L1 stops")
 
 ```
 

@@ -191,7 +191,7 @@ Based on the finding that Spanish-English bilinguals show evidence of language s
 
 # Participants 
 
-A total of `r language_n_man %>% pull(en)` participants took part in at least one experiment.
+A total of 100 participants took part in at least one experiment.
 
 --
 
@@ -220,9 +220,7 @@ or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE g
 
 - The crossover is at continuum step at which the probability of picking one of the two choices was 50%
 
-- The steps were converted to z-scores for the purpose of comparability across features
-
---
+- The steps were converted to z-scores for the purpose of comparability across features.
 
 - Below is the first six rows of the dataframe created as a result of the logistic regression models.
 
@@ -231,6 +229,9 @@ or French (in the ES group, n = `r m_all_3_fr %>% pull(English)` and in the SE g
 - The column `co` stands for crossover 
 
 ```{r}
+
+co_df = readRDS(here("data", "tidy", "co_all_tidy.rds"))
+
 head(co_df, 6) %>% 
   knitr::kable()
 
@@ -271,12 +272,15 @@ class: title-slide-section-grey, middle
 
 # Results
 
+.pull-left[
 **Spanish-English categorizations**
 
 - Figures 2 and 3 show a graphical representations of the categorizations of vowels (figure 2) and stops (figure 3) in both languages in both L1 groups.
 
 - A small effect can be seen in the Spanish L1 group (right graph)
+]
 
+.pull-right[
 ```{r}
 
 all_data %>% 
@@ -288,17 +292,21 @@ all_data %>%
   ggtitle("Figure 2: Spanish/English vowel boundaries per L1 group") 
 
 ```
+]
 
 ---
 
 # Results
 
+.pull-left[
 **Spanish-English categorizations**
 
 Figure 3 shows the categorizations of stops in both L1 groups. 
 
 Both groups showed evidence of a double phonemic boundary in stops. 
+]
 
+.pull-right[
 ```{r}
 
 all_data %>% 
@@ -310,6 +318,7 @@ all_data %>%
   ggtitle("Figure 3: Spanish/English Stop boundaries per L1 group") 
 
 ```
+]
 
 ---
 
@@ -351,17 +360,40 @@ class: title-slide-section-grey, middle
 
 # Post-hoc analysis 
 
+- Tests of equivalence were carried out using the `toster` function in R.
+
+- Cohen's D was set to .5, a medium effect size, for the upper and lower equivalence bounds.
+
+---
+
+# Post-hoc analysis 
+
 **Spanish L1 pooled stops** 
 
-L1 and L3 categorizations were **not** significantly distinct, suggesting that the this group categorized an L3 similarly to their L1. 
+.pull-left[
 
---
+L1 and L3 categorizations were found to be equivalent.
 
-L1 - L2 (t(45)=2.62, p=.012*) 
+On the other hand, English and the L3 were not found to be equivalent and nor were Spanish and English. 
 
-L1 - L3 (t(45)=-0.30, p=.768)
+L1 - L2 (t(45) = -0.770, p = 0.223).
 
-L2 - L3 (t(45)=2.29, p=.027*) 
+L1 - L3 (t(45) = -3.094, **p = 0.00169**)
+
+L2 - L3 (t(45) = -1.103, p = 0.138)
+]
+
+.pull-right[
+```{r}
+all_tost_spanl1_stops %>% 
+  ggplot(aes(x = diff, y = combination)) + geom_point() + 
+  geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) +
+  geom_vline(xintercept = all_tost_spanl1_stops$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_spanl1_stops$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 6: Spanish L1 stops TOST")
+```
+]
 
 ---
 
@@ -369,17 +401,28 @@ L2 - L3 (t(45)=2.29, p=.027*)
 
 **Spanish L1 pooled vowels**  
 
-The same trend was observed in stops 
+.pull-left[
+The same trend was observed in vowels.
 
---
+L1 and L3 categorizations were equivalent, other combinations were not:
 
-L1 and L3 categorizations were **not** significantly distinct
+L1 - L2 (t(45) = 0.536, p = 0.703)
 
-L1 - L2 (t(44)=3.88, p<.001*) 
+L1 - L3 (t(45) = -2.949, **p = 0.00252**)
 
-L1 - L3 (t(44)=0.44, p=.664)
-
-L2 - L3 (t(44)=3.55, p=.001*)
+L2 - L3 (t(45) = 0.198, p = 0.578)
+]
+.pull-right[
+```{r}
+all_tost_spanl1_vowels %>% 
+  ggplot(aes(x = diff, y = combination)) + geom_point() + 
+  geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) + 
+  geom_vline(xintercept = all_tost_spanl1_vowels$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_spanl1_vowels$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 8: Spanish L1 Vowels TOST")
+```
+]
 
 ---
 
@@ -387,21 +430,31 @@ L2 - L3 (t(44)=3.55, p=.001*)
 
 **English L1 pooled stops**
 
-L2 and L3 categorizations were **not** significantly distinct
+.pull-left[
+These results were less clear. 
 
---
+L2 and L3 categorizations could be equivalent, but there is not enough data to make this determination. 
 
-...but neither were the L1 and L2 
+L1 - L2 (t(22) = 0.427, p = 0.663)
 
-L1 - L2 (t(22)=1.87, p=.075) 
+L1 - L3 (t(22) = -0.527, p = 0.302)
 
-L1 - L3 (t(22)=2.83, p=.01*)
+L2 - L3 (t(22) = 1.441, p = 0.0818)
 
-L2 - L3 (t(22)=-0.96, p=.349) 
+This finding suggests that the English L1 group might show L2 status effects and would trend oppositely of the Spanish L1 group.
+]
 
---
-
-This finding suggests that the English L1 group shows L2 status effects and trends oppositely of the Spanish L1 group.
+.pull-right[
+```{r}
+all_tost_engl1_stops %>% 
+  ggplot(aes(x = diff, y = combination)) + geom_point() + 
+  geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) +
+  geom_vline(xintercept = all_tost_engl1_stops$low_eqbound_dz, linetype = "dashed") + 
+  geom_vline(xintercept = all_tost_engl1_stops$high_eqbound_dz, linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
+  ggtitle("Figure 10: English L1 stops")
+```
+]
 
 ---
 
@@ -466,7 +519,9 @@ class: title-slide-section-grey, middle
 
  - the Spanish L1 group categorized both L3 continua similarly to their L1.
 
- - the English L1 group categorized the vowel continuum similarly in all three languages, but the stop continuum as similar to their L2.
+ - the English L1 group categorized the vowel continuum similarly in all three languages, 
+ 
+ - the stop continuum *might* be categorized as similar to their L2, but there is not sufficient evidence.
 
 --
 
