@@ -68,8 +68,7 @@ In Spanish and French, the participants saw *ifri* and *ufri* on the screen, in 
 
 ## Procedure
 
-All participants completed a total of five tasks, the Language History Questionnaire, the lexTALE proficiency test in their L2, and three 2afc tasks.  
-First, the participants completed the Language History Questionnaire online [@li_language_2020], followed by the lexTALE proficiency test. 
+All participants completed a total of five tasks, the Language History Questionnaire, the lexTALE proficiency test in their L2, and three 2afc tasks. First, the participants completed the Language History Questionnaire online [@li_language_2020], followed by the lexTALE proficiency test. 
 Following these two tasks used for screening, only those participants who did have knowledge of a third language and scored at least 60% on the lexTALE were deemed eligible and continued the experiment. This cutoff was chosen to focus the analysis on more proficient bilinguals, rather than demonstrate that increasing proficiency is correlated to a larger double phonemic boundary effect size, as has been found in previous studies [@casillas_perceptual_2018; @garcia-sierra_testing_2009; @gonzales_bafri_2013].
 
 Following these screening tasks, and in order to control for language mode, the participants completed the 2afc tasks in a semi-longitudinal design. 
