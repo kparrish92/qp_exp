@@ -67,6 +67,7 @@ co_df %>%
 
 
 
+
 co_df %>% 
   filter(
     exp == "vowels", co > -10, 
@@ -81,7 +82,6 @@ co_df %>%
   labs(x = "L1")
 
 # -----------------------------------------------------------------------------
-
 
 
 
@@ -149,6 +149,9 @@ stops_remove <- c(
   "5fad49057daf5f0162284e86"
 )
 
+
+
+# Code to check individual participant grahps 
 all_data %>% 
   filter(exp == "stops") %>%
   filter(participant == "5f3344917a7a0b159bd0c375") %>% 
@@ -158,7 +161,7 @@ all_data %>%
 
 
 
-# By participant
+# All plots by participant
 en_sp_2afc %>% 
   filter(exp == "stops", !(participant %in% stops_remove)) %>% 
   ggplot(., aes(x = step_std, y = response, color = language)) + 
@@ -171,7 +174,7 @@ en_sp_2afc %>%
   ggplot(., aes(x = step_std, y = response, lty = language, color = l1)) + 
     geom_smooth(method = glm, method.args = list(family = "binomial"))
 
-co_df
+
 
 # Subset English and Spanish CO for both L1 groups & do paired t.tests - 
 # looks to be all null before removal of participants from stops_remove and 
@@ -189,6 +192,9 @@ q0_stops_e <- co_df %>%
 t.test(q0_stops_e$english, x = q0_stops_e$spanish, paired = TRUE) # p = .33
 
 
+q0_stops_e %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_e.csv"))
+
 # vowels english L1
 
 q0_vowels_e <- co_df %>% 
@@ -200,6 +206,9 @@ q0_vowels_e <- co_df %>%
 
 t.test(q0_vowels_e$english, x = q0_vowels_e$spanish, paired = TRUE) # p = .47
 
+
+q0_vowels_e %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_e.csv"))
 
 # stops spanish L1
 
@@ -213,6 +222,9 @@ q0_stops_s <- co_df %>%
 t.test(q0_stops_s$english, x = q0_stops_s$spanish, paired = TRUE) # p = .28
 
 
+q0_stops_s %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_s.csv"))
+
 # vowels spanish L1
 
 q0_vowels_s <- co_df %>% 
@@ -222,7 +234,9 @@ q0_vowels_s <- co_df %>%
   select(participant, exp, language, co, l1) %>% 
   pivot_wider(names_from = language, values_from = co)
 
-t.test(q0_vowels_s$english, x = q0_vowels_s$spanish, paired = TRUE) # p = .007*
+q0_vowels_s %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_s.csv"))
+
 
 
 # Subset English L1 group 
@@ -261,6 +275,10 @@ q0_vowels_sh <- co_df %>%
   filter(!is.na(hungarian)) %>% 
   rename(l3 = hungarian) %>% 
   mutate(l3_group = "hungarian")
+  
+q0_vowels_sh %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_sh.csv"))
+
 
 
 
@@ -277,12 +295,21 @@ q0_vowels_sf <- co_df %>%
   rename(l3 = french) %>%
   mutate(l3_group = "french")
 
+q0_vowels_sf %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_sf.csv"))
+
+
+
 # combine both groups into 1 
 
 spanl1_vowels = rbind(q0_vowels_sf, q0_vowels_sh) %>% 
   rename(l2 = english) %>% 
   rename(group = l1) %>% 
-  rename(l1 = spanish)
+  rename(l1 = spanish) 
+
+spanl1_vowels %>% 
+  write.csv(here("data", "tidy", "subsets","spanl1_vowels.csv"))
+
 
 # English l1 groups
 
@@ -298,6 +325,9 @@ q0_vowels_eh <- co_df %>%
   rename(l3 = hungarian) %>% 
   mutate(l3_group = "hungarian")
 
+q0_vowels_eh %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_eh.csv"))
+
 
 
 # English french group 
@@ -312,6 +342,9 @@ q0_vowels_ef <- co_df %>%
   rename(l3 = french) %>% 
   mutate(l3_group = "french")
 
+q0_vowels_ef %>% 
+  write.csv(here("data", "tidy", "subsets","q0_vowels_ef.csv"))
+
 # bind dfs together after tidying
 engl1vowels = rbind(q0_vowels_ef, q0_vowels_eh) %>% 
   rename(l2 = spanish) %>% 
@@ -319,8 +352,15 @@ engl1vowels = rbind(q0_vowels_ef, q0_vowels_eh) %>%
   rename(l1 = english)
 
 
+engl1vowels %>% 
+  write.csv(here("data", "tidy", "subsets","engl1vowels.csv"))
+
 all_vowels = rbind(engl1vowels, spanl1_vowels)
 
+
+engl1vowels %>% 
+  write.csv(here("data", "tidy", "subsets","all_vowels.csv"))
+  
 
 # Stops 
 
@@ -336,6 +376,9 @@ q0_stops_eh <- co_df %>%
   rename(l3 = hungarian) %>% 
   mutate(l3_group = "hungarian")
 
+q0_stops_eh %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_eh.csv"))
+
 q0_stops_ef <- co_df %>% 
   filter(language == "spanish"| language == "english" | language == "french") %>% 
   filter(exp == "stops", !(participant %in% stops_remove)) %>%
@@ -345,6 +388,9 @@ q0_stops_ef <- co_df %>%
   filter(!is.na(french)) %>% 
   rename(l3 = french) %>% 
   mutate(l3_group = "french")
+
+q0_stops_ef %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_ef.csv"))
 
 # Spanish L1 
 
@@ -358,6 +404,10 @@ q0_stops_sh <- co_df %>%
   rename(l3 = hungarian) %>% 
   mutate(l3_group = "hungarian")
 
+q0_stops_sh %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_sh.csv"))
+
+
 q0_stops_sf <- co_df %>% 
   filter(language == "spanish"| language == "english" | language == "french") %>% 
   filter(exp == "stops", !(participant %in% stops_remove)) %>%
@@ -367,6 +417,10 @@ q0_stops_sf <- co_df %>%
   filter(!is.na(french)) %>% 
   rename(l3 = french) %>% 
   mutate(l3_group = "french")
+
+q0_stops_sf %>% 
+  write.csv(here("data", "tidy", "subsets","q0_stops_sf.csv"))
+
 
 
 all_stops = rbind(q0_stops_ef, q0_stops_eh, q0_stops_sh, q0_stops_sf)
@@ -642,7 +696,8 @@ co_df_prof %>%
 
 # was this difference in group means significant? 
 # yep. the spanish speakers difference in proficient scores is not due to variance. 
-t.test(english_lextale$score, spanish_lextale$lextale_avg)
+
+tost(english_lextale$score, spanish_lextale$lextale_avg)
 
 
   
@@ -666,3 +721,83 @@ fren = all_data %>%
   filter((participant %in% all_3_fr)) 
 
 model_hung = glmer(response ~ language + (language | participant), family = binomial(link = "logit"), data = fren)
+
+
+
+
+
+# Save analyses as tidy data in order to shorten knit time 
+
+desc_vowels = rbind(q0_vowels_ef, q0_vowels_eh, q0_vowels_sh, q0_vowels_sf) %>% 
+  write.csv(here("data", "tidy", "desc_vowels.csv"))
+
+
+desc_stops = rbind(q0_stops_ef, q0_stops_eh, q0_stops_sh, q0_stops_sf) %>% 
+  write.csv(here("data", "tidy", "desc_stops.csv"))
+
+language_n %>% write.csv(here("data", "tidy", "language_n.csv"))
+
+# -----------------------------------------------------------------------------
+
+# removed participants for low-effort submission - reformatting for manuscript
+
+# English - 
+en_removed_stops = tibble(en_stops_remove) %>% 
+  mutate(n = 1)
+
+m_english_removed_stops = sum(en_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>% 
+  write.csv(here("data", "tidy", "m_english_removed_stops.csv"))
+
+# Spanish
+
+sp_removed_stops = tibble(sp_stops_remove) %>% 
+  mutate(n = 1)
+
+m_spanish_removed_stops = sum(sp_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>% 
+  write.csv(here("data", "tidy", "m_spanish_removed_stops.csv"))
+# french
+
+
+fr_removed_stops = tibble(fr_stops_remove) %>% 
+  mutate(n = 1)
+
+m_french_removed_stops = sum(fr_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>% 
+  write.csv(here("data", "tidy", "m_french_removed_stops.csv"))
+
+
+# hungarian 
+
+
+hu_removed_stops = tibble(hu_stops_remove) %>% 
+  mutate(n = 1)
+
+m_hungarian_removed_stops = sum(hu_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>%  
+  write.csv(here("data", "tidy", "m_hungarian_removed_stops.csv"))
+
+
+# 
+
+all_3_fr %>% 
+  tibble() %>% 
+  write.csv(here("data", "tidy", "all_3_fr.csv"))
+
+all_3_hu %>% 
+  tibble() %>% 
+  write.csv(here("data", "tidy", "all_3_hu.csv"))
+
+
+
+m_english_removed_stops = sum(en_removed_stops$n) %>% 
+  tibble() %>% 
+  rename(., n = .) %>% 
+  write.csv(here("data", "tidy", "m_english_removed_stops.csv"))
+
+

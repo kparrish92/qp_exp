@@ -23,7 +23,9 @@ source(here("scripts", "01_tidy2afc.R"))
 
 all_2afc_long <- read_csv(here("data", "tidy", "all_2afc.csv")) %>% 
   filter(!is.na(l1)) %>% # filter out 3 particpants with no L1/L2 info
-  mutate(step_std = (step_cont - mean(step_cont)) / sd(step_cont))
+  mutate(step_std = (step_cont - mean(step_cont)) / sd(step_cont)) %>% 
+  write.csv(here("data", "tidy", "all_2afc_long.csv"))
+  
 
 # Preprocessing for eLog omnibus model 
 all_2afc_wide <- all_2afc_long %>% 
