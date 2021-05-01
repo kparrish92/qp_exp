@@ -2,7 +2,10 @@
 
 ## Descriptive statstics 
 
-Tables 2 and 3 provide descriptive statistics of the crossover boundaries per group per language. The crossover boundary is the continuum step at which the probability of choosing both options (/p/ or /b/, or /i/ or /u/) was 50% and was calculated by fitting a logistic regression model to each participant in each language mode session. The crossover boundaries were standardized to z-scores in order to allow for comparability across all language modes and over features (between stops and vowels). 
+Tables 2 and 3 provide descriptive statistics of the crossover boundaries per group per language. The crossover boundary is the continuum step at which the probability of choosing both options (/p/ or /b/, or /i/ or /u/) was 50% and was calculated by fitting a logistic regression model to each participant in each language mode session. <!-- Well, that is half the story... you fit the mdoel to each individual becuase you need the intercept and slope to calculate the boundary --> 
+The crossover boundaries were standardized to z-scores in order to allow for comparability across all language modes and over features (between stops and vowels). 
+
+<!-- You need to add a sentence or two describing what the reader needs to take from these tables --> 
 
 ```{r}
 apa_table(
@@ -34,8 +37,11 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 2: Spanish/English vowel boundaries per L1") 
+  ggtitle("Figure 2: Spanish/English vowel boundaries per L1") + 
+  theme_grey(base_family = "Times", base_size = 10)
 
+# Same as above... adjust the plot so the font is a similar size and the 
+# prose in the manuscript. It looks funny when it is this long. 
 ```
 
 ```{r}
@@ -49,7 +55,10 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 3: Spanish/English Stop boundaries per L1") 
+  ggtitle("Figure 3: Spanish/English Stop boundaries per L1") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
+# Same as previous
 
 ```
 
@@ -111,7 +120,10 @@ all_tost_l3groups %>%
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
   geom_linerange(aes(xmin = LL_CI_TOST, xmax = UL_CI_TOST)) +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  ggtitle("Figure 4: Categoriztions between L3 groups") + xlab("Difference")
+  ggtitle("Figure 4: Categoriztions between L3 groups") + xlab("Difference") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
+# Same as previous
 ```
 
 Inspired by the idea that low sample size may be the cause of the lack of equivalence in the findings, an additional series of paired equivalence tests were carried out in Spanish L1 vowels, Spanish L1 stops, and English L1 stops. English L1 vowels were omitted due to the lack of any recognizable trend towards a meaningful difference in the initial analysis.
@@ -138,7 +150,9 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
-  ggtitle("Figure 5: Spanish L1 group pooled stops") 
+  ggtitle("Figure 5: Spanish L1 group pooled stops") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
 
 all_tost_spanl1_stops %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
@@ -146,8 +160,10 @@ all_tost_spanl1_stops %>%
   geom_vline(xintercept = all_tost_spanl1_stops$low_eqbound_dz, linetype = "dashed") + 
   geom_vline(xintercept = all_tost_spanl1_stops$high_eqbound_dz, linetype = "dashed") +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
-  ggtitle("Figure 6: Spanish L1 stops TOST")
+  ggtitle("Figure 6: Spanish L1 stops TOST") + 
+  theme_grey(base_family = "Times", base_size = 10)
 
+# same as previous
 
 ```
 
@@ -170,7 +186,9 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /u/") + xlab("Continuum Step") + 
-  ggtitle("Figure 7: Spanish L1 group pooled vowels") 
+  ggtitle("Figure 7: Spanish L1 group pooled vowels") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
 
 all_tost_spanl1_vowels %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
@@ -178,7 +196,10 @@ all_tost_spanl1_vowels %>%
   geom_vline(xintercept = all_tost_spanl1_vowels$low_eqbound_dz, linetype = "dashed") + 
   geom_vline(xintercept = all_tost_spanl1_vowels$high_eqbound_dz, linetype = "dashed") +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
-  ggtitle("Figure 8: Spanish L1 Vowels TOST")
+  ggtitle("Figure 8: Spanish L1 Vowels TOST") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
+# same as previous
 
 ```
 
@@ -203,7 +224,9 @@ all_data %>%
   ggplot(., aes(x = step_std, y = response, color = language)) +
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
   facet_grid(. ~ l1) + ylab("Proportion /p/") + xlab("VOT") + 
-  ggtitle("Figure 9: English L1 group pooled stops") 
+  ggtitle("Figure 9: English L1 group pooled stops") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
 
 all_tost_engl1_stops %>% 
   ggplot(aes(x = diff, y = combination)) + geom_point() + 
@@ -211,7 +234,10 @@ all_tost_engl1_stops %>%
   geom_vline(xintercept = all_tost_engl1_stops$low_eqbound_dz, linetype = "dashed") + 
   geom_vline(xintercept = all_tost_engl1_stops$high_eqbound_dz, linetype = "dashed") +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = .5) +
-  ggtitle("Figure 10: English L1 stops")
+  ggtitle("Figure 10: English L1 stops") + 
+  theme_grey(base_family = "Times", base_size = 10)
+
+# same as previous
 
 ```
 

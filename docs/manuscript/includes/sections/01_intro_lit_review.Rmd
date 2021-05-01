@@ -1,57 +1,80 @@
 # Introduction
 
+<!-- 
+Good. Much better. You still need one paragraph before this one that is bigger picture. Ex: 
+
+The endeavor of learning an additional language during adulthood is difficult. 
+The is especially true when one considers phonological acquisition. 
+For instance, numerous studies over the course of the past five decades have demonstrated that adult second language (L2) learners often produce and perceive the sounds of the target language in a non-native manner (cite some flege stuff). 
+This difficulty arises, in part, because bilinguals often navigate complex communicative situations in which they produce and perceive speech from both of their languages in real time. 
+Recent studies suggest that bilinguals learn to modify their perceptual categorization routines in accordance with the phonetic realizations of the language they believe they are hearing (cite recent language set studies).
+Much less is known about the acquisition of a third language (L3A), particularly with regard to L3 production, perception, and phonological learning. 
+The present investigation explores the perceptual categorization routines of adult bilinguals during the initial stages of L3 acquisition. 
+
+Fields such as L3A and bilingual phonology...
+--> 
+
 Fields such as third language acquisition (L3A) and bilingual phonology can provide a compelling example that interdisciplinary work can be mutually beneficial. 
-For instance, the field of third language (L3) acquisition has has a primary goal of determining how the two languages known by a bilingual influence the learning of a third language 
-[@cabrelli_amaro_investigating_2016]. 
+For instance, the field of third language (L3) acquisition has has a primary goal of determining how the two languages known by a bilingual influence the learning of a third language [@cabrelli_amaro_investigating_2016]. <!-- do you really need L3A and L3? --> 
 In order to determine whether L3 performance can be attributed to the influence of a single language, it is necessary to conceive of these languages as being separate to some degree. 
-The degree of separation of language systems has also been debated in bilingual phonology, where it is argued that second language (L2) learners are able to form L2 specific phonological categories in the process of acquisition 
-[@simonet_phonetics_2016]. 
+The degree of separation of language systems has also been debated in bilingual phonology, where it is argued that second language (L2) learners are able to form L2 specific phonological categories in the process of acquisition [@simonet_phonetics_2016]. 
 Taken together, the debates in L3A and L2 phonology can inform one another if it could be determined that L3 behavior can be reasonably likened to either L1 or L2 behavior. 
 If this result were to be found, it would simultaneously be evidence of separate phonological systems in bilinguals and it would inform L3 models' debates on the source language of influence in L3 acquisition. 
 
 Research in L2 phonology has argued that language specific categories, while related to L1 categories, emerge as proficiency increases and are dictated by context. 
 This idea of context was further conceptualized by Grosjean in the idea of bilingual language modes which exist on a continuum [@grosjean_neurolinguists_1989]. 
 In this view, bilinguals have two possible unilingual modes in either of their languages, in which they expect to perceive and produce only one language. 
-However, bilinguals may also find themselves in a situation in which the use of both languages is plausible. This situation is one in which the relative likelihood of the use of either languages is differently expected on a continuum and defines the bilingual mode of an individual speaker. 
+However, bilinguals may also find themselves in a situation in which the use of both languages is plausible. <!-- May? Or "often"? --> 
+This situation is one in which the relative likelihood of the use of either languages is differently expected on a continuum and defines the bilingual mode of an individual speaker. <!-- differently expected? Sounds odd. You can probably do w/o this sentence --> 
 This dynamic phenomenon of language mode is thought to have an effect on a bilingual speakers categorization of sounds, in which a bilingual would display more monolingual like behavior in a unilingual mode, and evidence increased crosslinguistic interactions in a bilingual mode. 
-The perspective of bilingual language modes has not been considered by L3 models, which either posit that a single language influences the L3 entirely [@cabrelli_amaro_l2_2012; @rothman_linguistic_2015], or that structure by structure influence is possible [@slabakova_scalpel_2017; @westergaard_crosslinguistic_2017]. Importantly, the models that take the perspective of structure by structure influence from either language to the L3 do not make explicit predictions, and these models cannot be said to have considered language mode in their predictions. 
+The perspective of bilingual language modes has not been considered by L3 models, which either posit that a single language influences the L3 entirely [@cabrelli_amaro_l2_2012; @rothman_linguistic_2015], or that structure by structure influence is possible [@slabakova_scalpel_2017; @westergaard_crosslinguistic_2017]. <!-- great observation --> 
+Importantly, the models that take the perspective of structure by structure influence from either language to the L3 do not make explicit predictions, and these models cannot be said to have considered language mode in their predictions. 
 
 Broadly, L3 models which predict single language influence vary in their predictions of which language known by the bilingual influences L3 acquisition. On one hand, it has been suggested that the second language learned by a late bilingual (after the age of 12) is the default source of influence [@cabrelli_amaro_l2_2012]. 
-On the other, typological similarity has been suggested as a the driving factor that allows for either first or second language influence of the L3, but not both [@rothman_linguistic_2015].  
+On the other, typological similarity has been suggested as a the driving factor that allows for either first or second language influence of the L3, but not both [@rothman_linguistic_2015]. 
 These full transfer models of L3 acquisition have distinct cognitive motivations which fuel their predictions, which may be at odds with some perspectives in L2 phonology. 
 For example, it has been argued that single language influence is more cognitively economical than structure by structure transfer [@rothman_linguistic_2015]. 
 However, if language sound systems are dynamic and may become more or less integrated depending upon the patterns of particular language use, it is difficult to argue that a bilingual will behave using language specific and independent categories at all times. 
-From this point of view, the language mode of a bilingual when they encounter a third language is vital, since it is possible that the L3 may be associated with a particular language that a bilingual knows and result in L3 processing in that language specific mode. 
+From this point of view, the language mode of a bilingual when they encounter a third language is vital, since it is possible that the L3 may be associated with a particular language that a bilingual knows and result in L3 processing in that language specific mode. <!-- Excellent. Be prepared to be asked about language mode. --> 
 
 This idea that bilingual sound systems are sensitive to the linguistic context is one of the notions which motivated the so-called language set experiments 
-[@caramazza_acquisition_1973; @caramazza_voice_1974; @casillas_perceptual_2018; @gonzales_bafri_2013; @gonzales_how_2019; @lozano-arguelles_conceptually_2020; @williams_perception_1977; 
-@flege_cross-language_1987]. 
-These experiments were interested in how bilinguals categorized sounds in language specific modes, and attempted to place bilinguals in unilingual modes in each of their languages to demonstrate that bilinguals show evidence of having two separate language specific perceptual routines. 
-This effect is referred to in the literature as the double phonemic boundary effect [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020], in which a bilingual shows evidence of two possible categorizations of language continua when they are in a unilingual mode. One such continuum has been a Voice Onset Time (VOT) continuum.
+[@caramazza_acquisition_1973; @caramazza_voice_1974; @casillas_perceptual_2018; @gonzales_bafri_2013; @gonzales_how_2019; @lozano-arguelles_conceptually_2020; @williams_perception_1977; @flege_cross-language_1987]. <!-- The "this idea part" sounds rather informal. Don't make Tom mad. --> 
+This literature is interested in how bilinguals categorize sounds in language specific modes, and attempted to place bilinguals in unilingual modes in each of their languages to demonstrate that bilinguals show evidence of having two separate language specific perceptual routines. <!-- added minor edits --> 
+This effect is referred to in the literature as the double phonemic boundary effect [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020], in which a bilingual shows evidence of two possible categorizations of language continua when they are in a unilingual mode. <!-- I would change to "in both unilingual and bilingual modes" (see Casillas & Simonet 2018) --> 
 
-VOT is an acoustic measurement that refers to the relationship between the release of a stop consonant and the onset of vocal fold vibration [@lisker_cross-language_1964]. For example, in Spanish, the difference between [p] and [b] is thought of as a difference in VOT. Where [b] is voiced (a negative VOT), [p] is voiceless (a positive VOT).
-Languages which contain this distinction, in which the realizations of /p/ and /b/ are phonetically voiceless and phonetically voiced respectively, are referred to as "true-voicing languages" [@lisker_cross-language_1964].
+One such continuum is based on voice-timing in stop consonants. 
+Voicing in these segments can be measured acoustically using voice-onset time (VOT). 
+VOT refers to the time interval between the release of a stop consonant and the onset of vocal fold vibration [@lisker_cross-language_1964]. 
+For example, in Spanish, the difference between [p] and [b] is manifested as a difference in VOT. 
+Where [b] is voiced (a negative VOT), [p] is voiceless (a positive VOT).
+Languages which contain this distinction, in which the realizations of /p/ and /b/ are phonetically voiceless and phonetically voiced, respectively, are referred to as "true-voicing languages" [@lisker_cross-language_1964].
 Relevant to the present study, Spanish, French, and Hungarian fall under this category. 
-English, on the other hand, contrasts stop consonants by use of the long and short lag distinction, in which both /p/ and /b/ are phonetically voiceless, but /p/ is realized as a long lag stop and is aspirated, and /b/ is a short-lag stop that is not aspirated [@lisker_cross-language_1964]. 
+English, on the other hand, contrasts stop consonants with only positive VOT via a long versus short lag distinction. 
+That is to say, both /p/ and /b/ are phonetically voiceless, but /p/ is realized as a long lag stop and is aspirated, and /b/ is a short-lag stop that is not aspirated [@lisker_cross-language_1964]. <!-- minor edits --> 
 
 The present work aims to employ and adapt the methods of recent studies which found a double phonemic boundary effect in bilinguals to test the predictions of third language (L3) models of morphosyntax and shed light on whether the acquisition of a third language is primarily influenced by either the L1, the L2, or both. 
 In the recent literature on categorical perception in bilinguals, language-specific perception and categorization of sound distinctions of single sounds, such as the difference between /p/ and /b/, were found to be modulated by the language that bilinguals believed that they were hearing [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020].
 In these studies, the same acoustic continuum was given to participants in 2 alternative forced choice tasks (2afc), but was categorized differently (the boundary between one choice and the other in the task) when the participants were lead to believe that they were hearing English or Spanish. 
-In other words, the same participants categorized the same sound as /p/ when they believed they were listening to Spanish, but /b/ when they believed they were listening to English. Following these findings, the present study aims to replicate previous findings and to extend them to a vowel continuum. By doing so, the present study adapts the methodology in studies involving perceptual routines of Spanish-English bilinguals [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020] to inform L3 models of morphosyntax by having participants complete a third 2-afc in what they will be lead to believe is a third language. 
+In other words, the same participants categorized the same sound as /p/ when they believed they were listening to Spanish, but as /b/ when they believed they were listening to English. 
+Following these findings, the present study aims to replicate conceptual cueing of the double phonemic boundary effect and to extend it to 1) vowels and 2) L3A.  <!-- minor edits -->  
+By doing so, the present study adapts the methodology in studies involving perceptual routines of Spanish-English bilinguals [@casillas_perceptual_2018; @gonzales_bafri_2013; @lozano-arguelles_conceptually_2020] to inform L3 models of morphosyntax by having participants perceptually identify what they will be lead to believe is a third language. <!-- minor edits --> 
  
-Vitally, bilinguals, rather than L3 learners, were chosen for this experiment because the goal was to inform how L3 learners perceive sounds in their third language the very first time they are exposed to it, and whether this perception is modulated by perceptual routines in one of their known languages. By using participants who do not yet have knowledge of a third language, the potential confound of acquisition of a more independent L3 sound system and cross-linguistic influence from previously known languages is avoided. 
-That is, the behavior of L3 studies reported by previous studies cannot always rule out the possibility that the results that had been found could be attributed to increased L3 proficiency, and not influence from a previously known language. In the present study, L3 proficiency is experimentally controlled for, since these bilinguals will have not had significant exposure to a third language. 
+Vitally, bilinguals, rather than L3 learners, were chosen for this experiment because the goal was to inform how L3 learners perceive sounds in their third language the very first time they are exposed to it, and whether this perception is modulated by perceptual routines in one of their known languages. 
+By using participants who do not yet have knowledge of a third language, the potential confound of acquisition of a more independent L3 sound system and cross-linguistic influence from previously known languages is avoided.  <!-- not clear how the CLI confound is avoided when you say "previously known languages". I think you mean from an established L3 system, no? If so, just say that. -->
+That is, the behavior of L3 studies reported by previous studies cannot always rule out the possibility that the results that had been found could be attributed to increased L3 proficiency, and not influence from a previously known language. 
+In the present study, L3 proficiency is experimentally controlled for, since these bilinguals will have not had significant exposure to a third language. 
 
 
 <!-- True, but you need to explain this better. ANybody who reads this would wonder how you have avoided a confound from the 2nd language. A crucial part of this literature is the control of language mode. --> 
 <!-- I reworded this and added some detail to try and clear it up. Just to make sure I explain my thought, I mean to say that the behavior observed in other studies of L3 perception that looked at actual L3 learners could also potentially be explained by their proficiency in the L3, so I want to say that the behavior I observe in my participants is due to the influence of one of their languages and not their proficiency in the L3. -->
+<!-- JVC: I added another comment about this above. --> 
 
-Additionally, the use of two continua allow for the evaluation of the prediction by L3 models that suggest that only one of two languages known by a bilingual influences the third. In particular, the participants in the present study categorized a Voice Onset Time (VOT) continuum, and a vowel continuum (F2 continuum). If participants showed evidence of influence from the same source language in their L3 categorizations in both continua, then this would be take as evidence for full language influence, rather than structure by structure influence. These continua were chosen since English and Spanish both have a 2-way voicing contrasts for stops at 3 places of articulation and both have high front and high back vowel distinctions, although many dialect of English have /u/ fronting 
-[@labov_atlas_2006].
+Additionally, the use of two continua allow for the evaluation of the prediction by L3 models that suggest that only one of two languages known by a bilingual influences the third. In particular, the participants in the present study categorized a Voice Onset Time (VOT) continuum, and a vowel continuum (F2 continuum). If participants showed evidence of influence from the same source language in their L3 categorizations in both continua, then this would be take as evidence for full language influence, rather than structure by structure influence. These continua were chosen since English and Spanish both have a 2-way voicing contrasts for stops at 3 places of articulation and both have high front and high back vowel distinctions, although many dialects of English have /u/ fronting 
+[@labov_atlas_2006]. <!-- Since /u/ fronting isn't controlled for I would just mention it in the discussion. --> 
 
 In general, these cross-linguistic relationships allow for the testing of the predictions of L3 models of morphosyntax and their extension to L3 perception. On one hand, the design of the present study can provide further evidence that bilinguals do display language specific behaviors in perception. Additionally, evidence can be gathered for how these language specific behaviors interact with L3 processing at the first exposure to L3 sounds. 
 Not only does the present study allow evidence to be gathered that may pinpoint the source of influence in L3 perception, but it also examines whether this effect in consistent across features in the L3.
-By examining the results of the present study, it may be determined whether the predictions of models of L3 morphosyntax also could be extended to L3 phonology.
+By examining the results of the present study, it may be determined whether the predictions of models of L3 morphosyntax also could be extended to L3 phonology. <!-- Very good --> 
 
 # Literature Review
 
@@ -62,6 +85,15 @@ Finally, recent research the language set studies involving the double phonemic 
 ## Full Transfer models of L3 Morphosyntax
 
 ### The Typological Primacy Model
+
+<!-- 
+It loks like the 3rd level header isn't working (there is a spacing issue). 
+I suggest you just type it like this in order to get the formatting right: 
+
+**The Typological Primacy Model**. The Typo...
+
+(i think the issue is related to your version of pandoc... It doesn't look like this when I knit it). Update pandoc and check (no headers should have numbers). 
+--> 
 
 The Typological Primacy Model [TPM; @baauw_cognitive_2013; @rothman_l3_2011; @rothman_linguistic_2015; @rothman_typological_2010] posits that transfer of one grammar holistically occurs in the initial stages of the L3, rather than on a structure-by-structure basis. 
 This initial transfer is based on a subconscious “choice” or so called psycho-typology [@kellerman_now_1983] made by the parser based on the cues available in the L3 input. 
@@ -111,6 +143,7 @@ This prediction could be supported by observed variability in full language tran
 <!-- Something to think about... with our knowledge of language we can assume that Hungarian has no clear connection to English or Spanish, but I wonder what you participants would say about that. My brain is thinking about people that think Spain is in Mexico or whatever. Is it totally off base to think that some people who don't know/care about languages might think hungarian is similar to English (or spanish)? I guess my point is that we don't really know that (unless you asked). This is something that might be worth mentioning in the discussion somewhere (and could possible come up as a question during a presentation). --> 
 
 <!-- I added some extra info in the paragraph above to try and address this. I agree with this idea, and it could be a short-coming of my design. I have been thinking about whether or not I want to take an explicit position on whether the "choice" of transfer is metalinguistically guided by somehow measuring the speakers judgments of crosslinguistic overlap in a some kind of survey, but I decided to be agnostic in this regard, since I don't feel that I could provide enough evidence for metalinguistic bias, or the opposite, in which they actually don't know anything about the languages involved in terms of their similarity. This idea was also part of my justification (in my own head) for changing the spellings of the stimuli, since it reflects the lexical overlap between Spanish and English, and provides evidence that Hungarian is rather different than any of the langauges involved. Of course, this seems not to have impacted the results, but this was certainly my original thinking.  -->
+<!-- JVC: good! --> 
 
 ## Hybrid Transfer models of L3A
 
@@ -188,10 +221,15 @@ Past research has yielded mixed results in its attempt to demonstrate that bilin
 
 An initial series of studies focused on VOT and yielded null results. These studies examined the categorization of a /p/-/b/ continuum in two languages. Importantly, this continuum was the same in both sessions, and the hypothesis of these studies was that placing bilinguals in a language specific mode would lead to distinct categorization of the same continuum in two different sessions by the same participant. In studies of young Canadian French-English bilinguals' perception and productions of three voicing contrasts [@caramazza_acquisition_1973; @caramazza_bilingual_1974], it was found that bilinguals and monolinguals differed in their perceptual boundaries of each language in perception, but that the bilinguals did not categorize the continua differently in English and Spanish. The authors did, however, report language specific differences in production. Another study of Spanish-English bilinguals in the United States [@williams_perception_1977], found participants categorized a /p-b/ VOT continuum the same in both language modes. 
 
-By identifying some potential causes of null results in the previous literature, subsequent studies made methodological adjustments and found double phonemic boundary effects in bilinguals that was modulated by language mode. [@elman_perceptual_1977] maintained the use of the same acoustic continuum between languages, but used naturally produced stimuli, rather than the synthetic continuum used in previous studies @caramazza_acquisition_1973; @caramazza_bilingual_1974; @williams_perception_1977]. Additionally, Elman et al. argued that simply being placed in a language specific mode does not guarantee its maintenance throughout the experimental session. In order to address this, Elman et al. added language specific filler words to keep participants in the appropriate language mode (1977).
-As a result, a double phonemic boundary effect was observed in the Spanish-English participants in Elman et al. (1977). Further studies found similar effects in the categorizations of a VOT continuum in French-English [@hazan_perception_1993] and Dutch-English bilinguals [@flege_cross-language_1987]
+By identifying some potential causes of null results in the previous literature, subsequent studies made methodological adjustments and found double phonemic boundary effects in bilinguals that was modulated by language mode. 
+@elman_perceptual_1977 maintained the use of the same acoustic continuum between languages, but used naturally produced stimuli, rather than the synthetic continuum used in previous studies [@caramazza_acquisition_1973; @caramazza_bilingual_1974; @williams_perception_1977]. 
+Additionally, @elman_perceptual_1977 argued that simply being placed in a language specific mode does not guarantee its maintenance throughout the experimental session. 
+In order to address this, @elman_perceptual_1977 added language specific filler words to keep participants in the appropriate language mode.
+As a result, a double phonemic boundary effect was observed in the Spanish-English participants. 
+Further studies found similar effects in the categorizations of a VOT continuum in French-English [@hazan_perception_1993] and Dutch-English bilinguals [@flege_cross-language_1987]
 
-Subsequent studies examined the role of language proficiency in magnitude of mode effects in bilinguals. @garcia-sierra_testing_2009 found that the double phonemic boundary effect in Spanish-English bilinguals was modulated by proficiency, such that the participants with greater self-reported proficiency made wider distinctions between their mode driven categorizations of the VOT continuum used in the study.
+Subsequent studies examined the role of language proficiency in magnitude of mode effects in bilinguals. 
+@garcia-sierra_testing_2009 found that the double phonemic boundary effect in Spanish-English bilinguals was modulated by proficiency, such that the participants with greater self-reported proficiency made wider distinctions between their mode driven categorizations of the VOT continuum used in the study.
 
 Other studies have maintained language mode by using language specific segments within pseudoword stimuli to perceptually cue a particular language mode [@gonzales_bafri_2013; @casillas_perceptual_2018]. In the original study, @gonzales_bafri_2013 created a VOT continuum using the pseudowords *pafri* and *bafri* as the choices available in a 2-alternative forced choice task. The participants heard a rendition of "parfi" or "bafri in both an English and Spanish session. Rather than language specific filler words, these authors changed the second half of the pseudowords "fri" so that they contained either an English rhotic or Spanish rhotic in each session of the experiment. Importantly, the /pa/-/ba/ first syllable of the pseudowords was identical in both sessions, so that the participants were categorizing pseudowords that had an identical range of VOTs, but distinct, language specific rhotic sounds. The results revealed a double phonemic boundary effect in the Spanish-English bilingual participants with exposure to both languages from early childhood. These results were replicated by @casillas_perceptual_2018, in which the pseudowords pafri-bafri were again used. The findings extended the double phonemic boundary effect to L2 learners, in which higher proficiency L2 learners of Spanish showed stronger L2 boundary effects.
 
@@ -222,6 +260,8 @@ In this case, the categorization of what participants believe are Hungarian soun
 
 #### Research questions
 
+<!-- Same as above. I would just format this part by hand --> 
+
 RQ1: Will the double phonemic boundary effect found in previous studies be replicated and extended to vowels?
 
 In order to answer the subsequent research questions of this study, it was vital to replicate the findings of previous studies which found a double phonemic boundary effect in stop consonants in Spanish-English bilinguals [@lozano-arguelles_conceptually_2020; @gonzales_how_2019; @casillas_perceptual_2018; @gonzales_bafri_2013]. In addition to the replication of the double phonemic boundary effect in stops, the present study aimed to demonstrate the same effect in vowels. By including categorizations of both stops and vowels within the same experiment, it is possible to observe whether bilinguals categorize different L3 features using the boundaries of the same language, or whether they utilize a boundary from the L1 in the perception of L3 stops and the L2 in the perception of L3 vowels. In the event that the perceptual boundaries of just one language are used in L3 perception, this finding provide evidence for full transfer L3 models. On the other hand, if bilinguals categorize one continuum using the L1 and the other using the L2, full transfer L3 models would not be able to explain these results. 
@@ -240,7 +280,4 @@ Based on findings from a systematic review of empirical studies [@puig-mayenco_s
 Based on this lack of empirical support for the TPM, the present study predicts that Spanish-English bilinguals who believe that they are hearing a romance L3 will be more likely to show bias to perceive it as Spanish-like, rather than English like. 
 The design of the present study allows for the teasing apart of typological similarity. 
 
-
-
-
-<!-- General comment: This is quite good. You need to add some detail to the beginning to smooth out the intro. You eventually talk about all the important things I mention in my comments of the first three paragraphs, but they need to be introduced earlier. Not in a great amount of detail. Enough to not leave your reader wondering what all those things are. I think we are talking about an additional 3-4 sentences about each topic before/around the first three paragraphs. Take your reader by the hand and give them the necessary info. Don't worry about the fact that you will repeat most of it (but in more detail) towards the end of the intro. --> 
+<!-- Great edits! --> 
