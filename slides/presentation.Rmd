@@ -128,13 +128,19 @@ LPM - there is no predictive power to this model.
 .large[
 **Evidence for Full Transfer Models**
 
-- Systematic review of 92 L3 empirical studies: 59/92 typology, 29/92 L2 status Puig-Mayenco, González Alonso, & Rothman (2020)
+- Systematic review of 92 L3 empirical studies: 59/92 typology, 29/92 L2 status<sup>1</sup> 
 
  - These findings were not coded in a mutually exclusive manner.
 
 - 25 studies reported L2 status, but were coded as providing evidence for both TPM and the L2SF. 
+ 
+ - No mirror image groups
 
 - The L2 Status Factor has received empirical support from many language combinations (see final slides)
+]
+
+.footnote[
+<sup>1</sup>Puig-Mayenco, González Alonso, & Rothman (2020)
 ]
 
 ---
@@ -179,7 +185,9 @@ LPM - there is no predictive power to this model.
 Issues:
 
 Low sample size may cause underpowered studies. 
+
 No model of L3 phonology. 
+
 Most studies are in L3 production.
 ]
 
@@ -278,15 +286,15 @@ background-size: 100%
 --
 
 .large[
- - the stop continuum used in previous studies was used here.
+- As in previous studies, the acoustic continua are identical in each session. 
 ]
+
+--
 
 .large[
- - A vowel continuum was also created and used in order to evaluate the predictions of full transfer models. 
+- The only difference is that the participants are informed that they are hearing sounds 
+from a particular language
 ]
- 
-
-
 ---
 
 # Research questions
@@ -306,7 +314,7 @@ background-size: 100%
 
 **H2:** Yes. The L3 French groups will categorize the L3 as Spanish-like, the L3 Hungarian groups will categorize the L3 as their L2. 
 
-**H3:** No. The same L1 groups will categorize the L3s differently. 
+**H3:** Yes for the Spanish L1 group, but not for the English L1 group
 ]]
 
 ---
@@ -374,6 +382,38 @@ background-size: 100%
 ]
  
 ---
+
+# Materials 
+
+.large[
+- A voicing and vowel continuum were used in the 2afc tasks
+]
+
+--
+
+.large[
+- A step of a respective continuum was added to the beginning of the second syllable of a pseudoword and two words were presented on screen. 
+ - *pafri* and *bafri* were the given choices in the stops contimuum 
+ - *ifri* and *ufri* were the given choices in the vowel continuum <sup>1</sup>
+]
+.footnote[
+<sup>1</sup> Distinct language specific spelling was used in the pseudowords of the vowel continuum. 
+]
+
+--
+
+.large[
+ - the stop continuum used in previous studies was used here: it contained 17 steps and ranged in VOT from -35 to 50ms 
+]
+
+.large[
+ - A vowel continuum was also created and used in order to evaluate the predictions of full transfer models
+  - It contained 11 steps, ranged from /i/ to /u/, and varied only in F2
+]
+
+
+---
+
 
 background-image: url(./assets/img/2afc.png)
 background-size: 100%
@@ -446,12 +486,14 @@ all_data %>%
 .large[
 **L3 categorizations**
 
-- T-tests of the crossovers revealed that L3 groups did not categorize the continua differently whether they were assigned to the Hungarian group or the French group, and regardless of their first language. 
+- T-tests of the crossovers suggested that L3 groups did not categorize the continua differently whether they were assigned to the Hungarian group or the French group, and regardless of their first language. 
 ]
 
 --
 
 .large[
+
+Hungarian vs French groups
 - English L1: vowels (t(31.25)=0.10, p=.924) or stops (t(37.81)=0.55, p=.585).  
 
 - Spanish L1: vowels (t(29.90)=0.57, p=.573) and stops (t(10.89)=0.28, p=.788).
@@ -555,6 +597,8 @@ all_data %>%
 .large[
 - L3 models' predictions were not supported.
  - L1 influence was found in the Spanish L1 group only
+ 
+- No difference was found when participants believed they would be hearing French vs. Hungarian 
 
 - The DPBE was replicated in stops in both groups and extended to vowels in the Spanish L1 group.
  - The English L1 group did not show evidence of the DPBE in vowels 
