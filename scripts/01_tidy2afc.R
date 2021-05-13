@@ -27,7 +27,7 @@ source(here::here("scripts", "00_libs.R"))
 
 tidy_2afc <- . %>% 
   map_dfr(read_csv, .id = "source", col_types = cols(.default = "c")) %>% 
-  select(step_cont = stimuli, participant, date, expName, resp_2.keys, resp_3.keys) %>% 
+  dplyr::select(step_cont = stimuli, participant, date, expName, resp_2.keys, resp_3.keys) %>% 
   mutate(exp = if_else(is.na(resp_2.keys), "stops", "vowels"), 
          step_cont = str_remove(step_cont, "stim/VC_"), 
          step_cont = str_remove(step_cont, "stim2/pa"), 
@@ -134,15 +134,15 @@ saveRDS(ids_needed, here("data", "tidy", "ids_needed.rds"))
 
 lhq_temp <- bind_rows(
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (1).csv")) %>% 
-    select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
+    dplyr::select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (2).csv")) %>% 
-    select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
+    dplyr::select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (3).csv")) %>% 
-    select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
+    dplyr::select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (5).csv")) %>% 
-    select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
+    dplyr::select(l1 = 9, l2 = 15, participant = 1, prolific = 2),
   read_csv(here("data", "raw", "lhq", "LHQ 3.0 raw result (6).csv")) %>% 
-    select(l1 = 9, l2 = 15, participant = 1, prolific = 2)) 
+    dplyr::select(l1 = 9, l2 = 15, participant = 1, prolific = 2)) 
 
 
 # to isolate prolific ids 
@@ -157,13 +157,13 @@ lhq_sub <- lhq_temp %>%
 # Read csv to match lhq missing ids to their prolific ids 
 missing_ids <- read_csv(here("data", "raw", "lhq", "prolifictolhq.csv")) %>% 
   janitor::clean_names() %>% 
-  select(participant = 2, prolific_id = 1) %>% 
+  dplyr::select(participant = 2, prolific_id = 1) %>% 
   left_join(., lhq_sub, by = "participant") %>% 
-  select(l1, l2, participant, prolific = prolific_id) 
+  dplyr::select(l1, l2, participant, prolific = prolific_id) 
 
 lhq <- bind_rows(lhq_main, missing_ids) %>%
    filter(nchar(as.character(prolific)) == 24) %>% 
-   select(l1, l2, participant = prolific)
+  dplyr::select(l1, l2, participant = prolific)
 
 
 # How many of the participants we need are missing from the lhq dataframe?
@@ -181,7 +181,7 @@ sum(!(ids_needed$en_sp_fr %in% lhq$participant))
 no_id <- c("5f00962ef7b0241ae371d912","5f3050933b5a04118e4a4f73","5f6916f985575a0f22ec8f69")
 
 no_id_df <- bind_rows(en, sp, fr, hu) %>% 
-  select(participant, exp, language, step_cont, response) %>% 
+  dplyr::select(participant, exp, language, step_cont, response) %>% 
   filter(!is.na(response), participant %in% ids_needed$all) %>% 
   filter(participant == "5f00962ef7b0241ae371d912"| participant == "5f3050933b5a04118e4a4f73"| participant == "5f6916f985575a0f22ec8f69") %>% 
   mutate(l1 = "Spanish", l2 = "English")
@@ -194,7 +194,7 @@ no_id_df <- bind_rows(en, sp, fr, hu) %>%
 # Filter out participants that didn't compete all tasks 
 # Add L1, L2
 all_data <- bind_rows(en, sp, fr, hu) %>% 
-  select(participant, exp, language, step_cont, response) %>% 
+  dplyr::select(participant, exp, language, step_cont, response) %>% 
   filter(!is.na(response), participant %in% ids_needed$all) %>% 
   left_join(., lhq, by = "participant") %>% 
   filter(!(participant %in% no_id)) %>% 
