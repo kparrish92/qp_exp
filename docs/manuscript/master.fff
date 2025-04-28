@@ -1,0 +1,5 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\includegraphics[width=1950px]{master_files/figure-latex/unnamed-chunk-2-1} \caption{Add figure caption here.}\label{fig:unnamed-chunk-2}
+\end{figure*}

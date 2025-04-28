@@ -3,19 +3,21 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
   man]{apa6}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -34,16 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={The categorization of L3 sounds in Spanish/English bilinguals during the initial stage of L3 acquisition},
-  pdfauthor={Kyle Parrish1},
-  pdflang={en-EN},
-  pdfkeywords={keywords},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -70,6 +62,38 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -85,9 +109,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -125,7 +149,15 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{Categorization of L3 sounds in Spanish/English bilinguals}
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
 \keywords{keywords\newline\indent Word count: X}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
@@ -134,44 +166,26 @@
 \renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
 \makeatother
 \usepackage{csquotes}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={The categorization of L3 sounds in Spanish/English bilinguals during the initial stage of L3 acquisition},
+  pdfauthor={Kyle Parrish1},
+  pdflang={en-EN},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{The categorization of L3 sounds in Spanish/English bilinguals during the initial stage of L3 acquisition}
 \author{Kyle Parrish\textsuperscript{1}}
 \date{}
 
+
+\shorttitle{Categorization of L3 sounds in Spanish/English bilinguals}
 
 \authornote{
 
@@ -211,7 +225,7 @@ However, if language sound systems are dynamic and may become more or less integ
 From this point of view, the language mode of a bilingual when they encounter a third language is vital, since it is possible that the L3 may be associated with a particular language that a bilingual knows and result in L3 processing in that language specific mode.
 
 This idea that bilingual sound systems are sensitive to the linguistic context is one of the notions which motivated the so-called language set experiments
-(Caramazza, Yeni‐Komshian, Zurif, \& Carbone, 1973; Caramazza \& Yeni-Komshian, 1974; Casillas \& Simonet, 2018; Flege \& Eefting, 1987; Gonzales, Byers-Heinlein, \& Lotto, 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020; Williams, 1977).
+(Caramazza \& Yeni-Komshian, 1974; Caramazza, Yeni‐Komshian, Zurif, \& Carbone, 1973; Casillas \& Simonet, 2018; Flege \& Eefting, 1987; Gonzales, Byers-Heinlein, \& Lotto, 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020; Williams, 1977).
 This literature is interested in how bilinguals categorize sounds in language specific modes, and attempted to place bilinguals in unilingual modes in each of their languages to demonstrate that bilinguals show evidence of having two separate language specific perceptual routines.
 This effect is referred to in the literature as the double phonemic boundary effect (Casillas \& Simonet, 2018; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020), in which a bilingual shows evidence of two possible categorizations of language continua when they are in a unilingual mode.
 
@@ -247,7 +261,7 @@ By examining the results of the present study, it may be determined whether the 
 \hypertarget{literature-review}{%
 \section{Literature Review}\label{literature-review}}
 
-Broadly, L3 morphosyntax models fall under two categories: full transfer models, which posit that one language is transferred to the L3 at the initial stages of L3A (also referred to as holistic transfer), and property-by-property models {[}The Linguistic Proximity Model, LPM; Westergaard, Mitrofanova, Mykhaylyk, and Rodina (2017), the Scalpel Model, Slabakova (2017){]}. The body of this literature review will first explain full transfer models of morphosyntax and their empirical evidence, followed property-by-property models.
+Broadly, L3 morphosyntax models fall under two categories: full transfer models, which posit that one language is transferred to the L3 at the initial stages of L3A (also referred to as holistic transfer), and property-by-property models {[}The Linguistic Proximity Model, LPM; Westergaard et al. (2017), the Scalpel Model, Slabakova (2017){]}. The body of this literature review will first explain full transfer models of morphosyntax and their empirical evidence, followed property-by-property models.
 Then, studies in L3 phonology will be covered in detail.
 Finally, recent research the language set studies involving the double phonemic boundary effect in bilinguals will be discussed. These studies in the categorization of language specific sounds serve as the methodological basis to the present study.
 
@@ -289,7 +303,7 @@ If typological transfer is individually determined after exposure to L3 input (i
 In other words, one would expect that, based on the predictions of the TPM, that some learners would transfer their L1 and others would transfer their L2, particularly when there is not a clear typological similarity between the languages involved, rather than entire groups transferring solely their L1 or their L2.
 
 Only one study has reported variance in the choice of the L1 and L2 in L3 acquisition in L3 learners whose order of acquisition was the same (i.e.~not mirror image groups seemingly driven by typology).
-In the study on L3 learners of Swedish, Falk, Lindqvist, and Bardel (2015) found that some learners transferred their L1 and others transferred their L2 in their judgments of V2 sentences. The participants all spoke a V2 L1, and non-V2 L2, but differed in their overall metalinguistic knowledge.
+In the study on L3 learners of Swedish, Falk et al. (2015) found that some learners transferred their L1 and others transferred their L2 in their judgments of V2 sentences. The participants all spoke a V2 L1, and non-V2 L2, but differed in their overall metalinguistic knowledge.
 The study found that participants with higher metalinguistic knowledge were able to avoid L2 status effects, which would have resulted in non-transfer from their L2, and showed facilitative transfer from the L1. Although the authors suggest that this transfer is due to metalinguistic knowledge, rather than underlying perceived psychotypology, these results could also be explained by the TPM, since psycho-typological transfer is made on an individual basis.
 
 Other studies have found that either the L1 or the L2 may transfer holistically and argue that this is evidence for holistic transfer. In a series of studies investigating the acquisition of L3 Brazilian Portuguese (BP) by Spanish/English bilinguals, Rothman found that Spanish influenced L3 Portuguese, whether it was the L1 or L2 of the participants (Rothman, 2010, 2011). Other scholars report similar findings, that Spanish is the source of influence in L3 BP in Spanish-English learners of L3 BP (Cabrelli Amaro, Felipe Amaro, \& Rothman, 2015; Giancaspro, Halloran, \& Iverson, 2015; Parma, 2017){]}, or a romance language (Italian or French) and English learning L3 Spanish Foote (2009){]}.
@@ -297,7 +311,7 @@ Similarly, evidence of typologically driven influence was found from French into
 
 Vitally, the findings of these studies do not rule out the possibility of structure-by-structure transfer, since they typically focus on just one property per study. A dissertation that examined multiple syntactic structures in L3 French by Spanish L1---English L2 and Turkish L1---English L2 groups did not support the predictions of the TPM (Abbes, 2016), since the L1 Turkish group showed evidence of both L1 and L2 influence in the results. On the other hand, the Spanish L1 group showed evidence of Spanish being the sole influence on their L3 French, in line with the prediction of the TPM.
 
-The present study engages this issue of the lack of cross-lingusitic support for the TPM by exposing 2 groups of Spanish-English (with both an English and Spanish L1) bilinguals to what they believe is French, a romance language, and what they believe is Hungarian, a non-romance language, with unclear connections to English or Spanish. Based on previous findings, the predictions of the TPM are predicted to be observed in the participants assigned to ``French,'' regardless of their order of acquisition (L1 English or L1 Spanish).
+The present study engages this issue of the lack of cross-lingusitic support for the TPM by exposing 2 groups of Spanish-English (with both an English and Spanish L1) bilinguals to what they believe is French, a romance language, and what they believe is Hungarian, a non-romance language, with unclear connections to English or Spanish. Based on previous findings, the predictions of the TPM are predicted to be observed in the participants assigned to ``French'', regardless of their order of acquisition (L1 English or L1 Spanish).
 On the other hand, based on empirical support for the L2 status factor, which show that the L2 can serve as the primary source of influence of the L3, it is not predicted that the TPM will be able to explain the results of the Hungarian group, where the typological relationship between the L3 and the known languages of a bilingual is ambiguous.
 Additionally, it is important to mention that the TPM predicts that individual L3 learners determine whether the L1 or L2 is more psychotypologically similar to the L3, and that this subconscious selection could vary by individual.
 This prediction could be supported by observed variability in full language transfer from either the L1 or the L2 to the L3, rather than a whole group preference for one language. To my knowledge, no study has reported variability of this kind, and the lack of crosslinguistic support for the TPM remains one of the major issues with the model.
@@ -308,8 +322,8 @@ This prediction could be supported by observed variability in full language tran
 \hypertarget{the-linguistic-proximity-model}{%
 \subsubsection{The Linguistic Proximity Model}\label{the-linguistic-proximity-model}}
 
-Unlike the TPM and the L2SF, the Linguistic Proximity Model (Westergaard, Mitrofanova, Mykhaylyk, \& Rodina, 2017) suggests that transfer occurs on a property-by-property basis, rather than holistically.
-The LPM suggests that there is a ``full transfer possibility,'' meaning that any individual structure may transfer at any time, but that it also may not.
+Unlike the TPM and the L2SF, the Linguistic Proximity Model (Westergaard et al., 2017) suggests that transfer occurs on a property-by-property basis, rather than holistically.
+The LPM suggests that there is a ``full transfer possibility'', meaning that any individual structure may transfer at any time, but that it also may not.
 Scholars have argued that this vague prediction creates a problem in modeling L3 transfer acquisition (Bardel \& Falk, 2020; Wrembel, 2020), since it is unclear when transfer of a particular structure occurs and when it does not.
 Likewise researchers have argued that, unlike the TPM and the L2SF, the LPM is not easily falsifiable (Bardel \& Falk, 2020).
 Given the lack of predictive power of the LPM, it may only receive post-hoc support.
@@ -351,7 +365,7 @@ Though the authors focused their analysis on regressive transfer and comparisons
 
 Other studies in L3 perception, which have examined young trilinguals, have found a wide range of results.
 For instance, Wrembel, Gut, Kopečková, and Balas (2020) found that cross-linguistic influence is structure dependent and varies among individuals, while Balas, Kopečková, and Wrembel (2019) found CLI to be modulated by a complex combination of factors such as markedness of the segment under examination, proficiency in the L2 and the L3, and L1 typology.
-Finally, another study on L3 perception in young learners (Polish L1, English L2, German, L3) revealed that the L2 predominantly influences L3 perception in both rhotic sounds and devoicing of word final stops (Wrembel, Gut, Kopečková, \& Balas, 2020). These variable findings of the source of influence in L3 perception and production, including single language influence, combined languages influence, or structure-dependent influence, point to a lack of homogeneity in multilinguals.
+Finally, another study on L3 perception in young learners (Polish L1, English L2, German, L3) revealed that the L2 predominantly influences L3 perception in both rhotic sounds and devoicing of word final stops (Wrembel et al., 2020). These variable findings of the source of influence in L3 perception and production, including single language influence, combined languages influence, or structure-dependent influence, point to a lack of homogeneity in multilinguals.
 
 Firstly, age effects in past studies have varied considerably, in both the age of onset of the L2 and the L3.
 It is worth noting that many studies which report L2 status effects are in adult L3 learners, who have a late age of onset in their L2 (Bjorn Hammarberg \& Hammarberg, 2005; Wrembel, 2010) or this age information was not reported (Gut, 2010; Kamiyama, 2007; Tremblay, 2007).
@@ -381,21 +395,21 @@ Largely, with the exception of the TPM's acknowledgment of the use of phonetic c
 
 Past research has yielded mixed results in its attempt to demonstrate that bilinguals have language specific perceptual routines, and that the boundary between language specific categories vary as a function of language mode. In other words, in this research paradigm, bilinguals are assumed to have language specific categories of sounds (phonemes), which, in theory, should lead to distinct categorizations of the same acoustic stimuli (such as a step on a VOT continuum) as a function of language mode.
 
-An initial series of studies focused on VOT and yielded null results. These studies examined the categorization of a /p/-/b/ continuum in two languages. Importantly, this continuum was the same in both sessions, and the hypothesis of these studies was that placing bilinguals in a language specific mode would lead to distinct categorization of the same continuum in two different sessions by the same participant. In studies of young Canadian French-English bilinguals' perception and productions of three voicing contrasts (Caramazza, Yeni‐Komshian, Zurif, \& Carbone, 1973; Caramazza, Yeni-Komshian, \& Zurif, 1974), it was found that bilinguals and monolinguals differed in their perceptual boundaries of each language in perception, but that the bilinguals did not categorize the continua differently in English and Spanish. The authors did, however, report language specific differences in production. Another study of Spanish-English bilinguals in the United States (Williams, 1977), found participants categorized a /p-b/ VOT continuum the same in both language modes.
+An initial series of studies focused on VOT and yielded null results. These studies examined the categorization of a /p/-/b/ continuum in two languages. Importantly, this continuum was the same in both sessions, and the hypothesis of these studies was that placing bilinguals in a language specific mode would lead to distinct categorization of the same continuum in two different sessions by the same participant. In studies of young Canadian French-English bilinguals' perception and productions of three voicing contrasts (Caramazza, Yeni-Komshian, \& Zurif, 1974; Caramazza et al., 1973), it was found that bilinguals and monolinguals differed in their perceptual boundaries of each language in perception, but that the bilinguals did not categorize the continua differently in English and Spanish. The authors did, however, report language specific differences in production. Another study of Spanish-English bilinguals in the United States (Williams, 1977), found participants categorized a /p-b/ VOT continuum the same in both language modes.
 
 By identifying some potential causes of null results in the previous literature, subsequent studies made methodological adjustments and found double phonemic boundary effects in bilinguals that was modulated by language mode.
-Elman, Diehl, and Buchwald (1977) maintained the use of the same acoustic continuum between languages, but used naturally produced stimuli, rather than the synthetic continuum used in previous studies (Caramazza, Yeni‐Komshian, Zurif, \& Carbone, 1973; Caramazza, Yeni-Komshian, \& Zurif, 1974; Williams, 1977).
-Additionally, Elman, Diehl, and Buchwald (1977) argued that simply being placed in a language specific mode does not guarantee its maintenance throughout the experimental session.
-In order to address this, Elman, Diehl, and Buchwald (1977) added language specific filler words to keep participants in the appropriate language mode.
+Elman, Diehl, and Buchwald (1977) maintained the use of the same acoustic continuum between languages, but used naturally produced stimuli, rather than the synthetic continuum used in previous studies (Caramazza et al., 1974, 1973; Williams, 1977).
+Additionally, Elman et al. (1977) argued that simply being placed in a language specific mode does not guarantee its maintenance throughout the experimental session.
+In order to address this, Elman et al. (1977) added language specific filler words to keep participants in the appropriate language mode.
 As a result, a double phonemic boundary effect was observed in the Spanish-English participants.
 Further studies found similar effects in the categorizations of a VOT continuum in French-English (Hazan \& Boulakia, 1993) and Dutch-English bilinguals (Flege \& Eefting, 1987)
 
 Subsequent studies examined the role of language proficiency in magnitude of mode effects in bilinguals.
 Garcia-Sierra, Diehl, and Champlin (2009) found that the double phonemic boundary effect in Spanish-English bilinguals was modulated by proficiency, such that the participants with greater self-reported proficiency made wider distinctions between their mode driven categorizations of the VOT continuum used in the study.
 
-Other studies have maintained language mode by using language specific segments within pseudoword stimuli to perceptually cue a particular language mode (Casillas \& Simonet, 2018; Gonzales \& Lotto, 2013). In the original study, Gonzales and Lotto (2013) created a VOT continuum using the pseudowords \emph{pafri} and \emph{bafri} as the choices available in a 2-alternative forced choice task. The participants heard a rendition of ``parfi'' or ``bafri in both an English and Spanish session. Rather than language specific filler words, these authors changed the second half of the pseudowords''fri" so that they contained either an English rhotic or Spanish rhotic in each session of the experiment. Importantly, the /pa/-/ba/ first syllable of the pseudowords was identical in both sessions, so that the participants were categorizing pseudowords that had an identical range of VOTs, but distinct, language specific rhotic sounds. The results revealed a double phonemic boundary effect in the Spanish-English bilingual participants with exposure to both languages from early childhood. These results were replicated by Casillas and Simonet (2018), in which the pseudowords pafri-bafri were again used. The findings extended the double phonemic boundary effect to L2 learners, in which higher proficiency L2 learners of Spanish showed stronger L2 boundary effects.
+Other studies have maintained language mode by using language specific segments within pseudoword stimuli to perceptually cue a particular language mode (Casillas \& Simonet, 2018; Gonzales \& Lotto, 2013). In the original study, Gonzales and Lotto (2013) created a VOT continuum using the pseudowords \emph{pafri} and \emph{bafri} as the choices available in a 2-alternative forced choice task. The participants heard a rendition of ``parfi'' or ``bafri in both an English and Spanish session. Rather than language specific filler words, these authors changed the second half of the pseudowords''fri'' so that they contained either an English rhotic or Spanish rhotic in each session of the experiment. Importantly, the /pa/-/ba/ first syllable of the pseudowords was identical in both sessions, so that the participants were categorizing pseudowords that had an identical range of VOTs, but distinct, language specific rhotic sounds. The results revealed a double phonemic boundary effect in the Spanish-English bilingual participants with exposure to both languages from early childhood. These results were replicated by Casillas and Simonet (2018), in which the pseudowords pafri-bafri were again used. The findings extended the double phonemic boundary effect to L2 learners, in which higher proficiency L2 learners of Spanish showed stronger L2 boundary effects.
 
-Two follow up studies also investigated the categorization of word initial stops /b/ and /p/ in Spanish-English bilinguals, and young Spanish-English and French-English bilinguals (Gonzales, Byers-Heinlein, \& Lotto, 2019; Lozano-Argüelles et al., 2020).
+Two follow up studies also investigated the categorization of word initial stops /b/ and /p/ in Spanish-English bilinguals, and young Spanish-English and French-English bilinguals (Gonzales et al., 2019; Lozano-Argüelles et al., 2020).
 Differently from Casillas and Simonet (2018) and Gonzales and Lotto (2013), these studies presented only the first syllable of the pafri-bafri continuum and the onset of the second syllable (paf-baf), and manipulated the participants' language mode using conceptual cueing by telling participants they were listening to English or Spanish sounds, rather than perceptual cueing of the language specific rhotic sounds used by previous studies.
 The results were consistent with previous studies; sufficiently proficient L2 Spanish speakers show language mode effects in their categorization of /p/ and /b/ on a VOT continuum, whether this is perceptually or conceptually cued.
 
@@ -407,11 +421,11 @@ Since the precise nature of the use of phonological information in the TPM is un
 \hypertarget{the-present-study}{%
 \subsection{The Present Study}\label{the-present-study}}
 
-It is this conceptual cuing which resulted in a double phonemic boundary effect found by Lozano-Argüelles et al. (2020) and Gonzales, Byers-Heinlein, and Lotto (2019) that motivates the present study.
+It is this conceptual cuing which resulted in a double phonemic boundary effect found by Lozano-Argüelles et al. (2020) and Gonzales et al. (2019) that motivates the present study.
 Since L3 learners likely detect phonetic cross-linguistic similarities in L3 input, the present study examines the role of conceptual cueing on L3 categorization at the first exposure to L3 input by omitting the presence of language specific segments from the stimuli.
 Following the previous literature, which demonstrates that Spanish-English bilinguals categorize the same continuum of sounds differently depending upon the language they believe they are hearing, the present study both replicates these findings in the /p/-/b/ VOT continuum, extends them to a new F2 /i/-/u/ continuum, and examines whether one of these boundaries are used to categorize sounds in a new language, unknown to the speaker. Additionally, the present study is concerned with whether the third language has a well known historical relationship with previously known languages, and if this affects sound categorization. That is, whether participants who believe they are hearing French will be biased to categorize the continua as similar to their Spanish categorizations. This bias would be argued to be modulated by a metalinguistic knowledge of cross-linguistic similarity and historical relationship between Spanish and French.
 
-In addition to the potential metalinguistic effects on sound categorizations, the language specific acoustic correlates of distinctions between sounds is important, since it can better orient the expected directionality of language specific continua categorization. That is, the typical VOT range in both English and Spanish in which sounds are categorized as /p/ and /b/ is distinct. The difference between /p/ and /b/ in Spanish is one of ``true voicing,'' in which a voicing lag, characterized by a positive VOT can be observed for the ``voiceless'' /p/, and a voicing lead, characterized by a negative VOT is observed in the ``voiced'' /b/.
+In addition to the potential metalinguistic effects on sound categorizations, the language specific acoustic correlates of distinctions between sounds is important, since it can better orient the expected directionality of language specific continua categorization. That is, the typical VOT range in both English and Spanish in which sounds are categorized as /p/ and /b/ is distinct. The difference between /p/ and /b/ in Spanish is one of ``true voicing'', in which a voicing lag, characterized by a positive VOT can be observed for the ``voiceless'' /p/, and a voicing lead, characterized by a negative VOT is observed in the ``voiced'' /b/.
 English, on the other hand, has short- and long-lag distinction between /p/ and /b/ which is caused by a difference in aspiration. That is, both /p/ and /b/ may be phonetically voiceless (have a positive VOT), but nevertheless be categorized as voiced and voiceless by English speakers.
 French is a true voicing language, which has the lead/short lag distinction (Caramazza \& Yeni-Komshian, 1974; Lisker \& Abramson, 1964). Hungarian is considered to be a true-voicing language (Lisker \& Abramson, 1964), in which a /b/-/p/ distinction is both phonetically and phonemically voiced or voiceless. In the case of the present study, the participants do not have any exposure to a third language, and the language-specific phonetic criteria for both voicing and vowel distinctions are of minimal importance, since the participants will not have had exposure to L3 input. The primary goal of the present study is to determine whether participants use the phonology of their L1 or their L2 when they categorize L3 continua by examining whether a participants' responses in the perceptual task most closely resemble those in their L1, in their L2, or a third, unrelated categorization from the beginning.
 
@@ -425,7 +439,7 @@ In this case, the categorization of what participants believe are Hungarian soun
 
 RQ1: Will the double phonemic boundary effect found in previous studies be replicated and extended to vowels?
 
-In order to answer the subsequent research questions of this study, it was vital to replicate the findings of previous studies which found a double phonemic boundary effect in stop consonants in Spanish-English bilinguals (Casillas \& Simonet, 2018; Gonzales, Byers-Heinlein, \& Lotto, 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020). In addition to the replication of the double phonemic boundary effect in stops, the present study aimed to demonstrate the same effect in vowels. By including categorizations of both stops and vowels within the same experiment, it is possible to observe whether bilinguals categorize different L3 features using the boundaries of the same language, or whether they utilize a boundary from the L1 in the perception of L3 stops and the L2 in the perception of L3 vowels. In the event that the perceptual boundaries of just one language are used in L3 perception, this finding provide evidence for full transfer L3 models. On the other hand, if bilinguals categorize one continuum using the L1 and the other using the L2, full transfer L3 models would not be able to explain these results.
+In order to answer the subsequent research questions of this study, it was vital to replicate the findings of previous studies which found a double phonemic boundary effect in stop consonants in Spanish-English bilinguals (Casillas \& Simonet, 2018; Gonzales et al., 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020). In addition to the replication of the double phonemic boundary effect in stops, the present study aimed to demonstrate the same effect in vowels. By including categorizations of both stops and vowels within the same experiment, it is possible to observe whether bilinguals categorize different L3 features using the boundaries of the same language, or whether they utilize a boundary from the L1 in the perception of L3 stops and the L2 in the perception of L3 vowels. In the event that the perceptual boundaries of just one language are used in L3 perception, this finding provide evidence for full transfer L3 models. On the other hand, if bilinguals categorize one continuum using the L1 and the other using the L2, full transfer L3 models would not be able to explain these results.
 
 RQ2: Assuming that bilinguals display the same double phonemic boundary demonstrated in previous studies, will their categorizations of what they believe are the L3 continua resemble their categorizations of either their L1 or their L2?
 I hypothesize that that the perception of the ``third language'' will be modulated by the participants' order of acquisition in the event that language relatedness is unclear (the Hungarian group), and, alternatively, that participants' perception will be modulated by their knowledge about the languages relatedness when a clear connection is made between languages at an individual level (the French group).
@@ -434,9 +448,9 @@ On the other hand, I predict that participants who believe they are hearing Hung
 These predictions are based on findings in previous research on L3 transfer which have demonstrated the default transfer of the L2 to the L3 in language combinations which do not involve romance languages.
 
 RQ3: Will categorizations of what participants believe to be Hungarian or French result in different ``language specific'' categorization?
-Previous research in L3 syntactic transfer (Puig-Mayenco, González Alonso, \& Rothman, 2020; Rothman, 2010, 2013) has suggested that language transfer to the L3 is not determined by order of acquisition, but by typological similarity of the languages involved.
+Previous research in L3 syntactic transfer (Puig-Mayenco et al., 2020; Rothman, 2010, 2013) has suggested that language transfer to the L3 is not determined by order of acquisition, but by typological similarity of the languages involved.
 The present study offers an alternative account for the data in previous studies by suggesting that the results of previous studies can be explained by a conceptual priming effect that biases the L3 learner to utilize a particular system in order to parse L3 input.
-Based on findings from a systematic review of empirical studies (Puig-Mayenco, González Alonso, \& Rothman, 2020) in L3 transfer, it appears that there is no evidence of typological transfer outside of Romance language combinations when the third language is not a Romance language.
+Based on findings from a systematic review of empirical studies (Puig-Mayenco et al., 2020) in L3 transfer, it appears that there is no evidence of typological transfer outside of Romance language combinations when the third language is not a Romance language.
 Based on this lack of empirical support for the TPM, the present study predicts that Spanish-English bilinguals who believe that they are hearing a romance L3 will be more likely to show bias to perceive it as Spanish-like, rather than English like.
 The design of the present study allows for the teasing apart of typological similarity.
 
@@ -461,7 +475,7 @@ The data of 5 participants were removed for English stops, 7 for Spanish stops, 
 \subsection{Materials}\label{materials}}
 
 The experiment was composed of 5 total blocks.
-An itemized version of the Language History Questionnaire (Li, Zhang, Yu, \& Zhao, 2020) was given to participants and asked their first language, second language, and the age at which they began learning their L2.
+An itemized version of the Language History Questionnaire (Li et al., 2020) was given to participants and asked their first language, second language, and the age at which they began learning their L2.
 The measure of L2 proficiency, the lexTALE (Izura, Cuetos, \& Brysbaert, 2016; Lemhöfer \& Broersma, 2016), was given in Spanish to the ES group and English to the SE group.
 The lexTALE is a lexical decision task in which the participants are presented with either a word or a non-word, and they must decide whether the word presented exists in that language.
 Both the Spanish and English versions are scored in the same manner, and allow for comparability of proficiency across groups. Both versions contain 60 words total, 40 of which are real words and 20 of which are non-words. A formula then calculates a score based on the percentage of real words correct plus the percentage of non-words correct divided by 2. Table 1 provides descriptive statistics which shows the mean lexTALE score per L1 group. As the table shows, the Spanish L1 group was more proficient in their L2 on average than the English L1 group. Specifically, the mean lexTALE score of the Spanish L1 group was 81.58, (SD = 10.43) and the mean score of the English L1 group was 73.85, (SD = 10.78).
@@ -488,11 +502,6 @@ X & \multicolumn{1}{c}{l1} & \multicolumn{1}{c}{Mean.lexTALE.Score} & \multicolu
 
 \end{table}
 
-\begin{verbatim}
-## Warning: Computation failed in `stat_summary()`:
-## Hmisc package required for this function
-\end{verbatim}
-
 \begin{figure}
 \includegraphics[width=1950px]{master_files/figure-latex/unnamed-chunk-2-1} \caption{Add figure caption here.}\label{fig:unnamed-chunk-2}
 \end{figure}
@@ -501,12 +510,12 @@ Following these tasks, participants then took a series of three two-alternative 
 The tasks were programmed in Psychopy (Peirce et al., 2019) and were hosted on Pavlovia.org.
 Participants received written instructions prior to taking part in each phase of the experiment. The instructions for the ``English'' task were in English, the instructions for the ``Spanish'' task were in Spanish, and the instructions for the L3 tasks were bilingual (both Spanish and English). In each block, the instructions on profilic were in the language mode that the participants were told that they would hear, and the instructions within the experiment itself were also language specific, with the exception of all L3 prolific instructions being in English. These instructions read ``Final step! You have been assigned to the Hungarian/French group.
 The task is the same as the first two sessions, but this time, the words are from the Hungarian/French language.'' In the L3 experimental session, written instructions were more scarce, since the participants had already completed the same procedure twice, but were always presented in both English and Spanish at the same time. Instructions appeared at the beginning of the experiment, after the initial practice trials, and between the stop and vowel sessions, and for the attention checks. In each case, and English instruction was given and its Spanish translation appeared either to the right of the English instruction or immediately below it.
-As in previous studies, the instructions contained no instances of the experimental stimuli, in this case ``pafri,'' ``bafri,''ifri, or ``ufri,'' or any of their language specific forms appeared during the instructions.
+As in previous studies, the instructions contained no instances of the experimental stimuli, in this case ``pafri'', ``bafri,''ifri, or ``ufri'', or any of their language specific forms appeared during the instructions.
 
 \hypertarget{stimuli}{%
 \subsection{Stimuli}\label{stimuli}}
 
-The 2afc tested the perception of the same two continua (a /p/-/b/ VOT continuum and a /i/-/u/ F2 continuum) in three different language modes: English, Spanish and the L3 (either Hungarian or French). The VOT continuum has been used in previous studies (Gonzales, Byers-Heinlein, \& Lotto, 2019; Lozano-Argüelles et al., 2020) and were created from a recording by a female Spanish-English bilingual. The original VOT continuum contained the word ``pafri'' and ``bafri.'' The recording was resynthesized and ranged in VOT from -35ms to 35ms, excluding a 0 VOT step. In the present study, three additional steps were added on the positive end of the scale in order to increase the chances of /p/ responses at the positive extreme of the continuum, such that steps of 40ms, 45ms, and 50ms were included and made a total of 17 total steps. The extra steps were created manually in PRAAT by extracting 5ms of the voiceless part of the previous segments and adding these portions on to the beginning of the 35ms stimulus up to three times.
+The 2afc tested the perception of the same two continua (a /p/-/b/ VOT continuum and a /i/-/u/ F2 continuum) in three different language modes: English, Spanish and the L3 (either Hungarian or French). The VOT continuum has been used in previous studies (Gonzales et al., 2019; Lozano-Argüelles et al., 2020) and were created from a recording by a female Spanish-English bilingual. The original VOT continuum contained the word ``pafri'' and ``bafri''. The recording was resynthesized and ranged in VOT from -35ms to 35ms, excluding a 0 VOT step. In the present study, three additional steps were added on the positive end of the scale in order to increase the chances of /p/ responses at the positive extreme of the continuum, such that steps of 40ms, 45ms, and 50ms were included and made a total of 17 total steps. The extra steps were created manually in PRAAT by extracting 5ms of the voiceless part of the previous segments and adding these portions on to the beginning of the 35ms stimulus up to three times.
 Just as in Lozano-Argüelles et al. (2020), the present study conceptually cued participants, and did not utilize the language specific rhotics used in Gonzales and Lotto (2013) and Casillas and Simonet (2018).
 
 The vowel continua were created using productions of the pseudowords ``ifri'' and ``ufri'' by a male American English speaker. These natural productions were then resynthesized using a PRAAT script which manipulated the second formant while holding the other formants constant.
@@ -521,19 +530,19 @@ In Spanish and French, the participants saw \emph{ifri} and \emph{ufri} on the s
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
 
-All participants completed a total of five tasks, the Language History Questionnaire, the lexTALE proficiency test in their L2, and three 2afc tasks. First, the participants completed the Language History Questionnaire online (Li, Zhang, Yu, \& Zhao, 2020), followed by the lexTALE proficiency test.
-Following these two tasks used for screening, only those participants who did have knowledge of a third language and scored at least 60\% on the lexTALE were deemed eligible and continued the experiment. This cutoff was chosen to focus the analysis on more proficient bilinguals, rather than demonstrate that increasing proficiency is correlated to a larger double phonemic boundary effect size, as has been found in previous studies (Casillas \& Simonet, 2018; Garcia-Sierra, Diehl, \& Champlin, 2009; Gonzales \& Lotto, 2013).
+All participants completed a total of five tasks, the Language History Questionnaire, the lexTALE proficiency test in their L2, and three 2afc tasks. First, the participants completed the Language History Questionnaire online (Li et al., 2020), followed by the lexTALE proficiency test.
+Following these two tasks used for screening, only those participants who did have knowledge of a third language and scored at least 60\% on the lexTALE were deemed eligible and continued the experiment. This cutoff was chosen to focus the analysis on more proficient bilinguals, rather than demonstrate that increasing proficiency is correlated to a larger double phonemic boundary effect size, as has been found in previous studies (Casillas \& Simonet, 2018; Garcia-Sierra et al., 2009; Gonzales \& Lotto, 2013).
 
 Following these screening tasks, and in order to control for language mode, the participants completed the 2afc tasks in a semi-longitudinal design.
 Participants were invited to take part in the second portion of the experiment at least 30 minutes after their completion of the previous step. In many cases, however, participants completed different blocks of the experiment hours or days apart.
-All participants began with the ``English'' task, followed by ``Spanish,'' and finished with either ``French'' or ``Hungarian.'' Unfortunately, the lack of counterbalancing across participants is a limitation in the design of the current study.
+All participants began with the ``English'' task, followed by ``Spanish'', and finished with either ``French'' or ``Hungarian''. Unfortunately, the lack of counterbalancing across participants is a limitation in the design of the current study.
 In the English and Spanish tasks, the instructions were given in that respective language, and it was explained that the participants were going to hear rare words in the language in question (English, Spanish or the L3).
 In the L3 session, the same instructions were given in both English and Spanish simultaneously and on the same screen in order to avoid biasing the participants to either English or Spanish mode.
 
 \hypertarget{statistical-analyses}{%
 \subsection{Statistical analyses}\label{statistical-analyses}}
 
-In order to determine a crossover boundary for analysis in a general linear model, two logistic regression models were fit to each participant with their responses of `bafri'/`pafri,' in the VOT continuum, and `ifri/ufri,' in the F2 continuum as a function of the standardized continuum step for each language.
+In order to determine a crossover boundary for analysis in a general linear model, two logistic regression models were fit to each participant with their responses of `bafri'/`pafri', in the VOT continuum, and `ifri/ufri', in the F2 continuum as a function of the standardized continuum step for each language.
 The continuum step standardization was done in order to allow for the comparability of the stop and vowel crossover boundaries, which had a distinct number of steps.
 As a result, 6 crossover boundaries total were calculated per participant that provided which step in the continuum the probability of the participant choosing either ``pafri'' or ``bafri'' was 50\%. These boundaries were used as continuous variables in subsequent general linear regression models and t-tests. All analyses were carried out in R (R Core Team, 2020) and used either the stats package or the lmer package (Bates, Mächler, Bolker, \& Walker, 2015). In order to determine the independence of the crossover samples, paired t-tests were carried out in each language combination in both stops and vowels. A significant p-value on a paired t-test would indicate that there is non-zero difference between individual participants' crossover boundaries between the two languages.
 
@@ -728,8 +737,8 @@ In a sense, the LPM can account for this difference, but cannot be said to have 
 \hypertarget{comparisons-to-previous-language-set-studies}{%
 \subsection{Comparisons to previous language set studies}\label{comparisons-to-previous-language-set-studies}}
 
-The present study was successful in replicating the result of previous studies which found a double phonemic boundary effect in bilinguals (Casillas \& Simonet, 2018; Gonzales, Byers-Heinlein, \& Lotto, 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020). In addition to replication, the result of the present study show that it is possible that both L1 Spanish speakers who learn English and L1 English speakers who learn Spanish both have language specific categorizations of sounds based on language context. This effect was found in both groups for stops, and was extended to the vowel continuum in the Spanish L1 group. The English L1 group, on the other hand, did not categorize the vowel continuum differently when they were led to believe that they were hearing English, Spanish or a L3.
-The present study used conceptual cueing, as done in Gonzales, Byers-Heinlein, and Lotto (2019) and Lozano-Argüelles et al. (2020) , rather than perceptual cueing, to mitigate the possible effect of cross-language segmental similarity biasing perception. As as result, the present study provides a third replication of conceptual cueing in Spanish-English bilinguals in stops.
+The present study was successful in replicating the result of previous studies which found a double phonemic boundary effect in bilinguals (Casillas \& Simonet, 2018; Gonzales et al., 2019; Gonzales \& Lotto, 2013; Lozano-Argüelles et al., 2020). In addition to replication, the result of the present study show that it is possible that both L1 Spanish speakers who learn English and L1 English speakers who learn Spanish both have language specific categorizations of sounds based on language context. This effect was found in both groups for stops, and was extended to the vowel continuum in the Spanish L1 group. The English L1 group, on the other hand, did not categorize the vowel continuum differently when they were led to believe that they were hearing English, Spanish or a L3.
+The present study used conceptual cueing, as done in Gonzales et al. (2019) and Lozano-Argüelles et al. (2020) , rather than perceptual cueing, to mitigate the possible effect of cross-language segmental similarity biasing perception. As as result, the present study provides a third replication of conceptual cueing in Spanish-English bilinguals in stops.
 
 On the other hand, it is unclear why the English L1 group did not categorize the vowel continuum distinctly based on language mode. It is possible that the English L1 group has not established stable L2 vowel categories, due to their lower proficiency relative to the Spanish L1 group. On the other hand, it is possible that /u/ fronting in some dialects of English may have biased the results of this group in vowels to have categorized a large part of the continuum in the present study as /u/. Likewise, the context of the experiments between groups could not be carefully and completely controlled due to the challenges of online data collection during the COVID era. It is possible that the English speaking group was simply not as sensitive to the instructions when being biased towards a particular language mode. It is worth noting that the website used for prolific is a British based company, and that the participants using this site may approach it in a default English mode. It is possible that the instructions alone were not a strong enough manipulation to break these participants completely from an English mode. It is worth noting, however that the same participants did categorize the stop continuum differently based on language mode, further complicating the issue. The continua were distinct in that the vowel continuum was produced by a male speaker and the stop continuum was produced by a female speaker. As a result, the average pitch of the vowel continuum was likely lower than the stop continuum. It could be that the English speaking group was sensitive to this pitch difference, where the Spanish group was not.
 
@@ -748,7 +757,7 @@ Additionally, given the lack of accurate predictions by L3 models of morphosynta
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-The present study replicated the findings of previous studies that found evidence of conceptually-cued language mode effects in sound categorizations in late bilinguals (Gonzales, Byers-Heinlein, \& Lotto, 2019; Lozano-Argüelles et al., 2020) and, in an extension to previous studies, found evidence of a double phonemic boundary effect in vowels.
+The present study replicated the findings of previous studies that found evidence of conceptually-cued language mode effects in sound categorizations in late bilinguals (Gonzales et al., 2019; Lozano-Argüelles et al., 2020) and, in an extension to previous studies, found evidence of a double phonemic boundary effect in vowels.
 The predictions of L3 models of morphosyntax were not supported by the evidence of the present study. In particular, the predominant trend in L3 perception was a default L1 influence in the Spanish L1 group, but was the opposite in the English L1 group, where an L2 influence was observed in stops only.
 This L1 influence persisted in both stops and vowels in the Spanish L1 group, and does not support the predictions of any of the L3 models tested here. Moving forward, a model for L3 phonology is likely needed, which should examine and predict both production and perception.
 
@@ -761,203 +770,203 @@ This L1 influence persisted in both stops and vowels in the Spanish L1 group, an
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-abbes_acquisition_2016}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-abbes_acquisition_2016}{}}%
 Abbes, K. B. (2016). \emph{The acquisition of french morpho-syntactic properties: Cross-linguistic influence in the learning of L3 french by turkish/spanish speakers who learned english as an L2}. \url{https://doi.org/10.13140/RG.2.2.35972.78726}
 
-\leavevmode\hypertarget{ref-balas_perception_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-balas_perception_2019}{}}%
 Balas, A., Kopečková, R., \& Wrembel, M. (2019). {PERCEPTION} {OF} {RHOTICS} {BY} {MULTILINGUAL} {CHILDREN}. In S. Calhoun, P. Escudero, M. Tabain, \& P. Warren (Eds.), \emph{Proceedings of the 19th international congress of phonetic sciences}. Melbourne, Australia: Canberra, Australia: Australasian Speech Science; Technology Association Inc.
 
-\leavevmode\hypertarget{ref-bardel_role_2007}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-bardel_role_2007}{}}%
 Bardel, C., \& Falk, Y. (2007). The role of the second language in third language acquisition: The case of germanic syntax. \emph{Second Language Research}, \emph{23}(4), 459--484. \url{https://doi.org/10.1177/0267658307080557}
 
-\leavevmode\hypertarget{ref-cabrelli_amaro_l2_2012}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-cabrelli_amaro_l2_2012}{}}%
 Bardel, C., \& Falk, Y. (2012). The L2 status factor and the declarative/procedural distinction. In J. Cabrelli Amaro, S. Flynn, \& J. Rothman (Eds.), \emph{Studies in bilingualism} (Vol. 46, pp. 61--78). Amsterdam: John Benjamins Publishing Company. \url{https://doi.org/10.1075/sibil.46.06bar}
 
-\leavevmode\hypertarget{ref-bardel_l1_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-bardel_l1_2020}{}}%
 Bardel, C., \& Falk, Y. (2020). L1, L2 and L3: Same or different? \emph{Second Language Research}, 026765832094103. \url{https://doi.org/10.1177/0267658320941033}
 
-\leavevmode\hypertarget{ref-R-lme4}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-R-lme4}{}}%
 Bates, D., Mächler, M., Bolker, B., \& Walker, S. (2015). Fitting linear mixed-effects models using {lme4}. \emph{Journal of Statistical Software}, \emph{67}(1), 1--48. \url{https://doi.org/10.18637/jss.v067.i01}
 
-\leavevmode\hypertarget{ref-blank_transferencia_2009}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-blank_transferencia_2009}{}}%
 Blank, C. A., \& Zimmer, M. C. (2009). A transferência fonético-fonológica L2 (francês) -- L3 (inglês): Um estudo de caso. \emph{Revista de Estudos Da Linguagem}, \emph{17}(1), 207--233. \url{https://doi.org/10.17851/2237-2083.17.1.207-233}
 
-\leavevmode\hypertarget{ref-borg_acquisition_2013}{}%
-Borg, K. (2013). The acquisition of future of probability in L3 spanish. \emph{Proceedings of the 12th generative approaches to second language acquisition}. Presented at the {GALSA}.
+\leavevmode\vadjust pre{\hypertarget{ref-borg_acquisition_2013}{}}%
+Borg, K. (2013). The acquisition of future of probability in L3 spanish. \emph{Proceedings of the 12th Generative Approaches to Second Language Acquisition}. Presented at the {GALSA}.
 
-\leavevmode\hypertarget{ref-bruhn_de_garavito_subject_2014}{}%
-Bruhn de Garavito, J., \& Perpiñán, S. (2014). Subject pronouns and clitics in the spanish interlanguage of french L1 speakers. \emph{Subject pronouns and clitics in the spanish interlanguage of french L1 speakers}. Presented at the Canadian linguistic association conference proceedings.
+\leavevmode\vadjust pre{\hypertarget{ref-bruhn_de_garavito_subject_2014}{}}%
+Bruhn de Garavito, J., \& Perpiñán, S. (2014). Subject pronouns and clitics in the spanish interlanguage of french L1 speakers. \emph{Subject Pronouns and Clitics in the Spanish Interlanguage of French L1 Speakers}. Presented at the Canadian linguistic association conference proceedings.
 
-\leavevmode\hypertarget{ref-peukert_relationship_2015}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-peukert_relationship_2015}{}}%
 Cabrelli Amaro, J., Felipe Amaro, J., \& Rothman, J. (2015). The relationship between L3 transfer and structural similarity across development: Raising across an experiencer in brazilian portuguese. In H. Peukert (Ed.), \emph{Hamburg studies on linguistic diversity} (Vol. 4, pp. 21--52). Amsterdam: John Benjamins Publishing Company. \url{https://doi.org/10.1075/hsld.4.02ama}
 
-\leavevmode\hypertarget{ref-cabrelli_amaro_investigating_2016}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-cabrelli_amaro_investigating_2016}{}}%
 Cabrelli Amaro, J., \& Wrembel, M. (2016). Investigating the acquisition of phonology in a third language -- a state of the science and an outlook for the future. \emph{International Journal of Multilingualism}, \emph{13}(4), 395--409. \url{https://doi.org/10.1080/14790718.2016.1217601}
 
-\leavevmode\hypertarget{ref-caramazza_acquisition_1973}{}%
-Caramazza, A., Yeni‐Komshian, G. H., Zurif, E. B., \& Carbone, E. (1973). The acquisition of a new phonological contrast: The case of stop consonants in french‐english bilinguals. \emph{The Journal of the Acoustical Society of America}, \emph{54}(2), 421--428. \url{https://doi.org/10.1121/1.1913594}
-
-\leavevmode\hypertarget{ref-caramazza_voice_1974}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-caramazza_voice_1974}{}}%
 Caramazza, A., \& Yeni-Komshian, G. H. (1974). Voice onset time in two french dialects. \emph{Journal of Phonetics}, \emph{2}(3), 239--245. \url{https://doi.org/10.1016/S0095-4470(19)31274-4}
 
-\leavevmode\hypertarget{ref-caramazza_bilingual_1974}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-caramazza_bilingual_1974}{}}%
 Caramazza, A., Yeni-Komshian, G., \& Zurif, E. B. (1974). Bilingual switching: The phonological level. \emph{Canadian Journal of Psychology/Revue Canadienne de Psychologie}, \emph{28}(3), 310--318. \url{https://doi.org/10.1037/h0081997}
 
-\leavevmode\hypertarget{ref-casillas_perceptual_2018}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-caramazza_acquisition_1973}{}}%
+Caramazza, A., Yeni‐Komshian, G. H., Zurif, E. B., \& Carbone, E. (1973). The acquisition of a new phonological contrast: The case of stop consonants in french‐english bilinguals. \emph{The Journal of the Acoustical Society of America}, \emph{54}(2), 421--428. \url{https://doi.org/10.1121/1.1913594}
+
+\leavevmode\vadjust pre{\hypertarget{ref-casillas_perceptual_2018}{}}%
 Casillas, J. V., \& Simonet, M. (2018). Perceptual categorization and bilingual language modes: Assessing the double phonemic boundary in early and late bilinguals. \emph{Journal of Phonetics}, \emph{71}, 51--64. \url{https://doi.org/10.1016/j.wocn.2018.07.002}
 
-\leavevmode\hypertarget{ref-cohen_statistical_2013}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-cohen_statistical_2013}{}}%
 Cohen, J. (2013). \emph{Statistical power analysis for the behavioral sciences.} Burlington: Elsevier Science. Retrieved from \url{https://search.ebscohost.com/login.aspx?direct=true\&scope=site\&db=nlebk\&db=nlabk\&AN=923159}
 
-\leavevmode\hypertarget{ref-elman_perceptual_1977}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-elman_perceptual_1977}{}}%
 Elman, J. L., Diehl, R. L., \& Buchwald, S. E. (1977). Perceptual switching in bilinguals. \emph{The Journal of the Acoustical Society of America}, \emph{62}(4), 971--974. \url{https://doi.org/10.1121/1.381591}
 
-\leavevmode\hypertarget{ref-falk_role_2015}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-falk_role_2015}{}}%
 Falk, Y., Lindqvist, C., \& Bardel, C. (2015). The role of L1 explicit metalinguistic knowledge in L3 oral production at the initial state. \emph{Bilingualism: Language and Cognition}, \emph{18}(2), 227--235. \url{https://doi.org/10.1017/S1366728913000552}
 
-\leavevmode\hypertarget{ref-flege_cross-language_1987}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-flege_cross-language_1987}{}}%
 Flege, J. E., \& Eefting, W. (1987). Cross-language switching in stop consonant perception and production by dutch speakers of english. \emph{Speech Communication}, \emph{6}(3), 185--202. \url{https://doi.org/10.1016/0167-6393(87)90025-2}
 
-\leavevmode\hypertarget{ref-foote_transfer_2009}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-foote_transfer_2009}{}}%
 Foote, R. (2009). Transfer in L3 acquisition: The role of typology. In Y. I. Leung (Ed.), \emph{Third language acquisition and universal grammar}. Bristol, {UK} ; Buffalo, {NY}: Multilingual Matters.
 
-\leavevmode\hypertarget{ref-garcia-sierra_testing_2009}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-garcia-sierra_testing_2009}{}}%
 Garcia-Sierra, A., Diehl, R. L., \& Champlin, C. (2009). Testing the double phonemic boundary in bilinguals. \emph{Speech Communication}, \emph{51}(4), 369--378. \url{https://doi.org/10.1016/j.specom.2008.11.005}
 
-\leavevmode\hypertarget{ref-giancaspro_transfer_2015}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-giancaspro_transfer_2015}{}}%
 Giancaspro, D., Halloran, B., \& Iverson, M. (2015). Transfer at the initial stages of L3 brazilian portuguese: A look at three groups of english/spanish bilinguals. \emph{Bilingualism: Language and Cognition}, \emph{18}(2), 191--207. \url{https://doi.org/10.1017/S1366728914000339}
 
-\leavevmode\hypertarget{ref-gonzales_how_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-gonzales_how_2019}{}}%
 Gonzales, K., Byers-Heinlein, K., \& Lotto, A. J. (2019). How bilinguals perceive speech depends on which language they think they're hearing. \emph{Cognition}, \emph{182}, 318--330.
 
-\leavevmode\hypertarget{ref-gonzales_bafri_2013}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-gonzales_bafri_2013}{}}%
 Gonzales, K., \& Lotto, A. J. (2013). A \emph{bafri} , un \emph{pafri}: Bilinguals' pseudoword identifications support language-specific phonetic systems. \emph{Psychological Science}, \emph{24}(11), 2135--2142. \url{https://doi.org/10.1177/0956797613486485}
 
-\leavevmode\hypertarget{ref-grosjean_neurolinguists_1989}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-grosjean_neurolinguists_1989}{}}%
 Grosjean, F. (1989). Neurolinguists, beware! The bilingual is not two monolinguals in one person. \emph{Brain and Language}, \emph{36}(1), 3--15. \url{https://doi.org/10.1016/0093-934X(89)90048-5}
 
-\leavevmode\hypertarget{ref-gut_cross-linguistic_2010}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-gut_cross-linguistic_2010}{}}%
 Gut, U. (2010). Cross-linguistic influence in L3 phonological acquisition. \emph{International Journal of Multilingualism}, \emph{7}(1), 19--38. \url{https://doi.org/10.1080/14790710902972248}
 
-\leavevmode\hypertarget{ref-hammarberg_articulatory_1993}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-hammarberg_articulatory_1993}{}}%
 Hammarberg, B., \& Hammarberg, B. (1993). Articulatory re-setting in the acquisition of new languages. \emph{Phonum}, \emph{2}, 61--67.
 
-\leavevmode\hypertarget{ref-hammarberg_processes_2005}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-hammarberg_processes_2005}{}}%
 Hammarberg, Bjorn, \& Hammarberg, B. (2005). \emph{Processes in third language acquisition}. Edinburgh University Press. \url{https://doi.org/10.3366/edinburgh/9780748635115.001.0001}
 
-\leavevmode\hypertarget{ref-hazan_perception_1993}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-hazan_perception_1993}{}}%
 Hazan, V. L., \& Boulakia, G. (1993). Perception and production of a voicing contrast by french-english bilinguals. \emph{Language and Speech}, \emph{36}(1), 17--38. \url{https://doi.org/10.1177/002383099303600102}
 
-\leavevmode\hypertarget{ref-izura_lexical_2016}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-izura_lexical_2016}{}}%
 Izura, C., Cuetos, F., \& Brysbaert, M. (2016). \emph{Lexical test for advanced learners of spanish}. American Psychological Association. \url{https://doi.org/10.1037/t47086-000}
 
-\leavevmode\hypertarget{ref-kamiyama_acquisition_2007}{}%
-Kamiyama, T. (2007). Acquisition of french vowels by japanese-speaking learners: Close and close-mid rounded vowels. \emph{Acquisition of french vowels by japanese-speaking learners: Close and close-mid rounded vowels}. Presented at the Paper presented at the L3 phonology satellite workshop of {ICPhS} {XVI}.
+\leavevmode\vadjust pre{\hypertarget{ref-kamiyama_acquisition_2007}{}}%
+Kamiyama, T. (2007). Acquisition of french vowels by japanese-speaking learners: Close and close-mid rounded vowels. \emph{Acquisition of French Vowels by Japanese-Speaking Learners: Close and Close-Mid Rounded Vowels}. Presented at the Paper presented at the L3 phonology satellite workshop of {ICPhS} {XVI}.
 
-\leavevmode\hypertarget{ref-kellerman_now_1983}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-kellerman_now_1983}{}}%
 Kellerman, E. (1983). Now you see it, now you don't. In \emph{Language transfer in language learning} (pp. 112--134). Rowley, {MA}: Newbury House.
 
-\leavevmode\hypertarget{ref-labov_atlas_2006}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-labov_atlas_2006}{}}%
 Labov, W., Ash, S., \& Boberg, C. (2006). \emph{The atlas of north american english: Phonetics, phonology, and sound change: A multimedia reference tool}. Berlin ; New York: Mouton de Gruyter.
 
-\leavevmode\hypertarget{ref-toster}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-toster}{}}%
 Lakens, D. (2017). Equivalence tests: A practical primer for t-tests, correlations, and meta-analyses. \emph{Social Psychological and Personality Science}, \emph{1}, 1--8. \url{https://doi.org/10.1177/1948550617697177}
 
-\leavevmode\hypertarget{ref-lemhofer_lexical_2016}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-lemhofer_lexical_2016}{}}%
 Lemhöfer, K., \& Broersma, M. (2016). \emph{Lexical test for advanced learners of english}. American Psychological Association. \url{https://doi.org/10.1037/t47085-000}
 
-\leavevmode\hypertarget{ref-li_language_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-li_language_2020}{}}%
 Li, P., Zhang, F., Yu, A., \& Zhao, X. (2020). Language history questionnaire ({LHQ}3): An enhanced tool for assessing multilingual experience. \emph{Bilingualism: Language and Cognition}, \emph{23}(5), 938--944. \url{https://doi.org/10.1017/S1366728918001153}
 
-\leavevmode\hypertarget{ref-lisker_cross-language_1964}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-lisker_cross-language_1964}{}}%
 Lisker, L., \& Abramson, A. S. (1964). A cross-language study of voicing in initial stops: Acoustical measurements. \emph{\emph{WORD}}, \emph{20}(3), 384--422. \url{https://doi.org/10.1080/00437956.1964.11659830}
 
-\leavevmode\hypertarget{ref-liu_effects_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-liu_effects_2019}{}}%
 Liu, Z., Gorba, C., \& Cebrian, J. (2019). {EFFECTS} {OF} {LEARNING} {AN} {ADDITIONAL} {LANGUAGE} {ON} {VOT} {PERCEPTION}. In S. Calhoun, P. Escudero, M. Tabain, \& P. Warren (Eds.), \emph{Proceedings of the 19th international congress of phonetic sciences} (pp. 3750--3753). Melbourne, Australia: Canberra, Australia: Australasian Speech Science; Technology Association Inc.
 
-\leavevmode\hypertarget{ref-llama_revisiting_2018}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-llama_revisiting_2018}{}}%
 Llama, R., \& Cardoso, W. (2018). Revisiting (non-)native influence in {VOT} production: Insights from advanced L3 spanish. \emph{Languages}, \emph{3}(3), 30. \url{https://doi.org/10.3390/languages3030030}
 
-\leavevmode\hypertarget{ref-llama_influence_2010}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-llama_influence_2010}{}}%
 Llama, R., Cardoso, W., \& Collins, L. (2010). The influence of language distance and language status on the acquisition of L3 phonology. \emph{International Journal of Multilingualism}, \emph{7}(1), 39--57. \url{https://doi.org/10.1080/14790710902972255}
 
-\leavevmode\hypertarget{ref-lozano-arguelles_conceptually_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-lozano-arguelles_conceptually_2020}{}}%
 Lozano-Argüelles, C., Fernández Arroyo, L., Rodríguez, N., Durand López, E. M., Garrido Pozú, J. J., Markovits, J., \ldots{} Casillas, J. V. (2020). {CONCEPTUALLY} {CUED} {PERCEPTUAL} {CATEGORIZATION} {IN} {ADULT} L2 {LEARNERS}. \emph{Studies in Second Language Acquisition}, 1--16. \url{https://doi.org/10.1017/S0272263120000273}
 
-\leavevmode\hypertarget{ref-meisel_transfer_1983}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-meisel_transfer_1983}{}}%
 Meisel, J. M. (1983). Transfer as a second-language strategy. \emph{Language \& Communication}, \emph{3}(1), 11--46. \url{https://doi.org/10.1016/0271-5309(83)90018-6}
 
-\leavevmode\hypertarget{ref-paradis_neurolinguistic_2004}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-paradis_neurolinguistic_2004}{}}%
 Paradis, M. (2004). \emph{A neurolinguistic theory of bilingualism}. Amsterdam ; Philadelphia: J. Benjamins Pub.
 
-\leavevmode\hypertarget{ref-paradis_declarative_2009}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-paradis_declarative_2009}{}}%
 Paradis, M. (2009). \emph{Declarative and procedural determinants of second languages}. Amsterdam: John Benjamins Publishing Company. \url{https://doi.org/10.1075/sibil.40}
 
-\leavevmode\hypertarget{ref-parma_cross-linguistic_2017}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-parma_cross-linguistic_2017}{}}%
 Parma, A. (2017). Cross-linguistic transfer of object clitic structure: A case of L3 brazilian portuguese. \emph{Languages}, \emph{2}(3), 14. \url{https://doi.org/10.3390/languages2030014}
 
-\leavevmode\hypertarget{ref-peirce_psychopy2_2019}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-peirce_psychopy2_2019}{}}%
 Peirce, J., Gray, J. R., Simpson, S., MacAskill, M., Höchenberger, R., Sogo, H., \ldots{} Lindeløv, J. K. (2019). {PsychoPy}2: Experiments in behavior made easy. \emph{Behavior Research Methods}, \emph{51}(1), 195--203. \url{https://doi.org/10.3758/s13428-018-01193-y}
 
-\leavevmode\hypertarget{ref-puig-mayenco_systematic_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-puig-mayenco_systematic_2020}{}}%
 Puig-Mayenco, E., González Alonso, J., \& Rothman, J. (2020). A systematic review of transfer studies in third language acquisition. \emph{Second Language Research}, \emph{36}(1), 31--64. \url{https://doi.org/10.1177/0267658318809147}
 
-\leavevmode\hypertarget{ref-R-base}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
 R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
-\leavevmode\hypertarget{ref-rothman_typological_2010}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-rothman_typological_2010}{}}%
 Rothman, J. (2010). On the typological economy of syntactic transfer: Word order and relative clause high/low attachment preference in L3 brazilian portuguese. \emph{{IRAL} - International Review of Applied Linguistics in Language Teaching}, \emph{48}(2). \url{https://doi.org/10.1515/iral.2010.011}
 
-\leavevmode\hypertarget{ref-rothman_l3_2011}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-rothman_l3_2011}{}}%
 Rothman, J. (2011). L3 syntactic transfer selectivity and typological determinacy: The typological primacy model. \emph{Second Language Research}, \emph{27}(1), 107--127. \url{https://doi.org/10.1177/0267658310386439}
 
-\leavevmode\hypertarget{ref-baauw_cognitive_2013}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-baauw_cognitive_2013}{}}%
 Rothman, J. (2013). Cognitive economy, non-redundancy and typological primacy in L3 acquisition: Initial stages of L3 romance and beyond. In S. Baauw, F. Drijkoningen, L. Meroni, \& M. Pinto (Eds.), \emph{Romance languages and linguistic theory} (Vol. 5, pp. 217--248). Amsterdam: John Benjamins Publishing Company. \url{https://doi.org/10.1075/rllt.5.11rot}
 
-\leavevmode\hypertarget{ref-rothman_linguistic_2015}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-rothman_linguistic_2015}{}}%
 Rothman, J. (2015). Linguistic and cognitive motivations for the typological primacy model ({TPM}) of third language (L3) transfer: Timing of acquisition and proficiency considered. \emph{Bilingualism: Language and Cognition}, \emph{18}(2), 179--190. \url{https://doi.org/10.1017/S136672891300059X}
 
-\leavevmode\hypertarget{ref-simonet_phonetics_2016}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-simonet_phonetics_2016}{}}%
 Simonet, M. (2016). \emph{The phonetics and phonology of bilingualism} (Vol. 1). Oxford University Press. \url{https://doi.org/10.1093/oxfordhb/9780199935345.013.72}
 
-\leavevmode\hypertarget{ref-slabakova_scalpel_2017}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-slabakova_scalpel_2017}{}}%
 Slabakova, R. (2017). The scalpel model of third language acquisition. \emph{International Journal of Bilingualism}, \emph{21}(6), 651--665. \url{https://doi.org/10.1177/1367006916655413}
 
-\leavevmode\hypertarget{ref-tremblay_l2_2007}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-tremblay_l2_2007}{}}%
 Tremblay, M. (2007). \emph{L2 influence on L3 pronunciation: Native-like {VOT} in the L3 japanese of english-french bilinguals}. Presented at the Papers presented at the L3 phonology satellite workshop of {ICPhS} {XVI}.
 
-\leavevmode\hypertarget{ref-ullman_contributions_2004}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-ullman_contributions_2004}{}}%
 Ullman, M. T. (2004). Contributions of memory circuits to language: The declarative/procedural model. \emph{Cognition}, \emph{92}(1), 231--270. \url{https://doi.org/10.1016/j.cognition.2003.10.008}
 
-\leavevmode\hypertarget{ref-westergaard_crosslinguistic_2017}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-westergaard_crosslinguistic_2017}{}}%
 Westergaard, M., Mitrofanova, N., Mykhaylyk, R., \& Rodina, Y. (2017). Crosslinguistic influence in the acquisition of a third language: The linguistic proximity model. \emph{International Journal of Bilingualism}, \emph{21}(6), 666--682. \url{https://doi.org/10.1177/1367006916648859}
 
-\leavevmode\hypertarget{ref-williams_perception_1977}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-williams_perception_1977}{}}%
 Williams, L. (1977). The perception of stop consonant voicing by spanish-english bilinguals. \emph{Perception \& Psychophysics}, \emph{21}(4), 289--297. \url{https://doi.org/10.3758/BF03199477}
 
-\leavevmode\hypertarget{ref-wrembel_l2-accented_2010}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_l2-accented_2010}{}}%
 Wrembel, M. (2010). L2-accented speech in L3 production. \emph{International Journal of Multilingualism}, \emph{7}(1), 75--90. \url{https://doi.org/10.1080/14790710902972263}
 
-\leavevmode\hypertarget{ref-wrembel_cross-linguistic_2011}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_cross-linguistic_2011}{}}%
 Wrembel, M. (2011). Cross-linguistic influence in third language acquisition of voice onset time. In L. Wai-Sum \& E. Zee (Eds.), \emph{Proceedings of the 17th international congress of phonetic sciences {ICPhS}} (pp. 2157--2160). Hong Kong: City University of Hong Kong.
 
-\leavevmode\hypertarget{ref-wrembel_foreign_2012}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_foreign_2012}{}}%
 Wrembel, M. (2012). Foreign accentedness in third language acquisition; the case of L3 english. In J. Cabrelli Amaro, S. Flynn, \& J. Rothman (Eds.), \emph{Third language acquisition in adulthood} (pp. 281--309). Amsterdam: John Benjamins.
 
-\leavevmode\hypertarget{ref-wrembel_vot_2014}{}%
-Wrembel, M. (2014). {VOT} patterns in the acquisition of third language phonology. \emph{Proceedings of the international symposium on the acquisition of second language speech}, \emph{5}. {COPAL}.
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_vot_2014}{}}%
+Wrembel, M. (2014). {VOT} patterns in the acquisition of third language phonology. \emph{Proceedings of the International Symposium on the Acquisition of Second Language Speech}, \emph{5}. {COPAL}.
 
-\leavevmode\hypertarget{ref-wrembel_search_2015}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_search_2015}{}}%
 Wrembel, M. (2015). \emph{In search of a new perspective: Cross-linguistic influence in the acquisition of third language phonology}. Poznań: Wydawnictwo Naukowe {UAM}.
 
-\leavevmode\hypertarget{ref-wrembel_multilingual_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_multilingual_2020}{}}%
 Wrembel, M. (2020). Multilingual acquisition property by property: A view from a wider perspective. \emph{Second Language Research}, 026765832093516. \url{https://doi.org/10.1177/0267658320935167}
 
-\leavevmode\hypertarget{ref-wrembel_cross-linguistic_2020}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-wrembel_cross-linguistic_2020}{}}%
 Wrembel, M., Gut, U., Kopečková, R., \& Balas, A. (2020). Cross-linguistic interactions in third language acquisition: Evidence from multi-feature analysis of speech perception. \emph{Languages}, \emph{5}(4), 52. \url{https://doi.org/10.3390/languages5040052}
 
-\leavevmode\hypertarget{ref-wunder_phonological_2010}{}%
-Wunder, E. (2010). Phonological cross-linguistic influence in third or additional language acquisition. \emph{Proceedings of the 6th international symposium on the acquisition of second language speech, new sounds 2010}, 566--571. Poznań, Poland: Adam Mickiewicz University.: 6th International Symposium on the Acquisition of Second Language Speech, New Sounds 2010.
+\leavevmode\vadjust pre{\hypertarget{ref-wunder_phonological_2010}{}}%
+Wunder, E. (2010). Phonological cross-linguistic influence in third or additional language acquisition. \emph{Proceedings of the 6th International Symposium on the Acquisition of Second Language Speech, New Sounds 2010}, 566--571. Poznań, Poland: Adam Mickiewicz University.: 6th International Symposium on the Acquisition of Second Language Speech, New Sounds 2010.
 
 \end{CSLReferences}
 

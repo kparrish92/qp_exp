@@ -1,0 +1,70 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-1}Descriptive Statistics of proficiency per L1 group}
+
+\begin{tabular}{lllll}
+\toprule
+X & \multicolumn{1}{c}{l1} & \multicolumn{1}{c}{Mean.lexTALE.Score} & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{n}\\
+\midrule
+1 & English & 73.85 & 10.78 & 25\\
+2 & Spanish & 81.58 & 10.43 & 47\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-3}Descriptive statistics of vowel crossovers by group}
+
+\begin{tabular}{llllllll}
+\toprule
+group & \multicolumn{1}{c}{Mean English Crossover} & \multicolumn{1}{c}{SD English} & \multicolumn{1}{c}{Mean Spanish Crossover} & \multicolumn{1}{c}{SD Spanish} & \multicolumn{1}{c}{Mean L3 Crossover} & \multicolumn{1}{c}{SD L3} & \multicolumn{1}{c}{n}\\
+\midrule
+English\_french & -0.14 & 0.03 & -0.13 & 0.04 & -0.14 & 0.06 & 17\\
+English\_hungarian & -0.14 & 0.07 & -0.13 & 0.05 & -0.13 & 0.05 & 17\\
+Spanish\_french & -0.07 & 0.05 & -0.11 & 0.06 & -0.10 & 0.06 & 17\\
+Spanish\_hungarian & -0.08 & 0.06 & -0.10 & 0.05 & -0.10 & 0.05 & 28\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-4}Descriptive statistics of stops crossovers by group}
+
+\begin{tabular}{llllllll}
+\toprule
+group & \multicolumn{1}{c}{Mean English Crossover} & \multicolumn{1}{c}{SD English} & \multicolumn{1}{c}{Mean Spanish Crossover} & \multicolumn{1}{c}{SD Spanish} & \multicolumn{1}{c}{Mean L3 Crossover} & \multicolumn{1}{c}{SD L3} & \multicolumn{1}{c}{n}\\
+\midrule
+English\_french & 0.37 & 0.60 & 0.07 & 0.73 & 0.14 & 0.60 & 9\\
+English\_hungarian & 0.51 & 0.47 & 0.39 & 0.37 & 0.20 & 0.32 & 14\\
+Spanish\_french & -0.14 & 0.74 & -0.30 & 0.50 & -0.27 & 0.46 & 17\\
+Spanish\_hungarian & 0.06 & 0.57 & -0.19 & 0.47 & -0.19 & 0.53 & 29\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table*}

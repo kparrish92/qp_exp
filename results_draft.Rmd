@@ -1,0 +1,90 @@
+---
+title: "Results draft"
+output: pdf_document
+date: "2024-07-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(here)
+```
+
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+knitr::opts_chunk$set(
+  comment = '', out.width = "425px")
+```
+
+## Analysis 
+
+- Detail categorization procedure
+
+
+## Results 
+
+Figure 1 shows the breakdown of participant categorizations.
+Half of the participants showed evidence of a DPBE, making them appropriate for subsequent within-subjects analyses.
+The 30 participants with no effect were not include in the within subjects-analysis, which was designed to determined which language-specific phonemic boundary is more similar to a novel language's, since their Spanish and English was not distinct (enough) to determine whether their "L3" was closer to one or the other.
+
+```{r}
+knitr::include_graphics(here("new_docs", "img", "flow_chart.png"))
+```
+
+**Breakdown of L1 and "L3" for participants with the DPBE**
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_ppts.png"))
+```
+
+**Group-level S-shaped curve for all 30 DPBE ppts**
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_ppts_s.png"))
+```
+
+**Group-level S-shaped curve for all 31 non-DPBE ppts**
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_no_ppts_s.png"))
+```
+
+
+**Breakdown of L1 and "L3" for participants with a Spanish-like L3**
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_span_ppts.png"))
+```
+
+**Group-level S-shaped curve for all Spanish-like boundaries**
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_ppts_sb.png"))
+```
+
+**Breakdown of L1 and "L3" for participants with a English-like L3**
+
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_eng_ppts.png"))
+```
+
+**Group-level S-shaped curve for all English-like boundaries**
+
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_ppts_eng.png"))
+```
+
+```{r}
+knitr::include_graphics(here("new_docs", "img", "dpbe_ppts_eng_ind.png"))
+```
+
+**Supplementary plots**
+
+N/A participants who had more than one continuum step between both their L3 and L1/L2 and was not intermediate of them both. 
+
+```{r}
+knitr::include_graphics(here("new_docs", "img", "na_bar_ppts.png"))
+```
+```{r}
+knitr::include_graphics(here("new_docs", "img", "na_ppts_s.png"))
+```
+
+
+

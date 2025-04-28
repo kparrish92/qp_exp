@@ -3,6 +3,8 @@
 
 two_afc_data = read.csv(here("data", "tidy", "all_2afc.csv"))
 
+prof_df = read.csv(here("data", "tidy", "co_df_prof.csv"))
+
 
 unique(two_afc_data$language)
 
@@ -22,6 +24,7 @@ two_afc_data %>%
 unique(two_afc_data$participant)
 
 two_afc_data %>% 
+  filter(exp == "stops") %>% 
   filter(participant == "5a08c9a7f2e3460001edb063") %>% 
   ggplot(aes(x = step_cont, y = response, color = language)) + 
   geom_smooth(method = "glm", method.args = list(family = "binomial")) +
